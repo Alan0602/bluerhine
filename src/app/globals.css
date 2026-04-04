@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-orange: #f26522;
+  --brand-black: #111111;
+  --brand-white: #ffffff;
+  --brand-grey: #6b7280;
+  --brand-light-grey: #f1f5f9;
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-barlow), sans-serif;
+  color: var(--brand-black);
+  background: var(--brand-white);
+  text-rendering: geometricPrecision;
+}
+
+::selection {
+  background: var(--brand-orange);
+  color: var(--brand-white);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--brand-light-grey);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--brand-orange);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-black);
+}
+
+.section-label {
+  display: block;
+  margin-bottom: 12px;
+  font-family: var(--font-barlow-condensed), sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brand-orange);
+}
+
+.section-label::before {
+  content: '// ';
+}
+
+.brutalist-border {
+  border: 1px solid var(--brand-black);
+}
+
+.hover-invert {
+  transition:
+    background-color 220ms ease,
+    color 220ms ease,
+    border-color 220ms ease;
+}
+
+.hover-invert:hover {
+  background: var(--brand-black);
+  color: var(--brand-white);
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.blueprint-grid {
+  background-image:
+    linear-gradient(to right, rgb(17 17 17 / 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(17 17 17 / 0.08) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+.blueprint-grid-mobile {
+  background-image:
+    linear-gradient(to right, rgb(17 17 17 / 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(17 17 17 / 0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+@media (min-width: 768px) {
+  .blueprint-grid-mobile {
+    background-size: 80px 80px;
+  }
+}
+
+.dashed-divider {
+  background-image: linear-gradient(to right, var(--brand-black) 50%, transparent 50%);
+  background-position: bottom;
+  background-size: 10px 1px;
+  background-repeat: repeat-x;
+  height: 1px;
+  width: 100%;
+}
