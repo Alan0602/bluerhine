@@ -1,0 +1,261 @@
+{
+  "brand": {
+    "name": "Blue Rhine",
+    "tagline": "Official GCC Distributor for JHF, Dlican & Accurate Laser",
+    "headquarters": "DIP-2, Plot No: 597-634, P.O. Box No: 27402, Dubai, UAE",
+    "phone": "+971 4 8049800",
+    "customerSupport": "800 74463",
+    "email": "info@bluerhine.com",
+    "website": "www.bluerhine.com",
+    "store": "www.bluerhine.store",
+    "locations": ["UAE", "KSA", "OMAN", "KUWAIT", "QATAR", "BAHRAIN"]
+  },
+  "categories": [
+    { "id": "hybrid", "label": "Hybrid UV", "dotColor": "#a78bfa" },
+    { "id": "roll", "label": "Roll-to-Roll", "dotColor": "#22d3ee" },
+    { "id": "industrial", "label": "Industrial", "dotColor": "#38bdf8" },
+    { "id": "uv-flatbed", "label": "UV Flatbed", "dotColor": "#34d399" },
+    { "id": "laser", "label": "CO2 Laser", "dotColor": "#F26522" }
+  ],
+  "machines": [
+    {
+      "id": "accurate-laser-e150",
+      "slug": "e150",
+      "brand": "Accurate Laser",
+      "model": "E150",
+      "fullName": "Accurate Laser E150",
+      "subtitle": "CO2 Laser Cutting & Engraving Machine",
+      "category": "laser",
+      "headerGradient": "linear-gradient(135deg, #1a0a00 0%, #3d1500 55%, #7a2e00 100%)",
+      "accentDotColor": "#F26522",
+      "keySpecs": [
+        { "label": "Working Size", "value": "1300 × 2500 mm" },
+        { "label": "Laser Power", "value": "150W" },
+        { "label": "Engrave Speed", "value": "60000 mm/min" },
+        { "label": "Weight", "value": "1200 kg" }
+      ]
+    },
+    {
+      "id": "accurate-laser-e300",
+      "slug": "e300",
+      "brand": "Accurate Laser",
+      "model": "E300",
+      "fullName": "Accurate Laser E300",
+      "subtitle": "CO2 Laser Cutting & Engraving Machine",
+      "category": "laser",
+      "headerGradient": "linear-gradient(135deg, #1a0800 0%, #4a1800 55%, #8b3000 100%)",
+      "accentDotColor": "#F26522",
+      "keySpecs": [
+        { "label": "Working Size", "value": "1300 × 2500 mm" },
+        { "label": "Laser Power", "value": "300W" },
+        { "label": "Engrave Speed", "value": "60000 mm/min" },
+        { "label": "Weight", "value": "1200 kg" }
+      ]
+    },
+    {
+      "id": "dlican-dl3200-rp",
+      "slug": "dl3200rp",
+      "brand": "Dlican",
+      "model": "DL3200-RP",
+      "fullName": "Dlican DL3200-RP",
+      "subtitle": "Industrial Hybrid UV Printer",
+      "category": "hybrid",
+      "headerGradient": "linear-gradient(135deg, #050f28 0%, #0a2255 55%, #103a80 100%)",
+      "accentDotColor": "#34d399",
+      "keySpecs": [
+        { "label": "Printing Width", "value": "3200 mm" },
+        { "label": "Printhead", "value": "Konica 1024i" },
+        { "label": "Print Size", "value": "3200 × 2500 mm" },
+        { "label": "Weight", "value": "4000 kg" }
+      ]
+    },
+    {
+      "id": "dlican-dli-2513",
+      "slug": "dli2513",
+      "brand": "Dlican",
+      "model": "DLI-2513",
+      "fullName": "Dlican DLI-2513",
+      "subtitle": "UV Flatbed Printer",
+      "category": "uv-flatbed",
+      "headerGradient": "linear-gradient(135deg, #030d22 0%, #071d48 55%, #0d3070 100%)",
+      "accentDotColor": "#34d399",
+      "keySpecs": [
+        { "label": "Printing Size", "value": "2500 × 1300 mm" },
+        { "label": "Printhead", "value": "Ricoh G5 / G6 / Epson T3200" },
+        { "label": "Printing Height", "value": "0-100 mm" },
+        { "label": "Weight", "value": "1380 kg" }
+      ]
+    },
+    {
+      "id": "jhf-m5300",
+      "slug": "jhf-m5300",
+      "brand": "JHF",
+      "model": "M5300",
+      "fullName": "JHF M5300",
+      "subtitle": "Hybrid UV Printer",
+      "category": "hybrid",
+      "headerGradient": "linear-gradient(135deg, #08121f 0%, #15406d 52%, #1e7a8c 100%)",
+      "accentDotColor": "#22d3ee",
+      "keySpecs": [
+        { "label": "Printing Width", "value": "5000 mm" },
+        { "label": "Printhead", "value": "KM 13pl / KM 6pl" },
+        { "label": "Top Speed", "value": "400 m²/h" },
+        { "label": "Weight", "value": "5500 kg" }
+      ]
+    },
+    {
+      "id": "jhf-r9000pro",
+      "slug": "jhf-r9000pro",
+      "brand": "JHF",
+      "model": "R9000Pro",
+      "fullName": "JHF R9000Pro",
+      "subtitle": "Industrial UV Roll Printer",
+      "category": "roll",
+      "headerGradient": "linear-gradient(135deg, #090909 0%, #222f4b 48%, #2b6cb0 100%)",
+      "accentDotColor": "#22d3ee",
+      "keySpecs": [
+        { "label": "Printing Width", "value": "5000 mm" },
+        { "label": "Printhead", "value": "Kyocera" },
+        { "label": "Top Speed", "value": "230 m²/h" },
+        { "label": "Weight", "value": "8000 kg" }
+      ]
+    },
+    {
+      "id": "jhf-t3700",
+      "slug": "jhf-t3700",
+      "brand": "JHF",
+      "model": "T3700",
+      "fullName": "JHF T3700",
+      "subtitle": "Grand Format Textile Printer",
+      "category": "industrial",
+      "headerGradient": "linear-gradient(135deg, #160d24 0%, #4a1f7a 50%, #7c3aed 100%)",
+      "accentDotColor": "#38bdf8",
+      "keySpecs": [
+        { "label": "Printing Width", "value": "3200 mm" },
+        { "label": "Ink Type", "value": "Dye Sublimation / Direct Disperse" },
+        { "label": "Top Speed", "value": "162 m²/h" },
+        { "label": "Weight", "value": "2500 kg" }
+      ]
+    },
+    {
+      "id": "jhf-v698",
+      "slug": "jhf-v698",
+      "brand": "JHF",
+      "model": "V698",
+      "fullName": "JHF V698",
+      "subtitle": "Industrial UV Roll-to-Roll Printer",
+      "category": "roll",
+      "headerGradient": "linear-gradient(135deg, #060c14 0%, #12304d 48%, #0f766e 100%)",
+      "accentDotColor": "#22d3ee",
+      "keySpecs": [
+        { "label": "Printing Width", "value": "5000 mm" },
+        { "label": "Printhead", "value": "Konica Minolta / Kyocera" },
+        { "label": "Top Speed", "value": "230 m²/h" },
+        { "label": "Weight", "value": "4300 kg" }
+      ]
+    },
+    {
+      "id": "jhf-venus-10r",
+      "slug": "jhf-venus-10r",
+      "brand": "JHF",
+      "model": "Venus 10R",
+      "fullName": "JHF Venus 10R",
+      "subtitle": "Industrial UV Roll Printer",
+      "category": "roll",
+      "headerGradient": "linear-gradient(135deg, #0a0f17 0%, #1b3958 48%, #0f766e 100%)",
+      "accentDotColor": "#22d3ee",
+      "keySpecs": [
+        { "label": "Printing Width", "value": "5000 mm" },
+        { "label": "Printhead", "value": "Kyocera" },
+        { "label": "Top Speed", "value": "230 m²/h" },
+        { "label": "Weight", "value": "8000 kg" }
+      ]
+    },
+    {
+      "id": "jhf-venus-33x",
+      "slug": "jhf-venus-33x",
+      "brand": "JHF",
+      "model": "Venus 33X",
+      "fullName": "JHF Venus 33X",
+      "subtitle": "Hybrid UV Printer",
+      "category": "hybrid",
+      "headerGradient": "linear-gradient(135deg, #10131a 0%, #4b2e83 45%, #0ea5e9 100%)",
+      "accentDotColor": "#a78bfa",
+      "keySpecs": [
+        { "label": "Printing Width", "value": "3200 mm" },
+        { "label": "Printhead", "value": "Kyocera" },
+        { "label": "Top Speed", "value": "350 m²/h" },
+        { "label": "Weight", "value": "9000 kg" }
+      ]
+    },
+    {
+      "id": "jhf-venus-33x-s",
+      "slug": "jhf-venus-33x-s",
+      "brand": "JHF",
+      "model": "Venus 33X-S",
+      "fullName": "JHF Venus 33X-S",
+      "subtitle": "Automated Hybrid Printer",
+      "category": "hybrid",
+      "headerGradient": "linear-gradient(135deg, #111111 0%, #3f3f46 40%, #0891b2 100%)",
+      "accentDotColor": "#a78bfa",
+      "keySpecs": [
+        { "label": "Printing Width", "value": "3200 mm" },
+        { "label": "Printing Thickness", "value": "≤ 50 mm" },
+        { "label": "Top Speed", "value": "350 m²/h" },
+        { "label": "Power", "value": "380V, 32KW" }
+      ]
+    },
+    {
+      "id": "jhf-v398",
+      "slug": "jhf-v398",
+      "brand": "JHF",
+      "model": "V398",
+      "fullName": "JHF V398",
+      "subtitle": "UV Roll-to-Roll Printer",
+      "category": "roll",
+      "headerGradient": "linear-gradient(135deg, #081018 0%, #1f3b5a 48%, #2563eb 100%)",
+      "accentDotColor": "#22d3ee",
+      "keySpecs": [
+        { "label": "Printing Width", "value": "3200 mm" },
+        { "label": "Printhead", "value": "KJ4A-RH (optional)" },
+        { "label": "Top Speed", "value": "230 m²/h" },
+        { "label": "Weight", "value": "2450 kg" }
+      ]
+    }
+  ],
+  "comparisonMatrix": {
+    "laser": {
+      "title": "CO2 Laser Machines — Side by Side",
+      "fields": ["Model", "Laser Power", "Working Size", "Machine Size", "Engrave Speed", "Cut Speed", "Software", "Weight"],
+      "machines": ["accurate-laser-e150", "accurate-laser-e300"]
+    },
+    "uvFlatbed": {
+      "title": "UV Flatbed Machines — Side by Side",
+      "fields": ["Model", "Printing Size", "Print Head", "Max Heads", "Max Speed (4-Pass)", "Printing Height", "Weight"],
+      "machines": ["dlican-dl3200-rp", "dlican-dli-2513"]
+    }
+  },
+  "uiConfig": {
+    "theme": {
+      "white": "#FFFFFF",
+      "black": "#111111",
+      "orange": "#F26522",
+      "grey": "#6B7280",
+      "lightGrey": "#F1F5F9"
+    },
+    "fonts": {
+      "primary": "Space Grotesk",
+      "fallback": "Barlow, sans-serif"
+    },
+    "sectionLabelPrefix": "//",
+    "cardBorderStyle": "1px solid #111111",
+    "cardHoverBorderStyle": "2px solid #111111",
+    "tablHeaderBg": "#F26522",
+    "tableHeaderColor": "#FFFFFF",
+    "tableAltRowBg": "#F8FAFC",
+    "pinColor": "#F26522",
+    "pinTextColor": "#FFFFFF",
+    "activeTabColor": "#F26522",
+    "activeTabBorder": "2.5px solid #F26522"
+  }
+}
