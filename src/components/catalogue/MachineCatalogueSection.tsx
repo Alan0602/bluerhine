@@ -144,7 +144,6 @@ function MachineImage({
           src={machine.image}
           alt={machine.fullName}
           fill
-          unoptimized
           onError={() => setImgError(true)}
           onLoad={() => setImgLoaded(true)}
           className="object-cover transition-opacity duration-500"
