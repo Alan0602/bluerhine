@@ -102,10 +102,97 @@ function getTabItems(machine: MachineRecord) {
   ]
 }
 
+// ─────────────────────────────────────────────────────────────────
+// MachineImage
+// Handles load / error state for Google Drive images.
+// Falls back silently to headerGradient when image fails.
+// ─────────────────────────────────────────────────────────────────
+function MachineImage({
+  machine,
+  reverseLayout,
+}: {
+  machine: MachineRecord
+  reverseLayout: boolean
+}) {
+  const [imgError,  setImgError]  = useState(false)
+  const [imgLoaded, setImgLoaded] = useState(false)
+  const [prevMachineId, setPrevMachineId] = useState(machine.id)
+
+  // Reset when filter changes machine
+  if (machine.id !== prevMachineId) {
+    setPrevMachineId(machine.id)
+    setImgError(false)
+    setImgLoaded(false)
+  }
+
+  return (
+    <div
+      className={`relative h-[450px] overflow-hidden ${
+        reverseLayout ? 'lg:w-1/2 lg:border-l-2' : 'lg:w-1/2 lg:border-r-2'
+      } border-[#111111]`}
+    >
+      {/* Layer 1: gradient — always visible immediately */}
+      <div
+        className="absolute inset-0"
+        style={{ background: machine.headerGradient }}
+        aria-hidden="true"
+      />
+
+      {/* Layer 2: actual image — fades in on successful load */}
+      {machine.image && !imgError ? (
+        <Image
+          src={machine.image}
+          alt={machine.fullName}
+          fill
+          unoptimized
+          onError={() => setImgError(true)}
+          onLoad={() => setImgLoaded(true)}
+          className="object-cover transition-opacity duration-500"
+          style={{ opacity: imgLoaded ? 1 : 0 }}
+          sizes="(min-width: 1024px) 50vw, 100vw"
+        />
+      ) : null}
+
+      {/* Layer 3: readability overlay */}
+      <div className="absolute inset-0 bg-white/10 backdrop-blur-[2px]" />
+
+      {/* Category badge */}
+      <div
+        className={`absolute top-6 ${reverseLayout ? 'right-6' : 'left-6'} ${getCategoryBadgeClass(machine, reverseLayout)} px-4 py-2 font-[var(--font-space-grotesk)] text-xs font-bold uppercase tracking-widest text-white backdrop-blur-md`}
+      >
+        {`// ${getCategoryPill(machine)}`}
+      </div>
+
+      {/* Watermark + spec badges */}
+      <div className={`absolute bottom-6 ${reverseLayout ? 'right-6 text-right' : 'left-6'}`}>
+        <h3 className="pointer-events-none select-none font-[var(--font-space-grotesk)] text-7xl font-black uppercase text-zinc-900/10 md:text-8xl">
+          {machine.model}
+        </h3>
+        <div className={`mt-[-32px] flex gap-2 ${reverseLayout ? 'justify-end' : ''}`}>
+          {getBadgeValues(machine).map((badge) => (
+            <span
+              key={`${machine.id}-${badge}`}
+              className="bg-zinc-900 px-3 py-1 font-[var(--font-space-grotesk)] text-[10px] font-bold uppercase tracking-widest text-white"
+            >
+              {badge}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* "Image unavailable" label — only shows when URL existed but failed */}
+      {imgError && machine.image ? (
+        <div className="absolute bottom-6 right-6 border border-white/20 bg-black/40 px-3 py-1 font-[var(--font-space-grotesk)] text-[10px] font-bold uppercase tracking-widest text-white/50 backdrop-blur-sm">
+          Image unavailable
+        </div>
+      ) : null}
+    </div>
+  )
+}
+
 function CatalogueCard({ machine, index }: { machine: MachineRecord; index: number }) {
   const reverseLayout = index % 2 === 1
   const overviewStats = getOverviewStats(machine)
-  const badgeValues = getBadgeValues(machine)
   const tabItems = getTabItems(machine)
   const [activeTab, setActiveTab] = useState<CatalogueTabId>(getDefaultTab(machine))
 
@@ -120,51 +207,7 @@ function CatalogueCard({ machine, index }: { machine: MachineRecord; index: numb
       </div>
 
       <div className={`flex flex-col ${reverseLayout ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}>
-        <div
-          className={`relative h-[450px] bg-zinc-50 ${reverseLayout ? 'lg:w-1/2 lg:border-l-2' : 'lg:w-1/2 lg:border-r-2'} border-[#111111]`}
-        >
-          <div
-            className="absolute inset-0"
-            style={{
-              background: machine.headerGradient,
-            }}
-          />
-
-          {machine.image ? (
-            <Image
-              src={machine.image}
-              alt={machine.fullName}
-              fill
-              unoptimized
-              className="object-cover"
-              sizes="(min-width: 1024px) 50vw, 100vw"
-            />
-          ) : null}
-
-          <div className="absolute inset-0 bg-white/10 backdrop-blur-[2px]" />
-
-          <div
-            className={`absolute top-6 ${reverseLayout ? 'right-6' : 'left-6'} ${getCategoryBadgeClass(machine, reverseLayout)} px-4 py-2 font-[var(--font-space-grotesk)] text-xs font-bold uppercase tracking-widest text-white backdrop-blur-md`}
-          >
-            {`// ${getCategoryPill(machine)}`}
-          </div>
-
-          <div className={`absolute bottom-6 ${reverseLayout ? 'right-6 text-right' : 'left-6'}`}>
-            <h3 className="pointer-events-none select-none font-[var(--font-space-grotesk)] text-7xl font-black uppercase text-zinc-900/10 md:text-8xl">
-              {machine.model}
-            </h3>
-            <div className={`mt-[-32px] flex gap-2 ${reverseLayout ? 'justify-end' : ''}`}>
-              {badgeValues.map((badge) => (
-                <span
-                  key={`${machine.id}-${badge}`}
-                  className="bg-zinc-900 px-3 py-1 font-[var(--font-space-grotesk)] text-[10px] font-bold uppercase tracking-widest text-white"
-                >
-                  {badge}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
+        <MachineImage machine={machine} reverseLayout={reverseLayout} />
 
         <div className="flex lg:w-1/2 flex-col">
           <div className="flex border-b-2 border-[#111111]">
