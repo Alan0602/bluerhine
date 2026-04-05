@@ -53,10 +53,10 @@ function normalizeImageUrl(url: string): string {
   }
 
   // DIRECT CDN LINK — skips the /thumbnail redirect chain entirely.
-  // lh3.googleusercontent.com/d/{fileId}=s2000 is Google's stable direct
+  // lh3.googleusercontent.com/d/{fileId}=s4000 is Google's stable direct
   // image CDN format. It serves the image immediately with no redirects,
   // as long as the Google Drive file is shared as "Anyone with the link".
-  return `https://lh3.googleusercontent.com/d/${fileId}=s2000`
+  return `https://lh3.googleusercontent.com/d/${fileId}=s4000`
 }
 
 function getMachineImage(machineId: string): string | undefined {
