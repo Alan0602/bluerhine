@@ -57,7 +57,7 @@ export function Footer() {
                 </span>
               </div>
             </div>
-            <p className="max-w-sm font-[var(--font-barlow)] text-sm leading-6 text-[#6b7280]">
+            <p className="max-w-sm font-[var(--font-barlow)] text-base leading-7 text-[#6b7280]">
               Official GCC distributor for industrial UV printing and CO2 laser cutting systems,
               built around machine expertise, direct support, and structured delivery.
             </p>

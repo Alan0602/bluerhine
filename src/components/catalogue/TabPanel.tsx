@@ -14,7 +14,7 @@ export function TabPanel({ materials, overview, subtitle }: TabPanelProps) {
         <span className="rounded-full border border-brand-grey/20 px-4 py-2">Materials</span>
       </div>
       <h2 className="mt-6 text-3xl font-semibold text-brand-black">{subtitle}</h2>
-      <p className="mt-4 text-base leading-7 text-brand-grey">{overview}</p>
+      <p className="mt-4 text-lg leading-8 text-brand-grey">{overview}</p>
       <div className="mt-6 flex flex-wrap gap-2">
         {materials.map((material) => (
           <span

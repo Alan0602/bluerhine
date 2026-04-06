@@ -18,7 +18,7 @@ export function MachineCard({ machine }: MachineCardProps) {
         <span className="text-sm uppercase tracking-[0.2em] text-brand-grey">{machine.category}</span>
       </div>
       <h2 className="mt-5 text-2xl font-semibold text-brand-black">{machine.fullName}</h2>
-      <p className="mt-3 text-sm text-brand-grey">{machine.subtitle}</p>
+      <p className="mt-3 text-base text-brand-grey">{machine.subtitle}</p>
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
         {machine.keySpecs.slice(0, 4).map((spec) => (
           <div key={spec.label} className="rounded-2xl bg-brand-lightGrey p-3">

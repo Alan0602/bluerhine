@@ -20,12 +20,14 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 17px;
 }
 
 body {
   font-family: var(--font-barlow), sans-serif;
   color: var(--brand-black);
   background: var(--brand-white);
+  line-height: 1.55;
   text-rendering: geometricPrecision;
 }
 

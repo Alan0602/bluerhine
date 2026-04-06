@@ -18,7 +18,7 @@ export function Hero() {
             <span className="text-[#f26522]">.</span>
           </h1>
           <div className="mx-auto mt-6 h-1 w-28 bg-[#f26522] md:w-48" />
-          <p className="mx-auto mt-8 max-w-2xl text-base leading-7 text-[#6b7280] md:text-xl">
+          <p className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-[#6b7280] md:text-xl md:leading-9">
             Industrial UV printing systems and CO2 laser solutions engineered for high-precision
             manufacturing. Built for scale, backed by local support.
           </p>

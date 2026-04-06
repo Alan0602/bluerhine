@@ -18,9 +18,9 @@ export function SpeedTable({ printingSpeed }: SpeedTableProps) {
             key={row.config}
             className="grid gap-2 rounded-2xl bg-brand-lightGrey px-4 py-3 sm:grid-cols-3"
           >
-            <p className="text-sm font-medium text-brand-black">{row.config}</p>
-            <p className="text-sm text-brand-grey">{row.pass4}</p>
-            <p className="text-sm text-brand-black">{row.pass6} / {row.pass8}</p>
+            <p className="text-base font-medium text-brand-black">{row.config}</p>
+            <p className="text-base text-brand-grey">{row.pass4}</p>
+            <p className="text-base text-brand-black">{row.pass6} / {row.pass8}</p>
           </div>
         ))}
       </div>

@@ -43,7 +43,7 @@ export function SalesQA({ items }: SalesQAProps) {
                   isOpen ? 'max-h-[1000px] pb-8' : 'max-h-0 pb-0',
                 )}
               >
-                <p className="text-sm leading-7 text-[#6b7280]">{item.a}</p>
+                <p className="text-base leading-8 text-[#6b7280]">{item.a}</p>
               </div>
             </div>
           )

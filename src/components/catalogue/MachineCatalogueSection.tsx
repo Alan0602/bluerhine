@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 import { startTransition, useDeferredValue, useEffect, useMemo, useState } from 'react'
 
@@ -16,7 +15,6 @@ type MachineCatalogueSectionProps = {
 }
 
 type MachineRecord = (typeof data.machines)[number]
-type CatalogueTabId = 'overview' | 'features' | 'materials' | 'applications'
 
 const categoryLabels = new Map(data.categories.map((category) => [category.id, category.label]))
 const availableCategories = Array.from(new Set(data.machines.map((machine) => machine.category)))
@@ -39,357 +37,67 @@ function buildReferenceLabel(model: string, index: number) {
   return `REF_${normalizedModel}_${String(index + 1).padStart(2, '0')}`
 }
 
-function getBadgeValues(machine: MachineRecord) {
-  return machine.keySpecs.slice(0, 2).map((spec) => spec.value.toUpperCase())
+function getCategoryLabel(machine: MachineRecord) {
+  return categoryLabels.get(machine.category) ?? machine.category.replace(/-/g, ' ')
 }
 
-function getOverviewStats(machine: MachineRecord) {
-  const summarySpecs = machine.keySpecs.slice(0, 4)
-  if (summarySpecs.length > 0) {
-    return summarySpecs
-  }
-
-  return machine.specifications.slice(0, 4).map((spec) => ({
-    label: spec.param,
-    value: spec.value,
-  }))
+function getAccentClass(category: string) {
+  if (category === 'laser') return 'bg-[#f26522]'
+  if (category === 'roll') return 'bg-cyan-500'
+  if (category === 'uv-flatbed') return 'bg-emerald-500'
+  if (category === 'industrial') return 'bg-sky-500'
+  return 'bg-violet-500'
 }
 
-function getCategoryPill(machine: MachineRecord) {
-  const categoryLabel = categoryLabels.get(machine.category) ?? machine.category
-  if (machine.category === 'hybrid') return `${categoryLabel.toUpperCase()} SYSTEM`
-  if (machine.category === 'roll') return `${categoryLabel.toUpperCase()}`
-  if (machine.category === 'laser') return 'LASER CUTTING'
-  return `${categoryLabel.toUpperCase()} PLATFORM`
-}
-
-function getCategoryBadgeClass(machine: MachineRecord, reverseLayout: boolean) {
-  if (machine.category === 'laser') return 'bg-orange-600/85'
-  if (machine.category === 'roll') return 'bg-cyan-600/85'
-  if (machine.category === 'uv-flatbed') return 'bg-emerald-600/85'
-  return reverseLayout ? 'bg-cyan-600/85' : 'bg-indigo-600/85'
-}
-
-function getDefaultTab(machine: MachineRecord): CatalogueTabId {
-  if (machine.overview) return 'overview'
-  if (machine.keyFeatures.length > 0) return 'features'
-  if (machine.applicableMaterials.length > 0) return 'materials'
-  return 'applications'
-}
-
-function getTabItems(machine: MachineRecord) {
-  return [
-    {
-      id: 'overview' as const,
-      label: 'Overview',
-      enabled: Boolean(machine.overview),
-    },
-    {
-      id: 'features' as const,
-      label: 'Features',
-      enabled: machine.keyFeatures.length > 0,
-    },
-    {
-      id: 'materials' as const,
-      label: 'Materials',
-      enabled: machine.applicableMaterials.length > 0,
-    },
-    {
-      id: 'applications' as const,
-      label: 'Applications',
-      enabled: machine.useCases.length > 0,
-    },
-  ]
-}
-
-// ─────────────────────────────────────────────────────────────────
-// MachineImage
-// Handles load / error state for Google Drive images.
-// Falls back silently to headerGradient when image fails.
-// ─────────────────────────────────────────────────────────────────
-function MachineImage({
-  machine,
-  reverseLayout,
-}: {
-  machine: MachineRecord
-  reverseLayout: boolean
-}) {
-  const [imgError,  setImgError]  = useState(false)
-  const [imgLoaded, setImgLoaded] = useState(false)
-  const [prevMachineId, setPrevMachineId] = useState(machine.id)
-
-  // Reset when filter changes machine
-  if (machine.id !== prevMachineId) {
-    setPrevMachineId(machine.id)
-    setImgError(false)
-    setImgLoaded(false)
-  }
-
+function ListingRow({ machine, index }: { machine: MachineRecord; index: number }) {
   return (
-    <div
-      className={`relative h-[450px] overflow-hidden ${
-        reverseLayout ? 'lg:w-1/2 lg:border-l-2' : 'lg:w-1/2 lg:border-r-2'
-      } border-[#111111]`}
-    >
-      {/* Layer 1: gradient — always visible immediately */}
-      <div
-        className="absolute inset-0"
-        style={{ background: machine.headerGradient }}
-        aria-hidden="true"
-      />
-
-      {/* Layer 2: actual image — fades in on successful load */}
-      {machine.image && !imgError ? (
-        <Image
-          src={machine.image}
-          alt={machine.fullName}
-          fill
-          onError={() => setImgError(true)}
-          onLoad={() => setImgLoaded(true)}
-          className="object-cover transition-opacity duration-500"
-          style={{ opacity: imgLoaded ? 1 : 0 }}
-          sizes="(min-width: 1024px) 50vw, 100vw"
-        />
-      ) : null}
-
-      {/* Layer 3: readability overlay */}
-      <div className="absolute inset-0 bg-white/10 backdrop-blur-[2px]" />
-
-      {/* Category badge */}
-      <div
-        className={`absolute top-6 ${reverseLayout ? 'right-6' : 'left-6'} ${getCategoryBadgeClass(machine, reverseLayout)} px-4 py-2 font-[var(--font-space-grotesk)] text-xs font-bold uppercase tracking-widest text-white backdrop-blur-md`}
-      >
-        {`// ${getCategoryPill(machine)}`}
-      </div>
-
-      {/* Watermark + spec badges */}
-      <div className={`absolute bottom-6 ${reverseLayout ? 'right-6 text-right' : 'left-6'}`}>
-        <h3 className="pointer-events-none select-none font-[var(--font-space-grotesk)] text-7xl font-black uppercase text-zinc-900/10 md:text-8xl">
-          {machine.model}
-        </h3>
-        <div className={`mt-[-32px] flex gap-2 ${reverseLayout ? 'justify-end' : ''}`}>
-          {getBadgeValues(machine).map((badge) => (
-            <span
-              key={`${machine.id}-${badge}`}
-              className="bg-zinc-900 px-3 py-1 font-[var(--font-space-grotesk)] text-[10px] font-bold uppercase tracking-widest text-white"
-            >
-              {badge}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* "Image unavailable" label — only shows when URL existed but failed */}
-      {imgError && machine.image ? (
-        <div className="absolute bottom-6 right-6 border border-white/20 bg-black/40 px-3 py-1 font-[var(--font-space-grotesk)] text-[10px] font-bold uppercase tracking-widest text-white/50 backdrop-blur-sm">
-          Image unavailable
-        </div>
-      ) : null}
-    </div>
-  )
-}
-
-function CatalogueCard({ machine, index }: { machine: MachineRecord; index: number }) {
-  const reverseLayout = index % 2 === 1
-  const overviewStats = getOverviewStats(machine)
-  const tabItems = getTabItems(machine)
-  const [activeTab, setActiveTab] = useState<CatalogueTabId>(getDefaultTab(machine))
-
-  useEffect(() => {
-    setActiveTab(getDefaultTab(machine))
-  }, [machine])
-
-  return (
-    <article className="group relative overflow-hidden border-2 border-[#111111] bg-white">
-      <div className="absolute right-4 top-4 z-20 font-[var(--font-space-grotesk)] text-[10px] font-bold text-zinc-400">
-        {buildReferenceLabel(machine.model, index)}
-      </div>
-
-      <div className={`flex flex-col ${reverseLayout ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}>
-        <MachineImage machine={machine} reverseLayout={reverseLayout} />
-
-        <div className="flex lg:w-1/2 flex-col">
-          <div className="flex border-b-2 border-[#111111]">
-            {tabItems.map((tab, tabIndex) => {
-              const isActive = activeTab === tab.id
-
-              return (
-                <button
-                  key={`${machine.id}-${tab.id}`}
-                  type="button"
-                  onClick={() => setActiveTab(tab.id)}
-                  disabled={!tab.enabled}
-                  className={`flex-1 px-4 py-4 font-[var(--font-space-grotesk)] text-[10px] font-black uppercase tracking-widest transition-colors ${
-                    isActive
-                      ? 'bg-zinc-900 text-white'
-                      : 'bg-white text-[#111111] hover:bg-zinc-100'
-                  } ${tabIndex > 0 ? 'border-l-2 border-[#111111]' : ''} ${!tab.enabled ? 'cursor-not-allowed text-zinc-300 hover:bg-white' : ''}`}
-                >
-                  {tab.label}
-                </button>
-              )
-            })}
+    <article className="group border-b-2 border-[#111111] bg-[#ffffff] transition-colors duration-200 hover:bg-[#fafafa]">
+      <Link href={`/machines/${machine.slug}`} className="block">
+        <div className="flex flex-col gap-4 px-5 py-5 md:flex-row md:items-center md:gap-8 md:px-8 md:py-5">
+          {/* Left: Name & Brand */}
+          <div className="flex min-w-0 shrink-0 flex-col gap-1 md:w-[320px]">
+            <div className="flex items-center gap-3">
+              <span className="inline-flex items-center gap-1.5 font-[var(--font-barlow-condensed)] text-[11px] font-bold uppercase tracking-[0.18em] text-[#6b7280]">
+                <span className={`h-2 w-2 rounded-full ${getAccentClass(machine.category)}`} />
+                {getCategoryLabel(machine)}
+              </span>
+              <span className="font-[var(--font-barlow-condensed)] text-[11px] font-bold uppercase tracking-[0.18em] text-[#9ca3af]">
+                {machine.brand}
+              </span>
+            </div>
+            <h3 className="font-[var(--font-barlow-condensed)] text-2xl font-black uppercase leading-none tracking-[-0.04em] text-[#111111] md:text-[1.75rem]">
+              {machine.fullName}
+            </h3>
+            <p className="font-[var(--font-barlow-condensed)] text-sm font-bold uppercase tracking-[0.06em] text-[#f26522]">
+              {machine.subtitle}
+            </p>
           </div>
 
-          <div className="flex flex-1 flex-col">
-            <div className="flex-1 p-8">
-              {activeTab === 'overview' ? (
-                <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
-                  <div>
-                    <h4 className="mb-4 font-[var(--font-space-grotesk)] text-2xl font-bold uppercase text-[#111111]">
-                      {machine.fullName}
-                    </h4>
-                    <p className="mb-6 font-[var(--font-inter)] text-sm leading-relaxed text-[#5f5e5e]">
-                      {machine.overview}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {machine.tags.slice(0, 3).map((tag) => (
-                        <span
-                          key={`${machine.id}-${tag}`}
-                          className="border border-[#f26522] px-2 py-1 font-[var(--font-space-grotesk)] text-[10px] font-bold uppercase text-[#f26522]"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="border border-zinc-900/10 bg-zinc-50 p-6">
-                    <div className="space-y-4">
-                      {overviewStats.map((spec, specIndex) => (
-                        <div
-                          key={`${machine.id}-${spec.label}`}
-                          className={`flex items-center justify-between gap-4 ${
-                            specIndex < overviewStats.length - 1 ? 'border-b border-zinc-200 pb-2' : ''
-                          }`}
-                        >
-                          <span className="font-[var(--font-space-grotesk)] text-[10px] font-black uppercase">
-                            {spec.label}
-                          </span>
-                          <span className="text-right font-[var(--font-space-grotesk)] text-sm font-bold text-[#111111]">
-                            {spec.value}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ) : null}
-
-              {activeTab === 'features' ? (
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                  {machine.keyFeatures.slice(0, 4).map((feature, featureIndex) => (
-                    <div key={`${machine.id}-${feature.title}`} className="border border-zinc-900/10 bg-zinc-50 p-5">
-                      <div className="mb-4 flex items-center justify-between">
-                        <span className="font-[var(--font-space-grotesk)] text-2xl font-black uppercase text-[#f26522]">
-                          0{featureIndex + 1}
-                        </span>
-                        <span className="font-[var(--font-space-grotesk)] text-[10px] font-bold uppercase tracking-[0.18em] text-zinc-400">
-                          Feature
-                        </span>
-                      </div>
-                      <h5 className="mb-3 font-[var(--font-space-grotesk)] text-lg font-bold uppercase text-[#111111]">
-                        {feature.title}
-                      </h5>
-                      <p className="font-[var(--font-inter)] text-sm leading-relaxed text-[#5f5e5e]">
-                        {feature.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              ) : null}
-
-              {activeTab === 'materials' ? (
-                <div className="grid grid-cols-1 gap-10 md:grid-cols-[1.3fr_0.7fr]">
-                  <div>
-                    <h4 className="mb-4 font-[var(--font-space-grotesk)] text-2xl font-bold uppercase text-[#111111]">
-                      Materials Compatibility
-                    </h4>
-                    <p className="mb-6 font-[var(--font-inter)] text-sm leading-relaxed text-[#5f5e5e]">
-                      Built to handle production-ready substrates with the stability and consistency required for
-                      commercial output.
-                    </p>
-                    <div className="flex flex-wrap gap-3">
-                      {machine.applicableMaterials.map((material) => (
-                        <span
-                          key={`${machine.id}-${material}`}
-                          className="border border-[#111111] bg-white px-4 py-3 font-[var(--font-space-grotesk)] text-[10px] font-bold uppercase tracking-[0.16em] text-[#111111]"
-                        >
-                          {material}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="border border-zinc-900/10 bg-zinc-50 p-6">
-                    <div className="mb-4 font-[var(--font-space-grotesk)] text-[10px] font-black uppercase tracking-[0.18em] text-[#f26522]">
-                      {'// Supported Scope'}
-                    </div>
-                    <div className="space-y-4">
-                      {machine.specifications.slice(0, 4).map((spec, specIndex) => (
-                        <div
-                          key={`${machine.id}-material-spec-${spec.param}`}
-                          className={`${specIndex < 3 ? 'border-b border-zinc-200 pb-3' : ''}`}
-                        >
-                          <div className="font-[var(--font-space-grotesk)] text-[10px] font-black uppercase text-[#111111]">
-                            {spec.param}
-                          </div>
-                          <div className="mt-1 font-[var(--font-inter)] text-sm text-[#5f5e5e]">{spec.value}</div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ) : null}
-
-              {activeTab === 'applications' ? (
-                <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
-                  {machine.useCases.map((useCase) => (
-                    <div
-                      key={`${machine.id}-${useCase.label}`}
-                      className="flex min-h-28 flex-col justify-between border border-zinc-900/10 bg-zinc-50 p-5"
-                    >
-                      <span className="text-2xl">{useCase.emoji}</span>
-                      <div>
-                        <div className="mb-1 font-[var(--font-space-grotesk)] text-[10px] font-black uppercase tracking-[0.18em] text-[#f26522]">
-                          {'// Application'}
-                        </div>
-                        <div className="font-[var(--font-space-grotesk)] text-sm font-bold uppercase text-[#111111]">
-                          {useCase.label}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              ) : null}
-            </div>
-
-            <div className="mt-auto flex flex-col gap-5 border-t border-zinc-100 p-8 pt-0 md:flex-row md:items-center md:justify-between">
-              <div className="flex flex-wrap gap-2">
-                {machine.useCases.slice(0, 3).map((useCase) => (
-                  <span
-                    key={`${machine.id}-${useCase.label}`}
-                    className="bg-zinc-100 px-3 py-1 font-[var(--font-space-grotesk)] text-[10px] font-bold uppercase tracking-tight text-[#111111]"
-                  >
-                    {`${useCase.label} ${useCase.emoji}`}
-                  </span>
-                ))}
-              </div>
-
-              <Link
-                href={`/machines/${machine.slug}`}
-                className={`inline-flex items-center justify-center border-2 border-[#111111] px-6 py-3 font-[var(--font-space-grotesk)] text-[10px] font-bold uppercase tracking-widest transition-all ${
-                  reverseLayout
-                    ? 'bg-white text-[#111111] hover:bg-[#111111] hover:text-white'
-                    : 'bg-[#f26522] text-white hover:bg-zinc-900'
+          {/* Center: Key specs inline */}
+          <div className="flex min-w-0 flex-1 flex-wrap items-center gap-2">
+            {machine.keySpecs.slice(0, 4).map((spec, specIndex) => (
+              <span
+                key={`${machine.id}-${spec.label}`}
+                className={`inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-1.5 font-[var(--font-barlow-condensed)] text-[12px] font-bold uppercase tracking-[0.1em] ${
+                  specIndex === 0
+                    ? 'border border-[#111111] bg-[#111111] text-[#ffffff]'
+                    : 'border border-[#e5e7eb] bg-[#f8fafc] text-[#111111]'
                 }`}
               >
-                View Machine Details
-              </Link>
-            </div>
+                <span className={specIndex === 0 ? 'text-[#f26522]' : 'text-[#9ca3af]'}>{spec.label}:</span>
+                {spec.value}
+              </span>
+            ))}
+          </div>
+
+          {/* Right: Arrow */}
+          <div className="hidden shrink-0 items-center md:flex">
+            <span className="font-[var(--font-barlow-condensed)] text-2xl text-[#d1d5db] transition-colors duration-200 group-hover:text-[#f26522]">
+              →
+            </span>
           </div>
         </div>
-      </div>
+      </Link>
     </article>
   )
 }
@@ -419,16 +127,18 @@ export function MachineCatalogueSection({
   )
 
   return (
-    <section id={sectionId} className="mx-auto max-w-7xl space-y-10 px-6 py-24">
+    <section id={sectionId} className="mx-auto max-w-7xl space-y-10 px-6 py-24 md:px-8">
       <div className="text-left">
-        <span className="font-[var(--font-space-grotesk)] text-[10px] font-bold uppercase tracking-[0.2em] text-[#f26522]">
+        <span className="font-[var(--font-barlow-condensed)] text-[11px] font-bold uppercase tracking-[0.2em] text-[#f26522]">
           {'// '}
           {introLabel}
         </span>
-        <h2 className="mt-4 font-[var(--font-space-grotesk)] text-5xl font-bold uppercase tracking-[-0.05em] text-[#111111] md:text-7xl">
+        <h2 className="mt-4 font-[var(--font-barlow-condensed)] text-5xl font-black uppercase tracking-[-0.05em] text-[#111111] md:text-6xl lg:text-7xl">
           {title}
         </h2>
-        <p className="mt-5 max-w-3xl font-[var(--font-inter)] text-base leading-7 text-[#5f5e5e]">{description}</p>
+        <p className="mt-5 max-w-4xl text-lg leading-8 text-[#4b5563] md:text-xl md:leading-[1.8]">
+          {description}
+        </p>
       </div>
 
       {showStats ? (
@@ -441,11 +151,13 @@ export function MachineCatalogueSection({
           ].map((stat) => (
             <div
               key={stat.label}
-              className="relative flex flex-col items-start overflow-hidden border-[#111111] p-8 odd:border-r-2 md:[&:not(:last-child)]:border-r-2"
+              className="relative flex min-h-[150px] flex-col items-start justify-end overflow-hidden border-[#111111] p-6 odd:border-r-2 md:min-h-[180px] md:p-8 md:[&:not(:last-child)]:border-r-2"
             >
-              <div className="absolute left-0 top-0 h-8 w-1 bg-[#f26522]" />
-              <span className="font-[var(--font-space-grotesk)] text-4xl font-black">{stat.value}</span>
-              <span className="mt-2 font-[var(--font-space-grotesk)] text-[10px] font-bold uppercase tracking-[0.2em] text-[#f26522]">
+              <div className="absolute left-0 top-0 h-10 w-1 bg-[#f26522]" />
+              <span className="font-[var(--font-barlow-condensed)] text-[2.3rem] font-black leading-none md:text-[2.9rem]">
+                {stat.value}
+              </span>
+              <span className="mt-3 font-[var(--font-barlow-condensed)] text-[11px] font-bold uppercase tracking-[0.2em] text-[#f26522]">
                 {'// '}
                 {stat.label}
               </span>
@@ -467,7 +179,7 @@ export function MachineCatalogueSection({
                   setActiveCategory(option.id)
                 })
               }}
-              className={`border-2 px-4 py-2 font-[var(--font-space-grotesk)] text-[10px] font-bold uppercase tracking-[0.2em] transition-colors ${
+              className={`border-2 px-4 py-2.5 font-[var(--font-barlow-condensed)] text-[11px] font-bold uppercase tracking-[0.18em] transition-colors ${
                 isActive
                   ? 'border-[#f26522] bg-[#f26522] text-white'
                   : 'border-[#111111] bg-white text-[#111111] hover:bg-[#111111] hover:text-white'
@@ -479,9 +191,9 @@ export function MachineCatalogueSection({
         })}
       </div>
 
-      <div className="space-y-12">
+      <div className="border-t-2 border-[#111111]">
         {visibleMachines.map((machine, index) => (
-          <CatalogueCard key={machine.id} machine={machine} index={index} />
+          <ListingRow key={machine.id} machine={machine} index={index} />
         ))}
       </div>
     </section>

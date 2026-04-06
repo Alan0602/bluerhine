@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
@@ -109,7 +110,7 @@ export default async function MachineDetailPage({ params }: MachinePageProps) {
               {machine.fullName}
             </h1>
 
-            <p className="mt-6 max-w-2xl text-base leading-7 text-[#4b5563] md:text-lg">
+            <p className="mt-6 max-w-2xl text-xl leading-[1.8] text-[#4b5563] md:text-[1.25rem]">
               {machine.overview}
             </p>
 
@@ -140,7 +141,20 @@ export default async function MachineDetailPage({ params }: MachinePageProps) {
           </div>
 
           <div className="flex flex-col justify-center">
+            {machine.image ? (
+              <div className="relative mb-8 flex min-h-[320px] w-full items-center justify-center md:min-h-[480px]">
+                <Image
+                  src={machine.image}
+                  alt={machine.fullName}
+                  fill
+                  className="object-contain drop-shadow-2xl"
+                  priority
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                />
+              </div>
+            ) : null}
             <div className="border-2 border-[#111111] bg-[#ffffff] p-6 md:p-8">
+
               <div className="mb-6 flex items-center justify-between border-b-2 border-dashed border-[#111111] pb-4">
                 <span className="font-[var(--font-barlow-condensed)] text-[10px] font-bold uppercase tracking-[0.2em] text-[#f26522]">
                   {'// Machine Snapshot'}
@@ -161,7 +175,7 @@ export default async function MachineDetailPage({ params }: MachinePageProps) {
                     <div className="font-[var(--font-barlow-condensed)] text-[10px] font-bold uppercase tracking-[0.18em] text-[#f26522]">
                       {spec.label}
                     </div>
-                    <div className="mt-6 font-[var(--font-barlow-condensed)] text-2xl font-black uppercase leading-none md:text-3xl">
+                    <div className="mt-6 font-[var(--font-barlow-condensed)] text-[1.8rem] font-black uppercase leading-none md:text-[2.2rem]">
                       {spec.value}
                     </div>
                   </div>
@@ -185,7 +199,7 @@ export default async function MachineDetailPage({ params }: MachinePageProps) {
                         <div className="font-[var(--font-barlow-condensed)] text-sm font-bold uppercase text-[#111111]">
                           {feature.title}
                         </div>
-                        <div className="text-sm leading-6 text-[#4b5563]">{feature.description}</div>
+                        <div className="text-lg leading-8 text-[#4b5563]">{feature.description}</div>
                       </div>
                     </div>
                   ))}
@@ -241,7 +255,7 @@ export default async function MachineDetailPage({ params }: MachinePageProps) {
               <h3 className="mb-4 font-[var(--font-barlow-condensed)] text-2xl font-bold uppercase leading-tight">
                 {feature.title}
               </h3>
-              <p className="leading-7 text-[#6b7280]">{feature.description}</p>
+              <p className="text-lg leading-8 text-[#6b7280]">{feature.description}</p>
             </div>
           ))}
         </div>
@@ -252,7 +266,7 @@ export default async function MachineDetailPage({ params }: MachinePageProps) {
           {'// Product Anatomy'}
         </p>
         <div className="mx-auto max-w-6xl border-2 border-[#111111] bg-[#f8fafc] p-6 md:p-12">
-          <ComponentPins components={machine.components} />
+          <ComponentPins components={machine.components} image={machine.image} machineName={machine.fullName} />
         </div>
       </section>
 
@@ -332,7 +346,7 @@ export default async function MachineDetailPage({ params }: MachinePageProps) {
             ].map((title, index) => (
               <div key={title} className="border-l-2 border-[#f26522] pl-8">
                 <h3 className="mb-4 font-[var(--font-barlow-condensed)] text-xl font-bold uppercase">{title}</h3>
-                <p className="text-sm leading-7 text-[#a3a3a3]">
+                <p className="text-base leading-8 text-[#a3a3a3]">
                   {[
                     'Official representation across UAE, KSA, Oman, Kuwait, Qatar, and Bahrain with direct factory access and genuine parts support.',
                     'Dedicated technical teams across the region for installation, training, troubleshooting, and factory-certified after-sales service.',

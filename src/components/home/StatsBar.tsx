@@ -6,7 +6,7 @@ export function StatsBar() {
       sectionId="products"
       introLabel="Full Product Lineup"
       title="All Machine Models"
-      description="Browse the complete Bluerhine machinery lineup. Filters and cards update directly from the machine JSON, so the catalogue stays in sync with the machine pages."
+      description="Browse the complete Blue Rhine machinery lineup in a cleaner, easier-to-scan format. Filters and machine details stay synced directly from the same data source used by each machine page."
       showStats
     />
   )

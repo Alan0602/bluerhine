@@ -98,7 +98,7 @@ export function WhySection() {
                   <h3 className="mb-2 font-[var(--font-barlow-condensed)] text-xl font-black uppercase tracking-[0.04em] text-[#111111]">
                     {reason.title}
                   </h3>
-                  <p className="text-sm leading-7 text-[#6b7280]">{reason.text}</p>
+                  <p className="text-base leading-8 text-[#6b7280]">{reason.text}</p>
                 </div>
               </div>
             ))}
