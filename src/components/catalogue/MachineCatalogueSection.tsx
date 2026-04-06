@@ -212,12 +212,6 @@ export function MachineCatalogueSection({
                     >
                       Key Features
                     </div>
-                    <div 
-                      className={`c-tab ${activeTab === 'photos' ? 'active' : ''}`}
-                      onClick={() => setTab(machine.id, 'photos')}
-                    >
-                      Photos
-                    </div>
                     {machine.salesInsights && machine.salesInsights.length > 0 && (
                       <div 
                         className={`c-tab ${activeTab === 'insights' ? 'active' : ''}`}
@@ -247,14 +241,28 @@ export function MachineCatalogueSection({
                       </div>
                       <div className="panel-right">
                         {machine.image && (
-                          <div className="relative h-[400px] w-full">
-                             <Image 
-                                src={machine.image} 
-                                alt={machine.fullName} 
-                                fill 
-                                className="object-contain" 
-                                sizes="(max-width: 768px) 100vw, 40vw"
-                              />
+                          <div className="relative flex h-[400px] w-full items-center justify-center bg-[linear-gradient(135deg,#f9fafb_0%,#e8ecf2_100%)]">
+                            <Image 
+                              src={machine.image} 
+                              alt={machine.fullName} 
+                              fill 
+                              className="object-contain p-6 opacity-95 mix-blend-multiply" 
+                              sizes="(max-width: 768px) 100vw, 40vw"
+                            />
+                            {machine.components.slice(0, 8).filter(c => c.pin).map((comp) => (
+                              <div
+                                key={`${comp.number}-${comp.name}`}
+                                className="group absolute z-10"
+                                style={{ left: `${comp.pin?.x}%`, top: `${comp.pin?.y}%` }}
+                              >
+                                <div className="flex h-6 w-6 -translate-x-1/2 -translate-y-1/2 items-center justify-center bg-[#104c8c] font-[var(--font-barlow-condensed)] text-sm font-bold text-[#ffffff] shadow-md ring-2 ring-white cursor-pointer hover:scale-110 transition-transform">
+                                  {comp.number}
+                                </div>
+                                <div className="absolute bottom-full left-1/2 mb-2 hidden -translate-x-1/2 whitespace-nowrap border border-[#253d4e] bg-[#ffffff] px-2 py-1 font-[var(--font-barlow-condensed)] text-[10px] font-bold uppercase tracking-[0.16em] text-[#253d4e] shadow-lg group-hover:block">
+                                  {comp.name}
+                                </div>
+                              </div>
+                            ))}
                           </div>
                         )}
                       </div>
@@ -273,32 +281,6 @@ export function MachineCatalogueSection({
                     </div>
                   </div>
 
-                  {/* Photos Panel */}
-                  <div className={`tab-panel ${activeTab === 'photos' ? 'active' : ''}`}>
-                    <div className="photos-grid">
-                      {machine.photos.length > 0 ? (
-                        machine.photos.map((photo, i) => (
-                          <div key={i} className="ph-thumb" onClick={() => openModal(machine.id, i)}>
-                            <div className="ph-overlay">
-                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
-                              </svg>
-                            </div>
-                            <Image 
-                              src={photo.url || machine.image || '/placeholder.jpg'} 
-                              alt={photo.label}
-                              width={300}
-                              height={225}
-                              className="object-cover"
-                            />
-                          </div>
-                        ))
-                      ) : (
-                        <div className="col-span-4 py-10 text-center text-gray-400">No photos available.</div>
-                      )}
-                    </div>
-                  </div>
-
                   {/* Insights Panel */}
                   <div className={`tab-panel ${activeTab === 'insights' ? 'active' : ''}`}>
                     <div className="qa-list">
@@ -311,15 +293,7 @@ export function MachineCatalogueSection({
                     </div>
                   </div>
 
-                  {/* Use Cases Bar */}
-                  <div className="use-cases-bar">
-                    {machine.useCases.map((uc, i) => (
-                      <div key={i} className="ut">
-                        <div className="ut-icon">{uc.emoji}</div>
-                        <div className="ut-text">{uc.label}</div>
-                      </div>
-                    ))}
-                  </div>
+
 
                   <div className="m-cta-row">
                     <Link href={`/machines/${machine.slug}`} className="m-detail-btn">

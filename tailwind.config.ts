@@ -10,17 +10,17 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          navy: '#1B2F5E',
-          royal: '#2C4A8A',
-          gold: '#D4A843',
-          primary: '#1B2F5E',
-          secondary: '#2C4A8A',
-          accent: '#D4A843',
-          orange: '#1B2F5E', // Temporary mapping to Navy to remove orange theme
-          black: '#111827',
-          white: '#FFFFFF',
-          grey: '#6B7A93',
-          lightGrey: '#F4F6FA',
+          navy: '#104c8c',
+          royal: '#2799d4',
+          gold: '#fa6e35',
+          primary: '#104c8c',
+          secondary: '#2799d4',
+          accent: '#fa6e35',
+          orange: '#fa6e35',
+          black: '#253d4e',
+          white: '#ffffff',
+          grey: '#6b7a93',
+          lightGrey: '#f4f6fa',
         },
       },
       fontFamily: {

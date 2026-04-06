@@ -1,10 +1,12 @@
+import Image from 'next/image'
+
 const applications = [
-  { emoji: '🖼️', code: 'POS_DISPLAYS', label: 'Retail Signage' },
-  { emoji: '🏙️', code: 'OUTDOOR_ADV', label: 'Billboards' },
-  { emoji: '🚗', code: 'FLEET_WRAP', label: 'Vehicle Vinyl' },
-  { emoji: '🏗️', code: 'IND_PARTS', label: 'Metal Marking' },
-  { emoji: '💡', code: 'LIGHT_BOXES', label: 'Backlit Media' },
-  { emoji: '🧶', code: 'SOFT_SIGN', label: 'Dye-Sub Textiles' },
+  { image: 'https://i.ibb.co/VWfFmdC6/Google-Gemini-Generated-Image.png', code: 'POS_DISPLAYS', label: 'Retail Signage' },
+  { image: 'https://i.ibb.co/jqm3jB6/Google-Gemini-Generated-Image-1.png', code: 'OUTDOOR_ADV', label: 'Billboards' },
+  { image: 'https://i.ibb.co/xKpY7W2K/Backlit-Media-Theme-Apr-6-2026-3.png', code: 'FLEET_WRAP', label: 'Vehicle Vinyl' },
+  { image: 'https://i.ibb.co/xKpY7W2K/Backlit-Media-Theme-Apr-6-2026-3.png', code: 'IND_PARTS', label: 'Metal Marking' },
+  { image: 'https://i.ibb.co/4nkrMxQf/Backlit-Media-Theme-Apr-6-2026.png', code: 'LIGHT_BOXES', label: 'Backlit Media' },
+  { image: 'https://i.ibb.co/yBfWFqYB/Backlit-Media-Theme-Apr-6-2026-2.png', code: 'SOFT_SIGN', label: 'Dye-Sub Textiles' },
 ]
 
 const reasons = [
@@ -60,8 +62,16 @@ export function WhySection() {
                 key={application.code}
                 className="group aspect-square cursor-crosshair border-b border-r border-[#D0D6E0] p-6 transition-colors duration-200 ease-in-out hover:bg-[#ffffff]"
               >
-                <div className="flex h-full flex-col justify-between">
-                  <span className="text-3xl">{application.emoji}</span>
+                <div className="relative flex h-full flex-col justify-between">
+                  <div className="relative mb-4 h-14 w-14 overflow-hidden rounded-md border border-[#D0D6E0] bg-[#e8ecf2]">
+                    <Image
+                      src={application.image}
+                      alt={application.label}
+                      fill
+                      className="object-cover"
+                      sizes="56px"
+                    />
+                  </div>
                   <div>
                     <div className="mb-1 font-[var(--font-barlow-condensed)] text-[10px] font-black uppercase tracking-[0.18em] text-[#111827]">
                       {application.code}

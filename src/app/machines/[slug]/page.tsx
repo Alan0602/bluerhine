@@ -15,24 +15,7 @@ type MachinePageProps = {
   params: Promise<{ slug: string }>
 }
 
-const applicationTiles = [
-  { emoji: '🌆', label: 'Outdoor Billboards' },
-  { emoji: '🪧', label: 'Signage & Display' },
-  { emoji: '💡', label: 'Backlit Lightboxes' },
-  { emoji: '🎪', label: 'Exhibition Graphics' },
-  { emoji: '🚗', label: 'Vehicle Wraps' },
-  { emoji: '📦', label: 'Packaging' },
-  { emoji: '🏠', label: 'Home Decor' },
-  { emoji: '🏭', label: 'Industrial Design' },
-  { emoji: '🔷', label: 'Glass & Ceramic' },
-  { emoji: '🏗', label: 'Floor Graphics' },
-  { emoji: '🎨', label: 'Fine Art Prints' },
-  { emoji: '🪟', label: 'Window Graphics' },
-  { emoji: '✨', label: 'Reflective Films' },
-  { emoji: '🏷️', label: 'Advertising Stickers' },
-  { emoji: '📱', label: 'Phone Cases' },
-  { emoji: '💎', label: 'Crystal Stickers' },
-]
+
 
 export default async function MachineDetailPage({ params }: MachinePageProps) {
   const { slug } = await params
@@ -58,9 +41,8 @@ export default async function MachineDetailPage({ params }: MachinePageProps) {
             <Link
               key={link.href}
               href={link.href}
-              className={`font-[var(--font-barlow-condensed)] text-[10px] font-bold uppercase tracking-[0.2em] transition-colors duration-200 ease-in-out ${
-                index === 0 ? 'text-[#1B2F5E]' : 'text-[#111827] hover:text-[#1B2F5E]'
-              }`}
+              className={`font-[var(--font-barlow-condensed)] text-[10px] font-bold uppercase tracking-[0.2em] transition-colors duration-200 ease-in-out ${index === 0 ? 'text-[#1B2F5E]' : 'text-[#111827] hover:text-[#1B2F5E]'
+                }`}
             >
               {link.label}
             </Link>
@@ -82,125 +64,183 @@ export default async function MachineDetailPage({ params }: MachinePageProps) {
         </div>
       </div>
 
-      <section className="relative overflow-hidden border-b-2 border-[#111827] bg-[#ffffff]">
-        <div className="absolute inset-0 opacity-[0.08]" style={{ backgroundImage: machine.headerGradient }} />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#11182712_1px,transparent_1px),linear-gradient(to_bottom,#11182712_1px,transparent_1px)] bg-[size:84px_84px]" />
+      <section className="grain-overlay matte-surface relative overflow-hidden border-b-2 border-[#111827] bg-[#0a0f1a]">
+        {/* ── Abstract brutalist geometry (animated) ─── */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          {/* Grid pattern — concrete feel */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff04_1px,transparent_1px),linear-gradient(to_bottom,#ffffff04_1px,transparent_1px)] bg-[size:48px_48px]" />
 
-        <div className="relative mx-auto grid min-h-[calc(100vh-68px)] max-w-7xl grid-cols-1 gap-8 px-4 py-12 md:grid-cols-[1.1fr_0.9fr] md:px-16 md:py-20">
-          <div className="flex flex-col justify-center">
-            <div className="mb-8 flex flex-wrap items-center gap-3">
-              <div className="border-2 border-[#111827] bg-[#ffffff] px-4 py-2 font-[var(--font-barlow-condensed)] text-[13px] font-black uppercase tracking-[0.12em] text-[#111827]">
-                {machine.brand}
-              </div>
-              <div className="border-2 border-[#111827] bg-[#1B2F5E] px-4 py-2 font-[var(--font-barlow-condensed)] text-[10px] font-bold uppercase tracking-[0.2em] text-[#ffffff]">
-                {machine.model}
-              </div>
+          {/* Large floating diagonal block — top right */}
+          <div
+            className="absolute -right-16 -top-16 h-[460px] w-[460px] rotate-[14deg] border border-[#2799d4]/10 bg-[#1B2F5E]/15"
+            style={{ animation: 'float-slow 12s ease-in-out infinite' }}
+          />
+
+          {/* Layered rectangle — left mid */}
+          <div
+            className="absolute -left-12 top-[30%] h-[280px] w-[140px] border-2 border-[#2799d4]/10"
+            style={{ animation: 'float-slower 16s ease-in-out infinite' }}
+          />
+          <div
+            className="absolute -left-6 top-[33%] h-[200px] w-[80px] bg-[#2799d4]/[0.04]"
+            style={{ animation: 'float-slower 16s ease-in-out infinite 2s' }}
+          />
+
+          {/* Floating small blocks cluster — mid right */}
+          <div
+            className="absolute right-[18%] top-[18%] h-20 w-20 border border-[#ffffff]/[0.06] bg-[#1B2F5E]/10"
+            style={{ animation: 'float-slow 10s ease-in-out infinite 1s' }}
+          />
+          <div
+            className="absolute right-[15%] top-[24%] h-10 w-10 bg-[#2799d4]/[0.06]"
+            style={{ animation: 'float-slower 14s ease-in-out infinite' }}
+          />
+          <div
+            className="absolute right-[20%] top-[28%] h-6 w-6 bg-[#D4A843]/[0.08]"
+            style={{ animation: 'float-slow 8s ease-in-out infinite 3s' }}
+          />
+
+          {/* Cut-out shape — bottom right */}
+          <div
+            className="absolute -bottom-10 right-[10%] h-[180px] w-[300px] -rotate-3 border-t-2 border-[#2799d4]/15 bg-gradient-to-b from-[#2799d4]/[0.03] to-transparent"
+            style={{ animation: 'drift-x 20s ease-in-out infinite' }}
+          />
+
+          {/* Horizontal glowing lines */}
+          <div
+            className="absolute left-0 top-[38%] h-[1px] w-[35%] origin-left bg-gradient-to-r from-[#2799d4]/30 to-transparent"
+            style={{ animation: 'glow-pulse 4s ease-in-out infinite' }}
+          />
+          <div
+            className="absolute bottom-[25%] right-0 h-[1px] w-[20%] origin-right bg-gradient-to-l from-[#D4A843]/20 to-transparent"
+            style={{ animation: 'glow-pulse 4s ease-in-out infinite 2s' }}
+          />
+
+          {/* Large watermark text */}
+          <div className="glow-blue-text absolute -bottom-16 -right-6 hidden select-none font-[var(--font-barlow-condensed)] text-[20rem] font-black uppercase leading-none text-[#ffffff]/[0.02] md:block">
+            BR
+          </div>
+
+          {/* Circle accent */}
+          <div
+            className="absolute left-[6%] top-[12%] h-36 w-36 rounded-full border border-[#ffffff]/[0.04]"
+            style={{ animation: 'float-slower 18s ease-in-out infinite' }}
+          />
+          <div
+            className="absolute bottom-[15%] left-[25%] h-20 w-20 rounded-full border border-[#2799d4]/[0.06]"
+            style={{ animation: 'float-slow 14s ease-in-out infinite 4s' }}
+          />
+        </div>
+
+        {/* ── Content ──────────────────────────────── */}
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-10 md:px-16 md:py-14">
+          {/* Top bar — brand + model + category */}
+          <div className="mb-6 flex flex-wrap items-center gap-3 border-b border-[#ffffff]/[0.06] pb-5">
+            <div className="glass-card px-4 py-2 font-[var(--font-barlow-condensed)] text-[13px] font-black uppercase tracking-[0.12em] text-[#ffffff]">
+              {machine.brand}
             </div>
-
-            <div className="mb-8 border-l-4 border-[#1B2F5E] pl-6">
-              <p className="font-[var(--font-barlow-condensed)] text-[13px] font-black uppercase tracking-[0.12em] text-[#1B2F5E]">
-                {machine.subtitle}
-              </p>
+            <div className="border-2 border-[#2799d4] bg-[#2799d4] px-4 py-2 font-[var(--font-barlow-condensed)] text-[10px] font-bold uppercase tracking-[0.2em] text-[#0a0f1a]">
+              {machine.model}
             </div>
-
-            <h1 className="font-[var(--font-barlow-condensed)] text-[56px] font-black uppercase leading-[0.9] tracking-[-0.05em] text-[#111827] md:text-7xl lg:text-[7rem]">
-              {machine.fullName}
-            </h1>
-
-            <p className="mt-6 max-w-2xl text-xl leading-[1.8] text-[#2E3A4E] md:text-[1.25rem]">
-              {machine.overview}
-            </p>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              {machine.tags.slice(0, 5).map((tag) => (
-                <span
-                  key={`${machine.id}-${tag}`}
-                  className="border border-[#111827] bg-[#ffffff] px-4 py-2 font-[var(--font-barlow-condensed)] text-[10px] font-bold uppercase tracking-[0.18em] text-[#111827]"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-            <div className="flex flex-col gap-4 pt-10 md:flex-row md:flex-wrap">
-              <Button href="#specs" size="lg" className="border-2 border-[#111827] px-10 py-5 text-sm tracking-[0.1em]">
-                Get Specifications
-              </Button>
-              <Button
-                href="#features"
-                variant="outline"
-                size="lg"
-                className="border-2 border-[#1B2F5E] px-10 py-5 text-sm tracking-[0.1em] text-[#1B2F5E] hover:border-[#111827] hover:bg-[#111827] hover:text-[#1B2F5E]"
-              >
-                Explore Features
-              </Button>
+            <div className="ml-auto hidden items-center gap-3 md:flex">
+              <div className="h-[1px] w-8 bg-[#ffffff]/10" />
+              <span className="font-[var(--font-barlow-condensed)] text-[10px] font-bold uppercase tracking-[0.2em] text-[#ffffff]/30">
+                {machine.category.replace(/-/g, ' ')}
+              </span>
             </div>
           </div>
 
-          <div className="flex flex-col justify-center">
-            {machine.image ? (
-              <div className="relative mb-8 flex min-h-[320px] w-full items-center justify-center md:min-h-[480px]">
-                <Image
-                  src={machine.image}
-                  alt={machine.fullName}
-                  fill
-                  className="object-contain drop-shadow-2xl"
-                  priority
-                  sizes="(min-width: 768px) 50vw, 100vw"
-                />
-              </div>
-            ) : null}
-            <div className="border-2 border-[#111827] bg-[#ffffff] p-6 md:p-8">
-
-              <div className="mb-6 flex items-center justify-between border-b-2 border-dashed border-[#111827] pb-4">
-                <span className="font-[var(--font-barlow-condensed)] text-[13px] font-black uppercase tracking-[0.16em] text-[#1B2F5E]">
-                  Machine Snapshot
-                </span>
-                <span className="font-[var(--font-barlow-condensed)] text-[10px] font-black uppercase tracking-[0.18em] text-[#111827]">
-                  {machine.category.replace(/-/g, ' ')}
-                </span>
+          {/* Main hero grid */}
+          <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-[1.15fr_0.85fr] md:gap-14">
+            {/* Left — content */}
+            <div>
+              <div className="mb-5 flex items-center gap-3">
+                <div className="h-[3px] w-8 bg-[#2799d4]" />
+                <p className="font-[var(--font-barlow-condensed)] text-[11px] font-bold uppercase tracking-[0.2em] text-[#2799d4]">
+                  {machine.subtitle}
+                </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <h1 className="glow-blue-text mb-6 font-[var(--font-barlow-condensed)] text-[3rem] font-black uppercase leading-[0.88] tracking-[-0.04em] text-[#ffffff] md:text-[4.5rem] lg:text-[6rem]">
+                {machine.fullName}
+              </h1>
+
+              <p className="mb-8 max-w-lg text-base leading-[1.75] text-[#8896AB] md:text-[1.05rem]">
+                {machine.overview}
+              </p>
+
+              {/* Tags */}
+              <div className="mb-8 flex flex-wrap gap-2">
+                {machine.tags.slice(0, 5).map((tag) => (
+                  <span
+                    key={`${machine.id}-${tag}`}
+                    className="glass-card px-3 py-1.5 font-[var(--font-barlow-condensed)] text-[9px] font-bold uppercase tracking-[0.2em] text-[#ffffff]/50"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {/* Sharp-edge CTA buttons */}
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <Button
+                  href="#specs"
+                  size="lg"
+                  className="glow-blue border-2 border-[#2799d4] bg-[#2799d4] px-10 py-5 text-sm font-black uppercase tracking-[0.15em] text-[#0a0f1a] transition-all duration-300 hover:bg-transparent hover:text-[#2799d4] hover:shadow-[0_0_40px_rgba(39,153,212,0.25)]"
+                >
+                  Get Specifications
+                </Button>
+                <Button
+                  href="#features"
+                  variant="outline"
+                  size="lg"
+                  className="border-2 border-[#ffffff]/15 px-10 py-5 text-sm font-bold uppercase tracking-[0.15em] text-[#ffffff]/70 transition-all duration-300 hover:border-[#2799d4]/50 hover:text-[#2799d4]"
+                >
+                  Explore Features
+                </Button>
+              </div>
+            </div>
+
+            {/* Right — machine image + key specs */}
+            <div className="relative">
+              {machine.image ? (
+                <div className="relative flex min-h-[280px] w-full items-center justify-center md:min-h-[400px]">
+                  {/* Layered brutalist frames */}
+                  <div className="absolute -bottom-3 -right-3 h-full w-full border border-[#2799d4]/15" />
+                  <div className="absolute -bottom-6 -right-6 hidden h-full w-full border border-[#ffffff]/[0.04] md:block" />
+                  <div className="absolute -left-2 -top-2 h-10 w-10 bg-[#2799d4]/10" />
+                  <div className="absolute -right-1 top-4 h-6 w-6 bg-[#D4A843]/10" />
+
+                  <Image
+                    src={machine.image}
+                    alt={machine.fullName}
+                    fill
+                    className="object-contain drop-shadow-[0_20px_80px_rgba(39,153,212,0.12)]"
+                    priority
+                    sizes="(min-width: 768px) 42vw, 100vw"
+                  />
+                </div>
+              ) : null}
+
+              {/* Key specs strip */}
+              <div className="mt-6 grid grid-cols-2 gap-0">
                 {primarySpecs.map((spec, index) => (
                   <div
                     key={`${machine.id}-${spec.label}`}
-                    className={`min-h-32 border border-[#111827] p-4 ${
-                      index === 0 ? 'bg-[#111827] text-[#ffffff]' : 'bg-[#F4F6FA] text-[#111827]'
-                    }`}
+                    className={`border border-[#ffffff]/[0.06] p-4 ${index === 0
+                        ? 'bg-[#2799d4] text-[#0a0f1a]'
+                        : 'glass-card text-[#ffffff]'
+                      }`}
                   >
-                    <div className="font-[var(--font-barlow-condensed)] text-[10px] font-bold uppercase tracking-[0.18em] text-[#D4A843]">
+                    <div className={`font-[var(--font-barlow-condensed)] text-[9px] font-bold uppercase tracking-[0.2em] ${index === 0 ? 'text-[#0a0f1a]/50' : 'text-[#2799d4]'
+                      }`}>
                       {spec.label}
                     </div>
-                    <div className="mt-6 font-[var(--font-barlow-condensed)] text-[1.8rem] font-black uppercase leading-none md:text-[2.2rem]">
+                    <div className="mt-2 font-[var(--font-barlow-condensed)] text-[1.3rem] font-black uppercase leading-none md:text-[1.5rem]">
                       {spec.value}
                     </div>
                   </div>
                 ))}
-              </div>
-
-              <div className="mt-6 border border-[#111827] bg-[#F4F6FA] p-5">
-                <div className="mb-3 font-[var(--font-barlow-condensed)] text-[10px] font-bold uppercase tracking-[0.2em] text-[#111827]">
-                  Production Readiness
-                </div>
-                <div className="space-y-3">
-                  {machine.keyFeatures.slice(0, 3).map((feature, index) => (
-                    <div
-                      key={`${machine.id}-${feature.title}`}
-                      className="flex items-start gap-3 border-b border-dashed border-[#111827]/20 pb-3 last:border-b-0 last:pb-0"
-                    >
-                      <span className="font-[var(--font-barlow-condensed)] text-xl font-black text-[#1B2F5E]">
-                        0{index + 1}
-                      </span>
-                      <div>
-                        <div className="font-[var(--font-barlow-condensed)] text-sm font-bold uppercase text-[#111827]">
-                          {feature.title}
-                        </div>
-                        <div className="text-lg leading-8 text-[#2E3A4E]">{feature.description}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
@@ -289,29 +329,35 @@ export default async function MachineDetailPage({ params }: MachinePageProps) {
       ) : null}
 
       <section className="border-t border-dashed border-[#111827] px-4 py-16 md:px-16 md:py-24">
-        <p className="mb-12 font-[var(--font-barlow-condensed)] text-[13px] font-black uppercase tracking-[0.16em] text-[#1B2F5E]">
-          Applications
+        <p className="mb-4 font-[var(--font-barlow-condensed)] text-[13px] font-black uppercase tracking-[0.16em] text-[#1B2F5E]">
+          Compatible Materials
         </p>
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-8">
-          {applicationTiles.map((tile) => (
+        <p className="mb-10 max-w-2xl text-sm leading-relaxed text-[#6B7A93]">
+          This machine supports a wide range of substrates and materials for diverse production needs.
+        </p>
+        <div className="flex flex-wrap gap-3">
+          {machine.applicableMaterials.map((material, index) => (
             <div
-              key={tile.label}
-              className="group border border-[#111827] p-4 text-center transition-all duration-200 ease-in-out hover:bg-[#1B2F5E] hover:text-[#ffffff]"
+              key={material}
+              className="group flex items-center gap-3 border-2 border-[#111827] bg-[#ffffff] px-5 py-3 transition-all duration-200 ease-in-out hover:bg-[#111827] hover:text-[#ffffff]"
             >
-              <span className="mb-2 block text-2xl">{tile.emoji}</span>
-              <p className="font-[var(--font-barlow-condensed)] text-[9px] font-black uppercase tracking-[0.16em] leading-tight">
-                {tile.label}
-              </p>
+              <span className="font-[var(--font-barlow-condensed)] text-[11px] font-bold text-[#1B2F5E] transition-colors group-hover:text-[#D4A843]">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <span className="font-[var(--font-barlow-condensed)] text-sm font-bold uppercase tracking-[0.08em]">
+                {material}
+              </span>
             </div>
           ))}
         </div>
       </section>
 
-      <section id="use-cases" className="bg-[#ffffff] px-4 py-16 md:px-16 md:py-24">
-        <p className="mb-12 font-[var(--font-barlow-condensed)] text-[13px] font-black uppercase tracking-[0.16em] text-[#1B2F5E]">
-          Use Cases
-        </p>
-        <UseCaseBar items={machine.useCases} />
+      <section id="use-cases" className="relative overflow-hidden bg-[#F4F6FA] px-4 py-16 md:px-16 md:py-24">
+        {/* Subtle texture */}
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#11182706_1px,transparent_1px),linear-gradient(to_bottom,#11182706_1px,transparent_1px)] bg-[size:48px_48px]" />
+        <div className="relative">
+          <UseCaseBar items={machine.useCases} />
+        </div>
       </section>
 
 

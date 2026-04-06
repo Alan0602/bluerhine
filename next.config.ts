@@ -34,6 +34,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'static.wixstatic.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'i.ibb.co',
+      },
     ],
     formats: ['image/avif', 'image/webp'],
   },

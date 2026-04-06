@@ -14,8 +14,8 @@ export function ComponentPins({ components, image, machineName = 'Machine' }: Co
   return (
     <section className="space-y-8">
       {hasPinnedDiagram ? (
-        <div className="relative hidden overflow-hidden border-2 border-[#111827] bg-[#F4F6FA] p-12 md:block">
-          <div className="relative flex h-[520px] w-full items-center justify-center border border-[#111827] bg-[linear-gradient(135deg,#f9fafb_0%,#E8ECF2_100%)]">
+        <div className="relative hidden overflow-hidden border-2 border-[#253d4e] bg-[#F4F6FA] p-12 md:block">
+          <div className="relative flex h-[520px] w-full items-center justify-center border border-[#253d4e] bg-[linear-gradient(135deg,#f9fafb_0%,#E8ECF2_100%)]">
             {image && (
               <Image
                 src={image}
@@ -33,10 +33,10 @@ export function ComponentPins({ components, image, machineName = 'Machine' }: Co
                   className="group absolute z-10"
                   style={{ left: `${component.pin?.x}%`, top: `${component.pin?.y}%` }}
                 >
-                  <div className="flex h-6 w-6 -translate-x-1/2 -translate-y-1/2 items-center justify-center bg-[#1B2F5E] font-[var(--font-barlow-condensed)] text-sm font-bold text-[#ffffff] shadow-md ring-2 ring-white cursor-pointer hover:scale-110 transition-transform">
+                  <div className="flex h-6 w-6 -translate-x-1/2 -translate-y-1/2 items-center justify-center bg-[#104c8c] font-[var(--font-barlow-condensed)] text-sm font-bold text-[#ffffff] shadow-md ring-2 ring-white cursor-pointer hover:scale-110 transition-transform">
                     {component.number}
                   </div>
-                  <div className="absolute bottom-full left-1/2 mb-2 hidden -translate-x-1/2 whitespace-nowrap border border-[#111827] bg-[#ffffff] px-3 py-2 font-[var(--font-barlow-condensed)] text-[10px] font-bold uppercase tracking-[0.16em] text-[#111827] shadow-lg group-hover:block">
+                  <div className="absolute bottom-full left-1/2 mb-2 hidden -translate-x-1/2 whitespace-nowrap border border-[#253d4e] bg-[#ffffff] px-3 py-2 font-[var(--font-barlow-condensed)] text-[10px] font-bold uppercase tracking-[0.16em] text-[#253d4e] shadow-lg group-hover:block">
                     {component.name}
                   </div>
                 </div>
@@ -54,11 +54,11 @@ export function ComponentPins({ components, image, machineName = 'Machine' }: Co
             key={`${component.number}-${component.name}`}
             className="flex items-center gap-6 border-b border-dashed border-[#D0D6E0] py-3 last:border-b-0"
           >
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center border-2 border-[#111827] font-[var(--font-barlow-condensed)] text-base font-bold text-[#1B2F5E] transition-colors duration-200 ease-in-out hover:bg-[#111827] hover:text-[#ffffff]">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center border-2 border-[#253d4e] font-[var(--font-barlow-condensed)] text-base font-bold text-[#104c8c] transition-colors duration-200 ease-in-out hover:bg-[#253d4e] hover:text-[#ffffff]">
               {String(component.number).padStart(2, '0')}
             </div>
             <div className="flex flex-col">
-              <span className="font-[var(--font-barlow-condensed)] text-xs font-bold uppercase tracking-[0.18em] text-[#111827]">
+              <span className="font-[var(--font-barlow-condensed)] text-xs font-bold uppercase tracking-[0.18em] text-[#253d4e]">
                 {component.name}
               </span>
               <p className="text-base leading-7 text-[#6B7A93]">
