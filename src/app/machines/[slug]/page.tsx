@@ -7,7 +7,7 @@ import { PhotoGrid } from '@/components/catalogue/PhotoGrid'
 import { SalesQA } from '@/components/catalogue/SalesQA'
 import { SpecTable } from '@/components/catalogue/SpecTable'
 import { SpeedTable } from '@/components/catalogue/SpeedTable'
-import { UseCaseBar } from '@/components/catalogue/UseCaseBar'
+
 import { Button } from '@/components/ui/Button'
 import { data, getMachineBySlug } from '@/lib/utils'
 
@@ -30,7 +30,6 @@ export default async function MachineDetailPage({ params }: MachinePageProps) {
   const sectionLinks = [
     { href: '#specs', label: 'Specs' },
     { href: '#features', label: 'Features' },
-    { href: '#use-cases', label: 'Use Cases' },
   ]
 
   return (
@@ -352,13 +351,6 @@ export default async function MachineDetailPage({ params }: MachinePageProps) {
         </div>
       </section>
 
-      <section id="use-cases" className="relative overflow-hidden bg-[#F4F6FA] px-4 py-16 md:px-16 md:py-24">
-        {/* Subtle texture */}
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#11182706_1px,transparent_1px),linear-gradient(to_bottom,#11182706_1px,transparent_1px)] bg-[size:48px_48px]" />
-        <div className="relative">
-          <UseCaseBar items={machine.useCases} />
-        </div>
-      </section>
 
 
       <section className="relative overflow-hidden bg-[#111827] px-4 py-16 text-[#ffffff] md:px-16 md:py-24">
