@@ -70,6 +70,7 @@ export interface UseCase {
 export interface Photo {
   label: string
   caption: string
+  url?: string
 }
 
 export interface SalesInsight {

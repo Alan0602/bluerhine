@@ -10,11 +10,17 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          orange: '#F26522',
-          black: '#111111',
+          navy: '#1B2F5E',
+          royal: '#2C4A8A',
+          gold: '#D4A843',
+          primary: '#1B2F5E',
+          secondary: '#2C4A8A',
+          accent: '#D4A843',
+          orange: '#1B2F5E', // Temporary mapping to Navy to remove orange theme
+          black: '#111827',
           white: '#FFFFFF',
-          grey: '#6B7280',
-          lightGrey: '#F1F5F9',
+          grey: '#6B7A93',
+          lightGrey: '#F4F6FA',
         },
       },
       fontFamily: {

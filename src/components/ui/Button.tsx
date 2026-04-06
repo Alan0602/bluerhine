@@ -13,10 +13,10 @@ type ButtonProps = {
 
 const variantClasses = {
   primary:
-    'border border-[#111111] bg-[#111111] text-[#ffffff] hover:bg-[#f26522] hover:border-[#f26522]',
+    'border border-[#111827] bg-[#111827] text-[#ffffff] hover:bg-[#1B2F5E] hover:border-[#1B2F5E]',
   outline:
-    'border border-[#111111] bg-transparent text-[#111111] hover:bg-[#111111] hover:text-[#ffffff]',
-  ghost: 'border border-transparent bg-transparent text-[#111111] hover:text-[#f26522]',
+    'border border-[#111827] bg-transparent text-[#111827] hover:bg-[#111827] hover:text-[#ffffff]',
+  ghost: 'border border-transparent bg-transparent text-[#111827] hover:text-[#1B2F5E]',
 }
 
 const sizeClasses = {

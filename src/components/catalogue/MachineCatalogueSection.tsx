@@ -1,9 +1,12 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
-import { startTransition, useDeferredValue, useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 import { data } from '@/lib/utils'
+
+import './MachineList.css'
 
 type MachineCatalogueSectionProps = {
   initialCategory?: string
@@ -11,191 +14,360 @@ type MachineCatalogueSectionProps = {
   title: string
   description: string
   sectionId?: string
-  showStats?: boolean
 }
 
 type MachineRecord = (typeof data.machines)[number]
 
-const categoryLabels = new Map(data.categories.map((category) => [category.id, category.label]))
-const availableCategories = Array.from(new Set(data.machines.map((machine) => machine.category)))
-
-const filterOptions = [
-  { id: 'all', label: 'All Models' },
-  ...availableCategories.map((categoryId) => ({
-    id: categoryId,
-    label: categoryLabels.get(categoryId) ?? categoryId.replace(/-/g, ' '),
-  })),
-]
-
-function getSafeCategory(category?: string) {
-  if (!category) return 'all'
-  return availableCategories.includes(category) ? category : 'all'
-}
-
-function buildReferenceLabel(model: string, index: number) {
-  const normalizedModel = model.replace(/[^a-z0-9]/gi, '').toUpperCase()
-  return `REF_${normalizedModel}_${String(index + 1).padStart(2, '0')}`
-}
-
-function getCategoryLabel(machine: MachineRecord) {
-  return categoryLabels.get(machine.category) ?? machine.category.replace(/-/g, ' ')
-}
-
-function getAccentClass(category: string) {
-  if (category === 'laser') return 'bg-[#f26522]'
-  if (category === 'roll') return 'bg-cyan-500'
-  if (category === 'uv-flatbed') return 'bg-emerald-500'
-  if (category === 'industrial') return 'bg-sky-500'
-  return 'bg-violet-500'
-}
-
-function ListingRow({ machine, index }: { machine: MachineRecord; index: number }) {
-  return (
-    <article className="group border-b-2 border-[#111111] bg-[#ffffff] transition-colors duration-200 hover:bg-[#fafafa]">
-      <Link href={`/machines/${machine.slug}`} className="block">
-        <div className="flex flex-col gap-4 px-5 py-5 md:flex-row md:items-center md:gap-8 md:px-8 md:py-5">
-          {/* Left: Name & Brand */}
-          <div className="flex min-w-0 shrink-0 flex-col gap-1 md:w-[320px]">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center gap-1.5 font-[var(--font-barlow-condensed)] text-[11px] font-bold uppercase tracking-[0.18em] text-[#6b7280]">
-                <span className={`h-2 w-2 rounded-full ${getAccentClass(machine.category)}`} />
-                {getCategoryLabel(machine)}
-              </span>
-              <span className="font-[var(--font-barlow-condensed)] text-[11px] font-bold uppercase tracking-[0.18em] text-[#9ca3af]">
-                {machine.brand}
-              </span>
-            </div>
-            <h3 className="font-[var(--font-barlow-condensed)] text-2xl font-black uppercase leading-none tracking-[-0.04em] text-[#111111] md:text-[1.75rem]">
-              {machine.fullName}
-            </h3>
-            <p className="font-[var(--font-barlow-condensed)] text-sm font-bold uppercase tracking-[0.06em] text-[#f26522]">
-              {machine.subtitle}
-            </p>
-          </div>
-
-          {/* Center: Key specs inline */}
-          <div className="flex min-w-0 flex-1 flex-wrap items-center gap-2">
-            {machine.keySpecs.slice(0, 4).map((spec, specIndex) => (
-              <span
-                key={`${machine.id}-${spec.label}`}
-                className={`inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-1.5 font-[var(--font-barlow-condensed)] text-[12px] font-bold uppercase tracking-[0.1em] ${
-                  specIndex === 0
-                    ? 'border border-[#111111] bg-[#111111] text-[#ffffff]'
-                    : 'border border-[#e5e7eb] bg-[#f8fafc] text-[#111111]'
-                }`}
-              >
-                <span className={specIndex === 0 ? 'text-[#f26522]' : 'text-[#9ca3af]'}>{spec.label}:</span>
-                {spec.value}
-              </span>
-            ))}
-          </div>
-
-          {/* Right: Arrow */}
-          <div className="hidden shrink-0 items-center md:flex">
-            <span className="font-[var(--font-barlow-condensed)] text-2xl text-[#d1d5db] transition-colors duration-200 group-hover:text-[#f26522]">
-              →
-            </span>
-          </div>
-        </div>
-      </Link>
-    </article>
-  )
-}
-
 export function MachineCatalogueSection({
-  initialCategory,
+  initialCategory = 'all',
   introLabel,
   title,
   description,
   sectionId,
-  showStats = false,
 }: MachineCatalogueSectionProps) {
-  const [activeCategory, setActiveCategory] = useState(getSafeCategory(initialCategory))
+  const [activeCategory, setActiveCategory] = useState(initialCategory)
+  const [activeMachineId, setActiveMachineId] = useState<string | null>(null)
+  const [expandedId, setExpandedId] = useState<string | null>(null)
+  
+  const [activeTabs, setActiveTabs] = useState<Record<string, string>>({})
+
+  // Modal state
+  const [modalOpen, setModalOpen] = useState(false)
+  const [modalMachineId, setModalMachineId] = useState<string | null>(null)
+  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0)
 
   useEffect(() => {
-    setActiveCategory(getSafeCategory(initialCategory))
+    setActiveCategory(initialCategory)
   }, [initialCategory])
 
-  const deferredCategory = useDeferredValue(activeCategory)
+  const categories = useMemo(() => {
+    const cats = data.categories.map(c => ({ id: c.id, label: c.label }))
+    return [{ id: 'all', label: 'All Models' }, ...cats]
+  }, [])
 
-  const visibleMachines = useMemo(
-    () =>
-      deferredCategory === 'all'
-        ? data.machines
-        : data.machines.filter((machine) => machine.category === deferredCategory),
-    [deferredCategory],
-  )
+  // Category counts for the dropdown
+  const categoryCounts = useMemo(() => {
+    const map: Record<string, number> = {}
+    data.machines.forEach(m => {
+      map[m.category] = (map[m.category] || 0) + 1
+    })
+    return map
+  }, [])
+
+  const filteredMachines = useMemo(() => {
+    if (activeMachineId) return data.machines.filter(m => m.id === activeMachineId)
+    if (activeCategory === 'all') return data.machines
+    return data.machines.filter(m => m.category === activeCategory)
+  }, [activeCategory, activeMachineId])
+
+  const toggleExpand = (id: string) => {
+    setExpandedId(expandedId === id ? null : id)
+  }
+
+  const handleDropdownChange = (value: string) => {
+    if (value === 'all') {
+      setActiveMachineId(null)
+      setActiveCategory('all')
+    } else if (value.startsWith('cat:')) {
+      setActiveMachineId(null)
+      setActiveCategory(value.replace('cat:', ''))
+    } else if (value.startsWith('name:')) {
+      const slug = value.replace('name:', '')
+      const machine = data.machines.find(m => m.slug === slug)
+      if (machine) {
+        setActiveMachineId(machine.id)
+        setActiveCategory('all')
+        setExpandedId(machine.id)
+      }
+    }
+  }
+
+  const getActiveTab = (machineId: string) => activeTabs[machineId] || 'overview'
+
+  const setTab = (machineId: string, tab: string) => {
+    setActiveTabs(prev => ({ ...prev, [machineId]: tab }))
+  }
+
+  const openModal = (machineId: string, photoIndex: number) => {
+    setModalMachineId(machineId)
+    setCurrentPhotoIndex(photoIndex)
+    setModalOpen(true)
+    document.body.style.overflow = 'hidden'
+  }
+
+  const closeModal = () => {
+    setModalOpen(false)
+    setModalMachineId(null)
+    document.body.style.overflow = 'auto'
+  }
+
+  const modalMachine = useMemo(() => {
+    if (!modalMachineId) return null
+    return data.machines.find(m => m.id === modalMachineId)
+  }, [modalMachineId])
 
   return (
-    <section id={sectionId} className="mx-auto max-w-7xl space-y-10 px-6 py-24 md:px-8">
-      <div className="text-left">
-        <span className="font-[var(--font-barlow-condensed)] text-[11px] font-bold uppercase tracking-[0.2em] text-[#f26522]">
-          {'// '}
+    <section id={sectionId} className="m-container py-24">
+      <div className="m-header">
+        <span className="font-[var(--font-barlow-condensed)] text-[13px] font-black uppercase tracking-[0.16em] text-[#1B2F5E]">
           {introLabel}
         </span>
-        <h2 className="mt-4 font-[var(--font-barlow-condensed)] text-5xl font-black uppercase tracking-[-0.05em] text-[#111111] md:text-6xl lg:text-7xl">
+        <h2 className="mt-4 font-[var(--font-barlow-condensed)] text-5xl font-black uppercase tracking-[-0.05em] text-[#111827] md:text-6xl lg:text-7xl">
           {title}
         </h2>
-        <p className="mt-5 max-w-4xl text-lg leading-8 text-[#4b5563] md:text-xl md:leading-[1.8]">
+        <p className="mt-5 max-w-4xl text-lg leading-8 text-[#2E3A4E] md:text-xl md:leading-[1.8]">
           {description}
         </p>
       </div>
 
-      {showStats ? (
-        <div className="grid w-full grid-cols-2 border-2 border-[#111111] bg-white md:grid-cols-4">
-          {[
-            { value: `${data.machines.length}+`, label: 'Models Available' },
-            { value: '5m', label: 'Max Width' },
-            { value: '400+', label: 'm²/h Speed' },
-            { value: 'UV LED', label: 'Curing Tech' },
-          ].map((stat) => (
-            <div
-              key={stat.label}
-              className="relative flex min-h-[150px] flex-col items-start justify-end overflow-hidden border-[#111111] p-6 odd:border-r-2 md:min-h-[180px] md:p-8 md:[&:not(:last-child)]:border-r-2"
-            >
-              <div className="absolute left-0 top-0 h-10 w-1 bg-[#f26522]" />
-              <span className="font-[var(--font-barlow-condensed)] text-[2.3rem] font-black leading-none md:text-[2.9rem]">
-                {stat.value}
-              </span>
-              <span className="mt-3 font-[var(--font-barlow-condensed)] text-[11px] font-bold uppercase tracking-[0.2em] text-[#f26522]">
-                {'// '}
-                {stat.label}
-              </span>
-            </div>
-          ))}
-        </div>
-      ) : null}
+      <div className="m-filters">
+        {categories.map((cat) => (
+          <button
+            key={cat.id}
+            className={`f-btn ${
+              !activeMachineId && activeCategory === cat.id ? 'active' : ''
+            }`}
+            onClick={() => {
+              setActiveMachineId(null)
+              setActiveCategory(cat.id)
+            }}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
 
-      <div className="flex flex-wrap gap-4">
-        {filterOptions.map((option) => {
-          const isActive = activeCategory === option.id
+      <div className="fdr-wrap">
+        <select
+          className="fdr-sel"
+          onChange={(e) => handleDropdownChange(e.target.value)}
+          value={
+            activeMachineId
+              ? `name:${data.machines.find(m => m.id === activeMachineId)?.slug || ''}`
+              : activeCategory === 'all'
+              ? 'all'
+              : `cat:${activeCategory}`
+          }
+        >
+          <option value="all">All Machines ({data.machines.length})</option>
+
+          <optgroup label="Filter by Category">
+            {data.categories.map((cat) => (
+              <option key={cat.id} value={`cat:${cat.id}`}>
+                {cat.label} · {categoryCounts[cat.id] || 0} machine{(categoryCounts[cat.id] || 0) !== 1 ? 's' : ''}
+              </option>
+            ))}
+          </optgroup>
+
+          <optgroup label="Filter by Machine">
+            {data.machines.map((machine) => (
+              <option key={machine.id} value={`name:${machine.slug}`}>
+                {machine.fullName}
+              </option>
+            ))}
+          </optgroup>
+        </select>
+      </div>
+
+      <div className="m-list">
+        {filteredMachines.map((machine, index) => {
+          const isExpanded = expandedId === machine.id
+          const activeTab = getActiveTab(machine.id)
+          const categoryLabel = data.categories.find(c => c.id === machine.category)?.label || machine.category
 
           return (
-            <button
-              key={option.id}
-              type="button"
-              onClick={() => {
-                startTransition(() => {
-                  setActiveCategory(option.id)
-                })
-              }}
-              className={`border-2 px-4 py-2.5 font-[var(--font-barlow-condensed)] text-[11px] font-bold uppercase tracking-[0.18em] transition-colors ${
-                isActive
-                  ? 'border-[#f26522] bg-[#f26522] text-white'
-                  : 'border-[#111111] bg-white text-[#111111] hover:bg-[#111111] hover:text-white'
-              }`}
-            >
-              {option.label}
-            </button>
+            <div key={machine.id} className={`m-item ${isExpanded ? 'expanded' : ''}`}>
+              <div className="m-summary" onClick={() => toggleExpand(machine.id)}>
+                <div className="m-index">{(index + 1).toString().padStart(2, '0')}</div>
+                <div className="m-title-area">
+                  <div className="mitem-brand">{machine.brand}</div>
+                  <div className="mitem-name">{machine.fullName}</div>
+                  <div className="mitem-tagline">{machine.subtitle}</div>
+                </div>
+                <div className="m-spec-pills">
+                  {machine.keySpecs.slice(0, 3).map((spec) => (
+                    <span key={spec.label} className="spec-pill">{spec.value}</span>
+                  ))}
+                </div>
+                <div className="cat-badge">{categoryLabel}</div>
+                <div className="m-chevron">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </div>
+              </div>
+
+              <div className="m-content">
+                <div className="c-inner">
+                  <div className="c-tabs">
+                    <div 
+                      className={`c-tab ${activeTab === 'overview' ? 'active' : ''}`}
+                      onClick={() => setTab(machine.id, 'overview')}
+                    >
+                      Overview
+                    </div>
+                    <div 
+                      className={`c-tab ${activeTab === 'features' ? 'active' : ''}`}
+                      onClick={() => setTab(machine.id, 'features')}
+                    >
+                      Key Features
+                    </div>
+                    <div 
+                      className={`c-tab ${activeTab === 'photos' ? 'active' : ''}`}
+                      onClick={() => setTab(machine.id, 'photos')}
+                    >
+                      Photos
+                    </div>
+                    {machine.salesInsights && machine.salesInsights.length > 0 && (
+                      <div 
+                        className={`c-tab ${activeTab === 'insights' ? 'active' : ''}`}
+                        onClick={() => setTab(machine.id, 'insights')}
+                      >
+                        Sales Insights
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Overview Panel */}
+                  <div className={`tab-panel ${activeTab === 'overview' ? 'active' : ''}`}>
+                    <div className="overview-grid">
+                      <div className="panel-left">
+                        <div className="m-desc">{machine.overview}</div>
+                        <div className="tag-cloud">
+                          {machine.tags.map(tag => <span key={tag}>{tag}</span>)}
+                        </div>
+                        <div className="component-list">
+                          {machine.components.slice(0, 8).map((comp, i) => (
+                            <div key={i} className="ci">
+                              <span className="ci-num">{i + 1}</span>
+                              {comp.name}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="panel-right">
+                        {machine.image && (
+                          <div className="relative h-[400px] w-full">
+                             <Image 
+                                src={machine.image} 
+                                alt={machine.fullName} 
+                                fill 
+                                className="object-contain" 
+                                sizes="(max-width: 768px) 100vw, 40vw"
+                              />
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Features Panel */}
+                  <div className={`tab-panel ${activeTab === 'features' ? 'active' : ''}`}>
+                    <div className="feature-grid">
+                      {machine.keyFeatures.map((f, i) => (
+                        <div key={i} className="fc">
+                          <h4>{f.title}</h4>
+                          <p>{f.description}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Photos Panel */}
+                  <div className={`tab-panel ${activeTab === 'photos' ? 'active' : ''}`}>
+                    <div className="photos-grid">
+                      {machine.photos.length > 0 ? (
+                        machine.photos.map((photo, i) => (
+                          <div key={i} className="ph-thumb" onClick={() => openModal(machine.id, i)}>
+                            <div className="ph-overlay">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                              </svg>
+                            </div>
+                            <Image 
+                              src={photo.url || machine.image || '/placeholder.jpg'} 
+                              alt={photo.label}
+                              width={300}
+                              height={225}
+                              className="object-cover"
+                            />
+                          </div>
+                        ))
+                      ) : (
+                        <div className="col-span-4 py-10 text-center text-gray-400">No photos available.</div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Insights Panel */}
+                  <div className={`tab-panel ${activeTab === 'insights' ? 'active' : ''}`}>
+                    <div className="qa-list">
+                      {machine.salesInsights?.map((qa, i) => (
+                        <div key={i} className="qa-item">
+                          <div className="q"><span>Q.</span> {qa.q}</div>
+                          <div className="a">{qa.a}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Use Cases Bar */}
+                  <div className="use-cases-bar">
+                    {machine.useCases.map((uc, i) => (
+                      <div key={i} className="ut">
+                        <div className="ut-icon">{uc.emoji}</div>
+                        <div className="ut-text">{uc.label}</div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="m-cta-row">
+                    <Link href={`/machines/${machine.slug}`} className="m-detail-btn">
+                      View Full Details
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
           )
         })}
       </div>
 
-      <div className="border-t-2 border-[#111111]">
-        {visibleMachines.map((machine, index) => (
-          <ListingRow key={machine.id} machine={machine} index={index} />
-        ))}
-      </div>
+      {/* Modal */}
+      {modalOpen && modalMachine && (
+        <div className="modal-backdrop active" onClick={closeModal}>
+          <div className="modal-close" onClick={closeModal}>×</div>
+          <div className="modal-container" onClick={e => e.stopPropagation()}>
+            <div className="main-photo-view">
+              <Image 
+                src={modalMachine.photos[currentPhotoIndex].url || modalMachine.image || '/placeholder.jpg'} 
+                alt={modalMachine.photos[currentPhotoIndex].label}
+                fill
+                className="object-contain"
+              />
+              <div className="photo-caption">
+                <h3>{modalMachine.photos[currentPhotoIndex].label}</h3>
+                <p>{modalMachine.photos[currentPhotoIndex].caption}</p>
+              </div>
+            </div>
+            <div className="modal-thumbs">
+              {modalMachine.photos.map((photo, i) => (
+                <div 
+                  key={i} 
+                  className={`modal-thumb ${currentPhotoIndex === i ? 'active' : ''}`}
+                  onClick={() => setCurrentPhotoIndex(i)}
+                >
+                  <Image src={photo.url || modalMachine.image || '/placeholder.jpg'} alt={photo.label} width={80} height={60} className="object-cover" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }

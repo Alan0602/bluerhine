@@ -43,30 +43,30 @@ const reasons = [
 export function WhySection() {
   return (
     <div>
-      <section id="applications" className="border-y-2 border-[#111111] bg-[#f1f5f9] px-6 py-24 md:px-8">
+      <section id="applications" className="border-y-2 border-[#111827] bg-[#F4F6FA] px-6 py-24 md:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-16">
-            <span className="font-[var(--font-barlow-condensed)] text-[10px] font-bold uppercase tracking-[0.2em] text-[#f26522]">
-              {'// '}Production Use-Cases
+            <span className="font-[var(--font-barlow-condensed)] text-[13px] font-black uppercase tracking-[0.16em] text-[#1B2F5E]">
+              Production Use-Cases
             </span>
-            <h2 className="mt-4 font-[var(--font-barlow-condensed)] text-5xl font-black uppercase tracking-[-0.04em] text-[#111111] md:text-6xl">
+            <h2 className="mt-4 font-[var(--font-barlow-condensed)] text-5xl font-black uppercase tracking-[-0.04em] text-[#111827] md:text-6xl">
               Versatility By Design
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 border-l border-t border-[#d1d5db] md:grid-cols-4 lg:grid-cols-6">
+          <div className="grid grid-cols-2 border-l border-t border-[#D0D6E0] md:grid-cols-4 lg:grid-cols-6">
             {applications.map((application) => (
               <div
                 key={application.code}
-                className="group aspect-square cursor-crosshair border-b border-r border-[#d1d5db] p-6 transition-colors duration-200 ease-in-out hover:bg-[#ffffff]"
+                className="group aspect-square cursor-crosshair border-b border-r border-[#D0D6E0] p-6 transition-colors duration-200 ease-in-out hover:bg-[#ffffff]"
               >
                 <div className="flex h-full flex-col justify-between">
                   <span className="text-3xl">{application.emoji}</span>
                   <div>
-                    <div className="mb-1 font-[var(--font-barlow-condensed)] text-[10px] font-black uppercase tracking-[0.18em] text-[#111111]">
+                    <div className="mb-1 font-[var(--font-barlow-condensed)] text-[10px] font-black uppercase tracking-[0.18em] text-[#111827]">
                       {application.code}
                     </div>
-                    <div className="font-[var(--font-barlow-condensed)] text-xs font-bold uppercase tracking-[0.08em] text-[#111111]">
+                    <div className="font-[var(--font-barlow-condensed)] text-xs font-bold uppercase tracking-[0.08em] text-[#111827]">
                       {application.label}
                     </div>
                   </div>
@@ -80,10 +80,10 @@ export function WhySection() {
       <section id="why-us" className="mx-auto max-w-7xl px-6 py-24 md:px-8">
         <div>
           <div className="mb-16">
-            <span className="font-[var(--font-barlow-condensed)] text-[10px] font-bold uppercase tracking-[0.2em] text-[#f26522]">
-              {'// '}Service Infrastructure
+            <span className="font-[var(--font-barlow-condensed)] text-[13px] font-black uppercase tracking-[0.16em] text-[#1B2F5E]">
+              Service Infrastructure
             </span>
-            <h2 className="mt-4 font-[var(--font-barlow-condensed)] text-5xl font-black uppercase tracking-[-0.04em] text-[#111111] md:text-6xl">
+            <h2 className="mt-4 font-[var(--font-barlow-condensed)] text-5xl font-black uppercase tracking-[-0.04em] text-[#111827] md:text-6xl">
               The Blue Rhine Advantage
             </h2>
           </div>
@@ -91,14 +91,14 @@ export function WhySection() {
           <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
             {reasons.map((reason) => (
               <div key={reason.title} className="group flex flex-col gap-6">
-                <div className="flex h-16 w-16 items-center justify-center bg-[#111111] font-[var(--font-barlow-condensed)] text-2xl font-black text-[#ffffff] transition-colors duration-200 ease-in-out group-hover:bg-[#f26522]">
+                <div className="flex h-16 w-16 items-center justify-center bg-[#111827] font-[var(--font-barlow-condensed)] text-2xl font-black text-[#ffffff] transition-colors duration-200 ease-in-out group-hover:bg-[#1B2F5E]">
                   {reason.icon}
                 </div>
                 <div>
-                  <h3 className="mb-2 font-[var(--font-barlow-condensed)] text-xl font-black uppercase tracking-[0.04em] text-[#111111]">
+                  <h3 className="mb-2 font-[var(--font-barlow-condensed)] text-xl font-black uppercase tracking-[0.04em] text-[#111827]">
                     {reason.title}
                   </h3>
-                  <p className="text-base leading-8 text-[#6b7280]">{reason.text}</p>
+                  <p className="text-base leading-8 text-[#6B7A93]">{reason.text}</p>
                 </div>
               </div>
             ))}

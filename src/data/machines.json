@@ -15,7 +15,7 @@
     { "id": "roll", "label": "Roll-to-Roll", "dotColor": "#22d3ee" },
     { "id": "industrial", "label": "Industrial", "dotColor": "#38bdf8" },
     { "id": "uv-flatbed", "label": "UV Flatbed", "dotColor": "#34d399" },
-    { "id": "laser", "label": "CO2 Laser", "dotColor": "#F26522" }
+    { "id": "laser", "label": "CO2 Laser", "dotColor": "#1B2F5E" }
   ],
   "machines": [
     {
@@ -27,7 +27,7 @@
       "subtitle": "CO2 Laser Cutting & Engraving Machine",
       "category": "laser",
       "headerGradient": "linear-gradient(135deg, #1a0a00 0%, #3d1500 55%, #7a2e00 100%)",
-      "accentDotColor": "#F26522",
+      "accentDotColor": "#1B2F5E",
       "keySpecs": [
         { "label": "Working Size", "value": "1300 × 2500 mm" },
         { "label": "Laser Power", "value": "150W" },
@@ -44,7 +44,7 @@
       "subtitle": "CO2 Laser Cutting & Engraving Machine",
       "category": "laser",
       "headerGradient": "linear-gradient(135deg, #1a0800 0%, #4a1800 55%, #8b3000 100%)",
-      "accentDotColor": "#F26522",
+      "accentDotColor": "#1B2F5E",
       "keySpecs": [
         { "label": "Working Size", "value": "1300 × 2500 mm" },
         { "label": "Laser Power", "value": "300W" },
@@ -239,7 +239,7 @@
     "theme": {
       "white": "#FFFFFF",
       "black": "#111111",
-      "orange": "#F26522",
+      "orange": "#1B2F5E",
       "grey": "#6B7280",
       "lightGrey": "#F1F5F9"
     },
@@ -250,12 +250,12 @@
     "sectionLabelPrefix": "//",
     "cardBorderStyle": "1px solid #111111",
     "cardHoverBorderStyle": "2px solid #111111",
-    "tablHeaderBg": "#F26522",
+    "tablHeaderBg": "#1B2F5E",
     "tableHeaderColor": "#FFFFFF",
     "tableAltRowBg": "#F8FAFC",
-    "pinColor": "#F26522",
+    "pinColor": "#1B2F5E",
     "pinTextColor": "#FFFFFF",
-    "activeTabColor": "#F26522",
-    "activeTabBorder": "2.5px solid #F26522"
+    "activeTabColor": "#1B2F5E",
+    "activeTabBorder": "2.5px solid #1B2F5E"
   }
 }

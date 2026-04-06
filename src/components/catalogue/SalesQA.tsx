@@ -19,18 +19,18 @@ export function SalesQA({ items }: SalesQAProps) {
           const isOpen = openIndex === index
 
           return (
-            <div key={item.q} className="border-2 border-[#111111] bg-[#ffffff] transition-colors duration-200 ease-in-out">
+            <div key={item.q} className="border-2 border-[#111827] bg-[#ffffff] transition-colors duration-200 ease-in-out">
               <button
-                className="flex w-full items-center justify-between gap-6 px-6 py-5 text-left transition-colors duration-200 ease-in-out hover:bg-[#f8fafc]"
+                className="flex w-full items-center justify-between gap-6 px-6 py-5 text-left transition-colors duration-200 ease-in-out hover:bg-[#F4F6FA]"
                 onClick={() => setOpenIndex(isOpen ? -1 : index)}
                 type="button"
               >
-                <h4 className="font-[var(--font-barlow-condensed)] text-base font-black uppercase tracking-[0.02em] text-[#111111] md:text-lg">
+                <h4 className="font-[var(--font-barlow-condensed)] text-base font-black uppercase tracking-[0.02em] text-[#111827] md:text-lg">
                   {item.q}
                 </h4>
                 <span
                   className={cn(
-                    'text-2xl font-black text-[#f26522] transition-transform duration-300 ease-in-out',
+                    'text-2xl font-black text-[#1B2F5E] transition-transform duration-300 ease-in-out',
                     isOpen && 'rotate-180',
                   )}
                 >
@@ -43,7 +43,7 @@ export function SalesQA({ items }: SalesQAProps) {
                   isOpen ? 'max-h-[1000px] pb-8' : 'max-h-0 pb-0',
                 )}
               >
-                <p className="text-base leading-8 text-[#6b7280]">{item.a}</p>
+                <p className="text-base leading-8 text-[#6B7A93]">{item.a}</p>
               </div>
             </div>
           )

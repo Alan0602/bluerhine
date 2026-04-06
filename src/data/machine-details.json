@@ -83,8 +83,7 @@
       { "label": "Front View", "caption": "Full machine view showing 1300×2500mm working bed and steel frame body" },
       { "label": "Laser Head", "caption": "CO2 laser head with CCD camera system and red dot pointer" },
       { "label": "Controller Panel", "caption": "DSP controller panel with Wi-Fi and USB connectivity" },
-      { "label": "Worktable", "caption": "Aluminum knife worktable with blade support system" },
-      { "label": "Sample Output", "caption": "Precision acrylic engraving and cut sample output" }
+      { "label": "Worktable", "caption": "Aluminum knife worktable with blade support system" }
     ]
   },
   "accurate-laser-e300": {
@@ -175,8 +174,7 @@
       { "label": "Front View", "caption": "Full machine view — 300W dual-tube CO2 laser on heavy-duty steel frame" },
       { "label": "Laser Head & CCD", "caption": "300W laser head with CCD camera contour detection system" },
       { "label": "Controller Panel", "caption": "Touchscreen DSP controller with Wi-Fi, USB, and Ethernet ports" },
-      { "label": "Worktable Detail", "caption": "Aluminum knife worktable blade support for clean edge cutting" },
-      { "label": "Sample Output", "caption": "Industrial acrylic cutting and wood engraving sample" }
+      { "label": "Worktable Detail", "caption": "Aluminum knife worktable blade support for clean edge cutting" }
     ]
   },
   "dlican-dl3200-rp": {
