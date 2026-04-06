@@ -47,7 +47,6 @@ export default async function MachineDetailPage({ params }: MachinePageProps) {
   const sectionLinks = [
     { href: '#specs', label: 'Specs' },
     { href: '#features', label: 'Features' },
-    ...(machine.photos.length > 0 ? [{ href: '#gallery', label: 'Gallery' }] : []),
     { href: '#use-cases', label: 'Use Cases' },
   ]
 
@@ -128,12 +127,12 @@ export default async function MachineDetailPage({ params }: MachinePageProps) {
                 Get Specifications
               </Button>
               <Button
-                href={machine.photos.length > 0 ? '#gallery' : '#features'}
+                href="#features"
                 variant="outline"
                 size="lg"
                 className="border-2 border-[#1B2F5E] px-10 py-5 text-sm tracking-[0.1em] text-[#1B2F5E] hover:border-[#111827] hover:bg-[#111827] hover:text-[#1B2F5E]"
               >
-                {machine.photos.length > 0 ? 'Watch In Action' : 'Explore Features'}
+                Explore Features
               </Button>
             </div>
           </div>
@@ -315,11 +314,6 @@ export default async function MachineDetailPage({ params }: MachinePageProps) {
         <UseCaseBar items={machine.useCases} />
       </section>
 
-      {machine.photos.length > 0 ? (
-        <section id="gallery" className="border-t border-dashed border-[#111827] px-4 py-16 md:px-16 md:py-24">
-          <PhotoGrid title="In Action" photos={machine.photos} />
-        </section>
-      ) : null}
 
       <section className="relative overflow-hidden bg-[#111827] px-4 py-16 text-[#ffffff] md:px-16 md:py-24">
         <div className="pointer-events-none absolute right-0 top-0 hidden h-full w-1/2 opacity-10 md:block">
