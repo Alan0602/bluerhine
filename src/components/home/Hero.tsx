@@ -1,176 +1,190 @@
-import Link from 'next/link'
+'use client'
 
-import { Button } from '@/components/ui/Button'
+import Image from 'next/image'
+import { useCallback, useEffect, useState } from 'react'
+
+const heroSlides = [
+  {
+    tag: 'Featured Products',
+    title: 'Industrial UV Printers',
+    description:
+      "JHF's UV printers combine cutting-edge printhead technology with continuous roll media handling, delivering vibrant, durable prints for signage, décor, and display applications.",
+    image:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuDjt7Evk9WftEFlCenCyEGuYgRuv3sHu6PA5FWwy2g-PGadUSfyG-pZ3IT3BXsq1oYXC2C9V0RW9Hs4hgYVPa4li_87Gif4OtxBOvI4Uf6zDirM-OIXDJDAszxXEf-yE0LK8QqKpF0huvg8Fk8llPTyZeblsWKoHPTT6KcH2zHIRIBoBF5osA478GvPlKqXDzkmF2AIbKDUF2FVnFUQxFcMhZb-TkjNyt9D3b6f2Sp0o2S7OdBddd_YVkT5XKNGvuXsTTgmFmJt',
+    brand: 'JHF',
+  },
+  {
+    tag: 'High Precision',
+    title: 'Roll-to-Roll Systems',
+    description:
+      'Industry-leading roll-to-roll UV systems for high-volume production. Kyocera printhead technology delivers exceptional speed and quality for outdoor signage and fleet wraps.',
+    image:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuBPDIBnZVhm9n6cdxKgCDdt19NZTtPUDzSFo522G5dAdEN9EB_nxUX7CAqVLe6_SRGcczMvEbqeyVjdJUoJOp8iXNBa_L7g-8vYmCjzrUXHuHNt665yIV-3zD4MuQDnhHLOJA6RY126Q_OAaw6kA-sW56NSVPOT1lcws2O_TLVeL6J3FZMwpufXZiyC89j29TPzCePT0rD7wXm03l4Gc3FeJoJkZbZ9M4WWGlPuN8VT66Khx1QEnjI0JCBjQcV6sJr2M94lKQgm',
+    brand: 'JHF',
+  },
+  {
+    tag: 'UV Flatbed',
+    title: 'Flatbed Printing Solutions',
+    description:
+      'Multi-layer UV flatbed printers with precision dot placement for rigid substrates. Perfect for acrylic, glass, wood, and metal applications with CMYK + White + Varnish.',
+    image:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuCjQ-r1uiykQ5TBD6RlxHCYaHTC4dOU9dpGrBdZEQhuPKg9SUw2rvk4DziRM8WCx-0UlKt5FR8Et6OTz4AIXcZg7M_m8n701eo_oGe-dfh7ZLZ0hJAQKiqKl92O7qTqQlvouckl_d16vWxBVhCt8vRVyZiSo41JKG0UJogrdBUA5TNtzrvp7wGOwuHBKTncdZRaxbCuHu2sozFhy3Fm3kSALxstkM5qijotpe6r29oRWnbFjfLjPYVxez2HvITtObAR7v_jN18s',
+    brand: 'Dlican',
+  },
+]
+
+const marqueeImages = [
+  { src: 'https://lh3.googleusercontent.com/d/1r78i-B_AiLWGK9xUfNnGbTiSVh9VK9sf=s4000', label: 'Dlican DLI-3220' },
+  { src: 'https://lh3.googleusercontent.com/d/14H0KPGUWIIXtJ0G5u8LcfYsVTEww-Xc3=s4000', label: 'Accurate 3015AE' },
+  { src: 'https://lh3.googleusercontent.com/d/1qmAUWjm4waxX8Cp_v8-NTZQ-GD5TU5z_=s4000', label: 'Accurate Fiber Laser 3015GAE' },
+  { src: 'https://lh3.googleusercontent.com/d/1yNYg2RSOVeUjhsS3T8dDgFucE3gSlIR3=s4000', label: 'Accurate Fiber Laser 3015N' },
+  { src: 'https://lh3.googleusercontent.com/d/1Ty9TNFby7pWcer27Ch2E4Zw09Rm08EeD=s4000', label: 'Accurate Laser E150' },
+  { src: 'https://lh3.googleusercontent.com/d/1eR6HPhv6pcfrP3DmAgSenmgqxwbN6tIV=s4000', label: 'Accurate Laser E300' },
+  { src: 'https://lh3.googleusercontent.com/d/1LDn_3YGmt-K3jJ8X9735tu9SpqyrRPCM=s4000', label: 'Dlican DLI-2513' },
+  { src: 'https://lh3.googleusercontent.com/d/190_DI8pzIaMkClD3bsIk3Kn0MeS1ml-f=s4000', label: 'Dlican DLI-3220 Alt' },
+  { src: 'https://lh3.googleusercontent.com/d/1uh9N2H8ayMzSOOY0oZt42ZHfF2snsRph=s4000', label: 'Elite C6 CNC Router' },
+  { src: 'https://lh3.googleusercontent.com/d/1StMEuwZBCCNjxx1sCwPewyZTo4JYYBrW=s4000', label: 'Jaguar V GCC' },
+  { src: 'https://lh3.googleusercontent.com/d/1Q4yrRZRqS5RG3J_6G_VUUr_wCOO4S60p=s4000', label: 'JHF M5300' },
+  { src: 'https://lh3.googleusercontent.com/d/1NpVOLPmIY_Ns2f7RRZhM8_dF8DZlyI_p=s4000', label: 'JHF Vista V398' },
+  { src: 'https://lh3.googleusercontent.com/d/1_zu6WaEWdzgvpaLvDEmbcUDZ9iNRLLdl=s4000', label: 'JHF Vista V698' },
+  { src: 'https://lh3.googleusercontent.com/d/1WNaV_qex29l18WcUMdy-2WIbU7lRSYTd=s4000', label: 'Rhine LAM-1600SE' },
+]
 
 export function Hero() {
+  const [activeSlide, setActiveSlide] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % heroSlides.length)
+    }, 6000)
+    return () => clearInterval(timer)
+  }, [])
+
+  const goTo = useCallback((index: number) => setActiveSlide(index), [])
+  const goPrev = useCallback(() => setActiveSlide((p) => (p - 1 + heroSlides.length) % heroSlides.length), [])
+  const goNext = useCallback(() => setActiveSlide((p) => (p + 1) % heroSlides.length), [])
+
+  const slide = heroSlides[activeSlide]
+
   return (
-    <section className="grain-overlay matte-surface relative overflow-hidden border-b-2 border-[#111827] bg-[#0a0f1a]">
-      {/* ── Abstract brutalist geometry (animated) ─── */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        {/* Grid pattern — concrete feel */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff04_1px,transparent_1px),linear-gradient(to_bottom,#ffffff04_1px,transparent_1px)] bg-[size:48px_48px]" />
+    <section id="home" className="relative bg-white pt-28 pb-12 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 relative">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-0 min-h-[600px] md:min-h-[720px]">
+          {/* Left Content Card — floating editorial style */}
+          <div className="z-20 w-full md:w-[480px] bg-white p-10 md:p-14 shadow-[0_30px_90px_rgba(0,0,0,0.15)] rounded-2xl md:-mr-20 self-center shrink-0 border border-surface-container-low">
+            <span className="text-secondary text-xs font-black uppercase tracking-[0.3em] mb-4 block">
+              {slide.tag}
+            </span>
+            <h1
+              className="text-4xl md:text-6xl font-extrabold text-primary mb-8 leading-[1.1] transition-all duration-500 font-barlow-condensed tracking-tighter"
+              key={`title-${activeSlide}`}
+            >
+              {slide.title}
+            </h1>
+            <p
+              className="text-on-surface-variant text-lg leading-relaxed mb-10 transition-opacity duration-500 opacity-90 font-manrope"
+              key={`desc-${activeSlide}`}
+            >
+              {slide.description}
+            </p>
+            <div className="flex items-center gap-8">
+              <button
+                onClick={goNext}
+                className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center text-white shadow-[0_15px_40px_rgba(250,110,53,0.35)] hover:scale-110 active:scale-95 transition-all group"
+              >
+                <span className="material-symbols-outlined text-2xl group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </button>
 
-        {/* Large floating diagonal block — top right */}
-        <div
-          className="absolute -right-20 -top-24 h-[520px] w-[520px] rotate-[14deg] border border-[#2799d4]/10 bg-[#1B2F5E]/12"
-          style={{ animation: 'float-slow 12s ease-in-out infinite' }}
-        />
+              {/* Dot Indicators */}
+              <div className="flex gap-4">
+                {heroSlides.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => goTo(i)}
+                    className={`h-2 rounded-full transition-all duration-700 ${i === activeSlide ? 'w-12 bg-secondary' : 'w-2 bg-surface-container-high hover:bg-primary/30'
+                      }`}
+                    aria-label={`Go to slide ${i + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
 
-        {/* Layered rectangles — left mid */}
-        <div
-          className="absolute -left-16 top-[25%] h-[320px] w-[160px] border-2 border-[#2799d4]/10"
-          style={{ animation: 'float-slower 16s ease-in-out infinite' }}
-        />
-        <div
-          className="absolute -left-8 top-[28%] h-[220px] w-[90px] bg-[#2799d4]/[0.04]"
-          style={{ animation: 'float-slower 16s ease-in-out infinite 2s' }}
-        />
+          {/* Right Image Container (Enlarged and Balanced) */}
+          <div className="relative w-full md:w-[65%] max-w-[860px] flex-grow">
+            <div className="aspect-[4/3] md:aspect-[1.4/1] w-full rounded-[3rem] overflow-hidden shadow-[0_50px_120px_rgba(0,0,0,0.2)] relative group">
+              {heroSlides.map((s, i) => (
+                <Image
+                  key={i}
+                  src={s.image}
+                  alt={s.title}
+                  fill
+                  priority={i === 0}
+                  className={`object-cover transition-all duration-1000 ease-in-out absolute inset-0 ${i === activeSlide
+                    ? 'opacity-100 scale-100'
+                    : 'opacity-0 scale-110'
+                    }`}
+                  sizes="(max-width: 768px) 100vw, 80vw"
+                />
+              ))}
 
-        {/* Floating small blocks cluster — mid right */}
-        <div
-          className="absolute right-[12%] top-[15%] h-24 w-24 border border-[#ffffff]/[0.06] bg-[#1B2F5E]/10"
-          style={{ animation: 'float-slow 10s ease-in-out infinite 1s' }}
-        />
-        <div
-          className="absolute right-[9%] top-[22%] h-12 w-12 bg-[#2799d4]/[0.06]"
-          style={{ animation: 'float-slower 14s ease-in-out infinite' }}
-        />
-        <div
-          className="absolute right-[14%] top-[28%] h-8 w-8 bg-[#D4A843]/[0.08]"
-          style={{ animation: 'float-slow 8s ease-in-out infinite 3s' }}
-        />
+              {/* Brand Overlay */}
+              <div className="absolute top-12 left-12 z-10">
+                <span className="text-5xl font-black text-white italic tracking-tighter opacity-40 mix-blend-overlay">
+                  {slide.brand}
+                </span>
+              </div>
 
-        {/* Small blocks — bottom left */}
-        <div
-          className="absolute bottom-[18%] left-[8%] h-14 w-14 border border-[#2799d4]/[0.08]"
-          style={{ animation: 'float-slower 12s ease-in-out infinite 5s' }}
-        />
-        <div
-          className="absolute bottom-[14%] left-[12%] h-8 w-8 bg-[#1B2F5E]/10"
-          style={{ animation: 'float-slow 10s ease-in-out infinite 2s' }}
-        />
+              {/* Gradient Overlay for depth */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-white/5 pointer-events-none" />
+            </div>
 
-        {/* Cut-out shape — bottom right */}
-        <div
-          className="absolute -bottom-12 right-[8%] h-[200px] w-[360px] -rotate-2 border-t-2 border-[#2799d4]/12 bg-gradient-to-b from-[#2799d4]/[0.03] to-transparent"
-          style={{ animation: 'drift-x 20s ease-in-out infinite' }}
-        />
-
-        {/* Horizontal glowing lines */}
-        <div
-          className="absolute left-0 top-[35%] h-[1px] w-[30%] origin-left bg-gradient-to-r from-[#2799d4]/30 to-transparent"
-          style={{ animation: 'glow-pulse 4s ease-in-out infinite' }}
-        />
-        <div
-          className="absolute bottom-[30%] right-0 h-[1px] w-[22%] origin-right bg-gradient-to-l from-[#D4A843]/20 to-transparent"
-          style={{ animation: 'glow-pulse 4s ease-in-out infinite 2s' }}
-        />
-        <div
-          className="absolute left-[20%] top-[65%] h-[1px] w-[15%] origin-left bg-gradient-to-r from-[#ffffff]/[0.06] to-transparent"
-          style={{ animation: 'glow-pulse 6s ease-in-out infinite 1s' }}
-        />
-
-        {/* Circle accents */}
-        <div
-          className="absolute left-[5%] top-[10%] h-40 w-40 rounded-full border border-[#ffffff]/[0.04]"
-          style={{ animation: 'float-slower 18s ease-in-out infinite' }}
-        />
-        <div
-          className="absolute bottom-[20%] right-[20%] h-24 w-24 rounded-full border border-[#2799d4]/[0.06]"
-          style={{ animation: 'float-slow 14s ease-in-out infinite 4s' }}
-        />
-
-        {/* Large watermark text */}
-        <div className="glow-blue-text absolute -bottom-20 -right-4 hidden select-none font-[var(--font-barlow-condensed)] text-[22rem] font-black uppercase leading-none text-[#ffffff]/[0.015] md:block">
-          BR
-        </div>
-        <div className="absolute -left-10 top-[10%] hidden select-none font-[var(--font-barlow-condensed)] text-[14rem] font-black uppercase leading-none text-[#ffffff]/[0.012] md:block">
-          IN
+            {/* Navigation Arrows */}
+            <div className="absolute -bottom-6 right-10 flex gap-2 z-30">
+              <button
+                onClick={goPrev}
+                className="w-12 h-12 bg-white shadow-xl rounded-full flex items-center justify-center text-primary border border-surface-container hover:bg-primary hover:text-white transition-all duration-300"
+              >
+                <span className="material-symbols-outlined text-base">chevron_left</span>
+              </button>
+              <button
+                onClick={goNext}
+                className="w-12 h-12 bg-white shadow-xl rounded-full flex items-center justify-center text-primary border border-surface-container hover:bg-primary hover:text-white transition-all duration-300"
+              >
+                <span className="material-symbols-outlined text-base">chevron_right</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* ── Main content ──────────────────────────── */}
-      <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center justify-center px-6 py-16 md:min-h-[calc(100vh-68px)] md:px-8 md:py-20">
-        <div className="max-w-5xl text-center">
-          {/* Distributor badge */}
-          <div className="glass-card inline-flex px-5 py-2.5 font-[var(--font-barlow-condensed)] text-[12px] font-black uppercase tracking-[0.18em] text-[#ffffff]/70">
-            <span className="text-[#2799d4]">JHF &amp; Dlican</span>
-            <span className="mx-3 text-[#ffffff]/20">|</span>
-            Exclusive UAE &amp; GCC Distributor
-          </div>
-
-          {/* Main heading */}
-          <h1 className="glow-blue-text mt-10 font-[var(--font-barlow-condensed)] text-[3.2rem] font-black uppercase leading-[0.90] tracking-[-0.04em] text-[#ffffff] sm:text-[4.5rem] md:text-[6.5rem] lg:text-[8.5rem]">
-            Power Your
-            <br />
-            Production
-            <span className="text-[#2799d4]">.</span>
-          </h1>
-
-          {/* Accent line */}
-          <div className="mx-auto mt-6 flex items-center justify-center gap-2">
-            <div className="h-[3px] w-12 bg-[#2799d4]" />
-            <div className="h-[3px] w-6 bg-[#2799d4]/40" />
-            <div className="h-[3px] w-3 bg-[#2799d4]/20" />
-          </div>
-
-          {/* Subheading */}
-          <p className="mx-auto mt-8 max-w-2xl text-base leading-[1.8] text-[#8896AB] md:text-lg md:leading-[1.9]">
-            Industrial UV printing systems and CO₂ laser solutions engineered for high-precision
-            manufacturing. Built for scale, backed by local support.
-          </p>
-
-          {/* CTA buttons — sharp edges */}
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 md:flex-row md:gap-5">
-            <Button
-              href="/catalogue"
-              className="glow-blue w-full border-2 border-[#2799d4] bg-[#2799d4] text-sm font-black uppercase tracking-[0.15em] text-[#0a0f1a] transition-all duration-300 hover:bg-transparent hover:text-[#2799d4] hover:shadow-[0_0_40px_rgba(39,153,212,0.25)] md:w-auto"
-              size="lg"
-            >
-              Explore Catalogue
-            </Button>
-            <Button
-              href="/machines/e150"
-              variant="outline"
-              size="lg"
-              className="w-full border-2 border-[#ffffff]/15 text-sm font-bold uppercase tracking-[0.15em] text-[#ffffff]/70 transition-all duration-300 hover:border-[#2799d4]/50 hover:text-[#2799d4] md:w-auto"
-            >
-              Request a Quote
-            </Button>
-          </div>
+      {/* ── Seamless Image Marquee ──────────────────── */}
+      <div className="mt-20 relative">
+        <div className="mx-auto max-w-7xl px-6 mb-8 flex items-center justify-between">
+          <h3 className="font-barlow-condensed text-xl font-bold uppercase tracking-widest text-primary/40">Products</h3>
+          <div className="h-px flex-grow mx-8 bg-surface-container-high" />
         </div>
 
-        {/* Mobile brand links */}
-        <div className="mt-12 flex w-full flex-col gap-3 md:hidden">
-          {['JHF', 'Dlican', 'Accurate Laser'].map((brand) => (
-            <Link
-              key={brand}
-              href="/catalogue"
-              className="glass-card flex items-center justify-between px-5 py-4 font-[var(--font-barlow-condensed)] text-xl font-black uppercase tracking-[-0.03em] text-[#ffffff] transition-all duration-200 ease-in-out active:translate-x-1 active:translate-y-1"
-            >
-              {brand}
-              <span className="text-[#2799d4]">→</span>
-            </Link>
-          ))}
-        </div>
-
-        {/* Bottom stats strip — desktop */}
-        <div className="mt-16 hidden w-full max-w-4xl items-center justify-between border-t border-[#ffffff]/[0.06] pt-8 md:flex">
-          {[
-            { value: '200+', label: 'Machines Deployed' },
-            { value: '6', label: 'GCC Countries' },
-            { value: '24/7', label: 'Support Coverage' },
-            { value: '15+', label: 'Years Experience' },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="font-[var(--font-barlow-condensed)] text-3xl font-black uppercase text-[#2799d4]">
-                {stat.value}
+        <div className="relative w-full overflow-hidden py-4">
+          <div className="flex w-max animate-[marquee-scroll_40s_linear_infinite] hover:[animation-play-state:paused]">
+            {/* Double the list for seamless looping */}
+            {[...marqueeImages, ...marqueeImages].map((img, i) => (
+              <div
+                key={i}
+                className="group relative w-[280px] h-[180px] mx-4 overflow-hidden rounded-2xl shadow-lg transition-all duration-500 hover:-translate-y-3 hover:scale-105 hover:shadow-2xl bg-white"
+              >
+                <Image
+                  src={img.src}
+                  alt={img.label}
+                  fill
+                  className="object-contain p-4"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="text-white font-manrope text-xs font-bold uppercase tracking-wider">{img.label}</span>
+                </div>
               </div>
-              <div className="mt-1 font-[var(--font-barlow-condensed)] text-[9px] font-bold uppercase tracking-[0.25em] text-[#ffffff]/30">
-                {stat.label}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

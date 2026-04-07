@@ -7,7 +7,7 @@ export function MarqueeStrip({ items, speed = 30 }: MarqueeStripProps) {
   const loopItems = [...items, ...items]
 
   return (
-    <div className="overflow-hidden border-y border-[#111827] bg-[#111827] py-3">
+    <div className="overflow-hidden bg-primary py-4">
       <div
         className="flex min-w-max items-center"
         style={{
@@ -16,12 +16,12 @@ export function MarqueeStrip({ items, speed = 30 }: MarqueeStripProps) {
       >
         {loopItems.map((item, index) => (
           <div key={`${item}-${index}`} className="flex items-center">
-            <span className="px-4 font-[var(--font-barlow-condensed)] text-[12px] font-bold uppercase tracking-[0.2em] text-[#ffffff]">
+            <span className="px-6 font-manrope text-xs font-bold uppercase tracking-[0.2em] text-white">
               {item}
             </span>
             <span
               aria-hidden="true"
-              className="mx-2 inline-block h-1.5 w-1.5 rotate-45 bg-[#1B2F5E]"
+              className="mx-4 inline-block h-1 w-1 rounded-full bg-secondary-container"
             />
           </div>
         ))}
