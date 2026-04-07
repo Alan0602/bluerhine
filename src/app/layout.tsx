@@ -1,31 +1,20 @@
 import type { Metadata, Viewport } from 'next'
-import { Barlow, Barlow_Condensed, Inter, Space_Grotesk } from 'next/font/google'
+import { Manrope, Barlow_Condensed } from 'next/font/google'
 
 import { Footer } from '@/components/layout/Footer'
 import { Navbar } from '@/components/layout/Navbar'
 
 import './globals.css'
 
-const barlow = Barlow({
-  weight: ['300', '400', '500', '600', '700'],
+const manrope = Manrope({
   subsets: ['latin'],
-  variable: '--font-barlow',
+  variable: '--font-manrope',
 })
 
 const barlowCondensed = Barlow_Condensed({
-  weight: ['400', '600', '700', '800', '900'],
+  weight: ['400', '600', '700', '800'],
   subsets: ['latin'],
   variable: '--font-barlow-condensed',
-})
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-})
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-space-grotesk',
 })
 
 export const metadata: Metadata = {
@@ -45,13 +34,16 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${barlow.variable} ${barlowCondensed.variable} ${inter.variable} ${spaceGrotesk.variable}`}
-    >
-      <body>
+    <html lang="en" className={`${manrope.variable} ${barlowCondensed.variable} scroll-smooth`}>
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="bg-surface text-on-surface font-body selection:bg-primary selection:text-white">
         <Navbar />
-        <main className="pt-[68px]">{children}</main>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

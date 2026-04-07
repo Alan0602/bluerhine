@@ -1,28 +1,28 @@
 import Link from 'next/link'
-
 import { cn } from '@/lib/utils'
 
 type ButtonProps = {
   variant?: 'primary' | 'outline' | 'ghost'
   size?: 'sm' | 'md' | 'lg'
   children: React.ReactNode
-  onClick?: React.MouseEventHandler<HTMLButtonElement>
+  onClick?: React.MouseEventHandler<any>
   href?: string
   className?: string
+  showArrow?: boolean
 }
 
 const variantClasses = {
   primary:
-    'border border-[#111827] bg-[#111827] text-[#ffffff] hover:bg-[#1B2F5E] hover:border-[#1B2F5E]',
+    'rounded-md bg-secondary-container text-on-secondary hover:bg-secondary',
   outline:
-    'border border-[#111827] bg-transparent text-[#111827] hover:bg-[#111827] hover:text-[#ffffff]',
-  ghost: 'border border-transparent bg-transparent text-[#111827] hover:text-[#1B2F5E]',
+    'rounded-md border border-on-surface/20 bg-transparent text-on-surface hover:border-primary-container hover:text-primary-container',
+  ghost: 'bg-transparent text-on-surface hover:text-secondary',
 }
 
 const sizeClasses = {
-  sm: 'px-5 py-2 text-[13px] tracking-[0.12em]',
-  md: 'px-5 py-3 text-[13px] tracking-[0.12em]',
-  lg: 'px-6 py-4 text-[14px] tracking-[0.14em]',
+  sm: 'px-5 py-2 text-sm',
+  md: 'px-6 py-3 text-base',
+  lg: 'px-8 py-4 text-lg font-semibold',
 }
 
 export function Button({
@@ -32,25 +32,48 @@ export function Button({
   onClick,
   href,
   className,
+  showArrow = false,
 }: ButtonProps) {
+  // If no size is needed for ghost buttons with arrows, we can suppress it using cn() if we wanted, 
+  // but we'll apply it normally. Ghost buttons often don't need padding.
+  const isGhost = variant === 'ghost'
+
   const classes = cn(
-    'inline-flex items-center justify-center font-[var(--font-barlow-condensed)] font-bold uppercase leading-none transition-all duration-200 ease-in-out',
+    'inline-flex items-center justify-center transition-all duration-200 ease-in-out',
+    !isGhost && sizeClasses[size], 
     variantClasses[variant],
-    sizeClasses[size],
-    className,
+    className
+  )
+
+  const content = (
+    <>
+      {children}
+      {(isGhost || showArrow) && (
+        <span className="ml-2 text-secondary">→</span>
+      )}
+    </>
   )
 
   if (href) {
+    // If it's an anchor link, just use an <a> tag instead of <Link> if we want smooth scrolls inside single page
+    if (href.startsWith('#')) {
+      return (
+        <a href={href} className={classes} onClick={onClick}>
+          {content}
+        </a>
+      )
+    }
+
     return (
-      <Link href={href} className={classes}>
-        {children}
+      <Link href={href} className={classes} onClick={onClick}>
+        {content}
       </Link>
     )
   }
 
   return (
     <button className={classes} onClick={onClick} type="button">
-      {children}
+      {content}
     </button>
   )
 }
