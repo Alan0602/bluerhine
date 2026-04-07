@@ -1,126 +1,159 @@
-import Link from 'next/link'
+'use client'
 
-import { cn } from '@/lib/utils'
-
-const productLinks = [
-  { href: '/catalogue?category=hybrid', label: 'Hybrid UV' },
-  { href: '/catalogue?category=roll', label: 'Roll-to-Roll' },
-  { href: '/catalogue?category=industrial', label: 'Industrial' },
-  { href: '/catalogue?category=uv-flatbed', label: 'UV Flatbed' },
-  { href: '/catalogue?category=laser', label: 'CO2 Laser' },
-]
-
-const companyLinks = [
-  { href: '/about', label: 'About' },
-  { href: '/locations', label: 'Locations' },
-  { href: '/certifications', label: 'Certifications' },
-  { href: '/careers', label: 'Careers' },
-]
-
-const contactLinks = [
-  { href: 'tel:+97148049800', label: '+971 4 8049800' },
-  { href: 'tel:80074463', label: '800 74463 (Toll Free)' },
-  { href: 'mailto:info@bluerhine.com', label: 'info@bluerhine.com' },
-  { href: 'https://www.bluerhine.store', label: 'www.bluerhine.store' },
-]
-
-function footerHeading(label: string) {
-  return (
-    <h3 className="mb-5 font-[var(--font-barlow-condensed)] text-[12px] font-bold uppercase tracking-[0.2em] text-[#111827]">
-      {label}
-    </h3>
-  )
-}
-
-function footerLinkClasses() {
-  return 'font-[var(--font-barlow)] text-sm text-[#111827] transition-colors duration-200 ease-in-out hover:text-[#1B2F5E]'
-}
+import Image from 'next/image'
+import { useCallback } from 'react'
+import { data } from '@/lib/utils'
 
 export function Footer() {
+  const handleNavClick = useCallback((href: string) => {
+    const id = href.replace('#', '')
+    const el = document.getElementById(id)
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  }, [])
+
   return (
-    <footer className="border-t-2 border-[#111827] bg-[#ffffff]">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-        <div className="grid grid-cols-1 gap-10 py-12 sm:grid-cols-2 xl:grid-cols-[1.2fr_1fr_1fr_1fr]">
-          <div className="flex min-h-full flex-col">
-            <div className="mb-5 flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center bg-[#111827]">
-                <span className="font-[var(--font-barlow-condensed)] text-sm font-black uppercase tracking-[0.16em] text-[#ffffff]">
-                  BR
-                </span>
-              </div>
-              <div className="flex items-baseline gap-1 uppercase leading-none">
-                <span className="font-[var(--font-barlow-condensed)] text-[1.65rem] font-bold tracking-[0.08em] text-[#111827]">
-                  Blue
-                </span>
-                <span className="font-[var(--font-barlow-condensed)] text-[1.65rem] font-bold tracking-[0.08em] text-[#1B2F5E]">
-                  Rhine
-                </span>
+    <footer className="bg-primary pt-24 pb-12 overflow-hidden relative border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-8 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+          
+          {/* Column 1: Brand Identity */}
+          <div className="space-y-8">
+            <div className="flex items-center gap-3">
+              <div className="relative h-10 w-[50px]">
+                <Image
+                  src="/logo.svg"
+                  alt="Blue Rhine Logo"
+                  fill
+                  className="object-contain"
+                />
               </div>
             </div>
-            <p className="max-w-sm font-[var(--font-barlow)] text-base leading-7 text-[#6B7A93]">
-              Official GCC distributor for industrial UV printing and CO2 laser cutting systems,
-              built around machine expertise, direct support, and structured delivery.
+            <p className="text-white/50 text-sm leading-relaxed max-w-xs">
+              Pioneering industrial printing and fabrication solutions across the GCC since 1996. Engineering excellence for the next generation of production.
             </p>
-            <p className="mt-auto pt-6 font-[var(--font-barlow)] text-[11px] leading-5 text-[#6B7A93]">
-              © 2026 Blue Rhine. All rights reserved.
+            <div className="flex gap-3">
+              {[
+                { icon: 'share', label: 'LinkedIn' },
+                { icon: 'public', label: 'Website' },
+                { icon: 'alternate_email', label: 'Email' }
+              ].map((social, i) => (
+                <div key={i} className="w-9 h-9 border border-white/10 rounded-full flex items-center justify-center text-white/40 hover:border-secondary hover:text-secondary hover:bg-secondary/5 transition-all cursor-pointer group">
+                  <span className="material-symbols-outlined text-base">
+                    {social.icon}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Column 2: Machinery Categories */}
+          <div>
+            <h5 className="text-white font-bold uppercase tracking-widest text-[10px] mb-8 pb-4 border-b border-white/5">Solutions</h5>
+            <ul className="space-y-4">
+              {[
+                { label: 'Industrial UV Printers', href: '#technical-specs' },
+                { label: 'Roll-to-Roll Systems', href: '#technical-specs' },
+                { label: 'UV Flatbed Solutions', href: '#technical-specs' },
+                { label: 'CO2 Laser Cutting', href: '#technical-specs' }
+              ].map((link) => (
+                <li key={link.label}>
+                  <a 
+                    href={link.href} 
+                    onClick={(e) => { e.preventDefault(); handleNavClick(link.href) }} 
+                    className="text-white/40 text-sm hover:text-secondary transition-colors inline-block"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 3: Regional Infrastructure */}
+          <div>
+            <h5 className="text-white font-bold uppercase tracking-widest text-[10px] mb-8 pb-4 border-b border-white/5">Navigation</h5>
+            <ul className="space-y-4">
+              {[
+                { label: 'Production Use-Cases', href: '#applications' },
+                { label: 'Technological Edge', href: '#why-us' },
+                { label: 'Regional Support', href: '#why-us' },
+                { label: 'Technical Desk', href: '#contact' }
+              ].map((link) => (
+                <li key={link.label}>
+                  <a 
+                    href={link.href} 
+                    onClick={(e) => { e.preventDefault(); handleNavClick(link.href) }} 
+                    className="text-white/40 text-sm hover:text-secondary transition-colors inline-block"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 4: Newsletter & Contact */}
+          <div className="space-y-8">
+            <div>
+              <h5 className="text-white font-bold uppercase tracking-widest text-[10px] mb-8 pb-4 border-b border-white/5">Technical Subscription</h5>
+              <div className="flex bg-white/5 rounded-lg overflow-hidden border border-white/10 p-1 focus-within:border-secondary transition-all">
+                <input 
+                  type="email" 
+                  placeholder="Official Email" 
+                  className="bg-transparent border-none outline-none text-xs text-white px-4 py-2.5 flex-grow placeholder:text-white/20 w-full" 
+                />
+                <button className="bg-secondary text-white px-4 py-2 rounded font-bold text-[10px] uppercase tracking-wider hover:brightness-110 active:scale-95 transition-all">
+                  Sign Up
+                </button>
+              </div>
+            </div>
+            
+            <div className="space-y-4">
+               <div className="flex items-start gap-4">
+                  <span className="material-symbols-outlined text-secondary text-xl">call</span>
+                  <div>
+                    <p className="text-white/90 font-bold text-sm tracking-tight">{data.brand.phone}</p>
+                    <p className="text-white/30 text-[9px] uppercase font-bold tracking-widest">General Inquiries</p>
+                  </div>
+               </div>
+               <div className="flex items-start gap-4">
+                  <span className="material-symbols-outlined text-secondary text-xl">support_agent</span>
+                  <div>
+                    <p className="text-white/90 font-bold text-sm tracking-tight">{data.brand.customerSupport}</p>
+                    <p className="text-white/30 text-[9px] uppercase font-bold tracking-widest">Toll Free Support</p>
+                  </div>
+               </div>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
+          <div className="flex flex-col gap-1">
+            <p className="text-white/30 text-[9px] font-bold uppercase tracking-[0.2em]">
+              © {new Date().getFullYear()} Blue Rhine. All Rights Reserved.
+            </p>
+            <p className="text-white/10 text-[9px] font-medium uppercase tracking-widest">
+              Authorized Regional Distributor for JHF, Dlican & Accurate Laser
             </p>
           </div>
-
-          <div>
-            {footerHeading('Products')}
-            <div className="flex flex-col gap-3">
-              {productLinks.map((item) => (
-                <Link key={item.label} href={item.href} className={footerLinkClasses()}>
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            {footerHeading('Company')}
-            <div className="flex flex-col gap-3">
-              {companyLinks.map((item) => (
-                <Link key={item.label} href={item.href} className={footerLinkClasses()}>
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            {footerHeading('Contact')}
-            <div className="flex flex-col gap-3">
-              {contactLinks.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className={cn(footerLinkClasses(), 'break-all')}
-                  target={item.href.startsWith('https') ? '_blank' : undefined}
-                  rel={item.href.startsWith('https') ? 'noreferrer' : undefined}
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
+          <div className="flex gap-10">
+             {['Privacy', 'Legal', 'Governance'].map((text) => (
+               <a key={text} href="#" className="text-white/30 text-[9px] font-bold uppercase tracking-widest hover:text-white transition-colors">
+                 {text}
+               </a>
+             ))}
           </div>
         </div>
+
       </div>
 
-      <div className="border-t border-[#111827]">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-4 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-10">
-          <p className="font-[var(--font-barlow-condensed)] text-[11px] font-bold uppercase tracking-[0.18em] text-[#111827]">
-            Locations: UAE · KSA · OMAN · KUWAIT · QATAR · BAHRAIN
-          </p>
-          <Link
-            href="https://www.bluerhine.com"
-            className="font-[var(--font-barlow-condensed)] text-[11px] font-bold uppercase tracking-[0.18em] text-[#111827] transition-colors duration-200 ease-in-out hover:text-[#1B2F5E]"
-            rel="noreferrer"
-            target="_blank"
-          >
-            www.bluerhine.com
-          </Link>
-        </div>
+      {/* Modern Industrial Watermark */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.02] -rotate-12 w-full select-none hidden lg:block">
+        <h1 className="text-[12vw] font-black text-white italic tracking-tighter leading-none whitespace-nowrap text-center uppercase">
+          Precision Industrial
+        </h1>
       </div>
     </footer>
   )
