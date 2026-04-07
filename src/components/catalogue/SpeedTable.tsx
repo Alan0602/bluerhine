@@ -10,17 +10,17 @@ export function SpeedTable({ printingSpeed }: SpeedTableProps) {
   }
 
   return (
-    <section className="rounded-[2rem] border border-brand-lightGrey bg-white p-8">
-      <h2 className="text-2xl font-semibold text-brand-black">{printingSpeed.label}</h2>
+    <section className="bg-surface p-8 border-l-2 border-primary-container">
+      <h2 className="font-manrope text-xl font-semibold text-on-background">{printingSpeed.label}</h2>
       <div className="mt-6 space-y-3">
         {printingSpeed.rows.map((row) => (
           <div
             key={row.config}
-            className="grid gap-2 rounded-2xl bg-brand-lightGrey px-4 py-3 sm:grid-cols-3"
+            className="grid gap-4 rounded-sm bg-surface-lowest px-6 py-4 sm:grid-cols-3 transition-colors hover:bg-surface ambient-shadow-light"
           >
-            <p className="text-base font-medium text-brand-black">{row.config}</p>
-            <p className="text-base text-brand-grey">{row.pass4}</p>
-            <p className="text-base text-brand-black">{row.pass6} / {row.pass8}</p>
+            <p className="font-manrope text-sm font-semibold text-on-background">{row.config}</p>
+            <p className="font-manrope text-sm text-on-surface">{row.pass4}</p>
+            <p className="font-manrope text-sm text-on-background font-medium">{row.pass6} / {row.pass8}</p>
           </div>
         ))}
       </div>

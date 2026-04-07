@@ -6,29 +6,29 @@ type SpecTableProps = {
 
 export function SpecTable({ specs }: SpecTableProps) {
   return (
-    <section className="overflow-hidden border-2 border-[#111827] bg-[#ffffff]">
+    <section className="overflow-hidden bg-surface-lowest">
       <div className="overflow-x-auto">
-        <table className="w-full border-collapse text-left">
+        <table className="w-full border-collapse text-left text-sm md:text-base">
           <tbody>
-        {specs.map((spec) => (
-          spec.highlight ? (
-            <tr key={spec.param} className="bg-[#1B2F5E] text-[#ffffff]">
-              <td className="border-b border-[#111827] p-6 font-[var(--font-barlow-condensed)] text-base font-bold uppercase tracking-[0.14em]">
-                {spec.param}
-              </td>
-              <td className="border-b border-[#111827] p-6 text-base font-bold">{spec.value}</td>
-            </tr>
-          ) : (
-            <tr key={spec.param}>
-              <td className="w-1/3 border-b border-[#111827] bg-[#F4F6FA] p-6 font-[var(--font-barlow-condensed)] text-sm font-bold uppercase tracking-[0.18em] text-[#111827]">
-                {spec.param}
-              </td>
-              <td className="border-b border-[#111827] p-6 text-base leading-7 text-[#6B7A93]">
-                {spec.value}
-              </td>
-            </tr>
-          )
-        ))}
+            {specs.map((spec) => (
+              spec.highlight ? (
+                <tr key={spec.param} className="bg-primary-container text-white">
+                  <td className="p-6 font-manrope font-semibold uppercase tracking-wider text-white/80 border-b border-white/10">
+                    {spec.param}
+                  </td>
+                  <td className="p-6 font-manrope font-semibold text-white border-b border-white/10">{spec.value}</td>
+                </tr>
+              ) : (
+                <tr key={spec.param} className="border-b border-[rgba(37,61,78,0.05)] transition-colors hover:bg-surface">
+                  <td className="w-1/3 p-6 font-manrope font-semibold uppercase tracking-wider text-on-surface bg-surface-high/30">
+                    {spec.param}
+                  </td>
+                  <td className="p-6 font-manrope text-on-background">
+                    {spec.value}
+                  </td>
+                </tr>
+              )
+            ))}
           </tbody>
         </table>
       </div>

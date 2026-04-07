@@ -1,9 +1,11 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
 import { useEffect, useMemo, useState } from 'react'
 
+import { SpecTable } from '@/components/catalogue/SpecTable'
+import { SpeedTable } from '@/components/catalogue/SpeedTable'
+import { SalesQA } from '@/components/catalogue/SalesQA'
 import { data } from '@/lib/utils'
 
 import './MachineList.css'
@@ -15,8 +17,6 @@ type MachineCatalogueSectionProps = {
   description: string
   sectionId?: string
 }
-
-type MachineRecord = (typeof data.machines)[number]
 
 export function MachineCatalogueSection({
   initialCategory = 'all',
@@ -106,16 +106,24 @@ export function MachineCatalogueSection({
     return data.machines.find(m => m.id === modalMachineId)
   }, [modalMachineId])
 
+  const tabs = [
+    { id: 'overview', label: 'Overview' },
+    { id: 'features', label: 'Key Features' },
+    { id: 'specs', label: 'Specifications' },
+    { id: 'materials', label: 'Materials' },
+    { id: 'insights', label: 'Sales Insights' },
+  ]
+
   return (
-    <section id={sectionId} className="m-container py-24">
+    <section id={sectionId} className="m-container py-24 md:py-32">
       <div className="m-header">
-        <span className="font-[var(--font-barlow-condensed)] text-[13px] font-black uppercase tracking-[0.16em] text-[#1B2F5E]">
+        <span className="section-label">
           {introLabel}
         </span>
-        <h2 className="mt-4 font-[var(--font-barlow-condensed)] text-5xl font-black uppercase tracking-[-0.05em] text-[#111827] md:text-6xl lg:text-7xl">
+        <h2 className="mt-4 font-manrope text-4xl font-semibold tracking-tight text-on-background md:text-5xl lg:text-6xl">
           {title}
         </h2>
-        <p className="mt-5 max-w-4xl text-lg leading-8 text-[#2E3A4E] md:text-xl md:leading-[1.8]">
+        <p className="mt-6 max-w-4xl font-manrope text-lg leading-relaxed text-on-surface md:text-xl">
           {description}
         </p>
       </div>
@@ -124,8 +132,10 @@ export function MachineCatalogueSection({
         {categories.map((cat) => (
           <button
             key={cat.id}
-            className={`f-btn ${
-              !activeMachineId && activeCategory === cat.id ? 'active' : ''
+            className={`font-manrope px-6 py-2 rounded-sm border transition-all duration-200 ease-in-out text-sm font-semibold tracking-wide ${
+              !activeMachineId && activeCategory === cat.id 
+                ? 'bg-primary-container border-primary-container text-white ambient-shadow-light' 
+                : 'bg-surface border-[rgba(37,61,78,0.15)] text-on-surface hover:border-primary-container hover:text-primary-container'
             }`}
             onClick={() => {
               setActiveMachineId(null)
@@ -174,6 +184,12 @@ export function MachineCatalogueSection({
           const isExpanded = expandedId === machine.id
           const activeTab = getActiveTab(machine.id)
           const categoryLabel = data.categories.find(c => c.id === machine.category)?.label || machine.category
+          const visibleTabs = tabs.filter((t) => {
+            if (t.id === 'insights') return machine.salesInsights && machine.salesInsights.length > 0
+            if (t.id === 'materials') return machine.applicableMaterials && machine.applicableMaterials.length > 0
+            if (t.id === 'features') return machine.keyFeatures && machine.keyFeatures.length > 0
+            return true
+          })
 
           return (
             <div key={machine.id} className={`m-item ${isExpanded ? 'expanded' : ''}`}>
@@ -200,35 +216,90 @@ export function MachineCatalogueSection({
               <div className="m-content">
                 <div className="c-inner">
                   <div className="c-tabs">
-                    <div 
-                      className={`c-tab ${activeTab === 'overview' ? 'active' : ''}`}
-                      onClick={() => setTab(machine.id, 'overview')}
-                    >
-                      Overview
-                    </div>
-                    <div 
-                      className={`c-tab ${activeTab === 'features' ? 'active' : ''}`}
-                      onClick={() => setTab(machine.id, 'features')}
-                    >
-                      Key Features
-                    </div>
-                    {machine.salesInsights && machine.salesInsights.length > 0 && (
-                      <div 
-                        className={`c-tab ${activeTab === 'insights' ? 'active' : ''}`}
-                        onClick={() => setTab(machine.id, 'insights')}
+                    {visibleTabs.map((t) => (
+                      <div
+                        key={t.id}
+                        className={`c-tab ${activeTab === t.id ? 'active' : ''}`}
+                        onClick={() => setTab(machine.id, t.id)}
                       >
-                        Sales Insights
+                        {t.label}
                       </div>
-                    )}
+                    ))}
                   </div>
-
-                  {/* Overview Panel */}
+                  {/* ── Overview Tab ─────────────────────────── */}
                   <div className={`tab-panel ${activeTab === 'overview' ? 'active' : ''}`}>
-                    <div className="overview-grid">
-                      <div className="panel-left">
-                        <div className="m-desc">{machine.overview}</div>
-                        <div className="tag-cloud">
-                          {machine.tags.map(tag => <span key={tag}>{tag}</span>)}
+                    <div className="overview-standalone">
+                      {/* Full-width Diagram Block */}
+                      {machine.image && (
+                        <div className="diagram-block">
+                          <Image 
+                            src={machine.image} 
+                            alt={machine.fullName} 
+                            fill 
+                            className="object-contain p-12 mix-blend-darken" 
+                            sizes="100vw"
+                          />
+                          {machine.components?.slice(0, 8).filter(c => c.pin).map((comp) => (
+                            <div
+                              key={`${comp.number}-${comp.name}`}
+                              className="group absolute z-10 -translate-x-1/2 -translate-y-1/2"
+                              style={{ left: `${comp.pin?.x}%`, top: `${comp.pin?.y}%` }}
+                            >
+                              <div className="relative">
+                                {/* Pulse Effect */}
+                                <div className="absolute inset-0 rounded-sm bg-secondary/50 animate-ping"></div>
+                                
+                                <div className="relative flex h-8 w-8 items-center justify-center rounded-sm bg-secondary font-manrope text-xs font-black text-white shadow-[0_0_20px_rgba(250,110,53,0.4)] ring-2 ring-white cursor-pointer hover:scale-110 hover:rotate-3 transition-all duration-300">
+                                  {comp.number}
+                                </div>
+                                
+                                {/* Label Tooltip */}
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 p-2 bg-primary text-white text-[10px] font-bold uppercase tracking-tighter rounded opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-20 shadow-2xl">
+                                  {comp.name}
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* Expanded Edge-to-Edge Content Below */}
+                      <div className="overview-content-edge">
+                        <div className="content-main">
+                          <div className="section-label text-secondary">Operational Brief</div>
+                          <div className="m-desc text-xl leading-relaxed font-medium">{machine.overview}</div>
+                          <div className="tag-cloud mt-6">
+                            {machine.tags.map(tag => <span key={tag} className="bg-surface-container-high px-4 py-2 rounded-full text-xs font-bold text-primary tracking-wide">#{tag}</span>)}
+                          </div>
+                        </div>
+
+                        {/* Technical Core Grid */}
+                        <div className="technical-core">
+                          <div className="section-label">Technical Core</div>
+                          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+                            {machine.keySpecs.slice(0, 4).map((spec, si) => (
+                              <div
+                                key={spec.label}
+                                className="p-8 bg-surface-container-low rounded-lg border border-transparent hover:border-secondary/20 transition-colors"
+                              >
+                                <div className="font-manrope text-[10px] font-bold uppercase tracking-widest text-secondary mb-2">
+                                  {spec.label}
+                                </div>
+                                <div className="font-manrope text-2xl font-extrabold tracking-tight text-primary">
+                                  {spec.value}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Component list below diagram */}
+                    {machine.components && machine.components.length > 0 && (
+                      <div className="mt-12">
+                        <div className="mb-6 font-manrope text-[11px] font-bold uppercase tracking-widest text-primary-container">
+                          Component Breakdown
                         </div>
                         <div className="component-list">
                           {machine.components.slice(0, 8).map((comp, i) => (
@@ -239,40 +310,13 @@ export function MachineCatalogueSection({
                           ))}
                         </div>
                       </div>
-                      <div className="panel-right">
-                        {machine.image && (
-                          <div className="relative flex h-[400px] w-full items-center justify-center bg-[linear-gradient(135deg,#f9fafb_0%,#e8ecf2_100%)]">
-                            <Image 
-                              src={machine.image} 
-                              alt={machine.fullName} 
-                              fill 
-                              className="object-contain p-6 opacity-95 mix-blend-multiply" 
-                              sizes="(max-width: 768px) 100vw, 40vw"
-                            />
-                            {machine.components.slice(0, 8).filter(c => c.pin).map((comp) => (
-                              <div
-                                key={`${comp.number}-${comp.name}`}
-                                className="group absolute z-10"
-                                style={{ left: `${comp.pin?.x}%`, top: `${comp.pin?.y}%` }}
-                              >
-                                <div className="flex h-6 w-6 -translate-x-1/2 -translate-y-1/2 items-center justify-center bg-[#104c8c] font-[var(--font-barlow-condensed)] text-sm font-bold text-[#ffffff] shadow-md ring-2 ring-white cursor-pointer hover:scale-110 transition-transform">
-                                  {comp.number}
-                                </div>
-                                <div className="absolute bottom-full left-1/2 mb-2 hidden -translate-x-1/2 whitespace-nowrap border border-[#253d4e] bg-[#ffffff] px-2 py-1 font-[var(--font-barlow-condensed)] text-[10px] font-bold uppercase tracking-[0.16em] text-[#253d4e] shadow-lg group-hover:block">
-                                  {comp.name}
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    </div>
+                    )}
                   </div>
 
-                  {/* Features Panel */}
+                  {/* ── Features Tab ─────────────────────────── */}
                   <div className={`tab-panel ${activeTab === 'features' ? 'active' : ''}`}>
                     <div className="feature-grid">
-                      {machine.keyFeatures.map((f, i) => (
+                      {machine.keyFeatures?.map((f, i) => (
                         <div key={i} className="fc">
                           <h4>{f.title}</h4>
                           <p>{f.description}</p>
@@ -281,29 +325,47 @@ export function MachineCatalogueSection({
                     </div>
                   </div>
 
-                  {/* Insights Panel */}
-                  <div className={`tab-panel ${activeTab === 'insights' ? 'active' : ''}`}>
-                    <div className="qa-list">
-                      {machine.salesInsights?.map((qa, i) => (
-                        <div key={i} className="qa-item">
-                          <div className="q"><span>Q.</span> {qa.q}</div>
-                          <div className="a">{qa.a}</div>
-                        </div>
-                      ))}
+                  {/* ── Specs Tab ────────────────────────────── */}
+                  <div className={`tab-panel ${activeTab === 'specs' ? 'active' : ''}`}>
+                    <SpecTable specs={machine.specifications} />
+                    {machine.printingSpeed && (
+                      <div className="mt-8">
+                        <SpeedTable printingSpeed={machine.printingSpeed} />
+                      </div>
+                    )}
+                  </div>
+
+                  {/* ── Materials Tab ────────────────────────── */}
+                  <div className={`tab-panel ${activeTab === 'materials' ? 'active' : ''}`}>
+                    <div className="mb-4">
+                      <p className="mb-8 max-w-2xl font-manrope text-base leading-relaxed text-on-surface">
+                        This machine supports a wide range of substrates and materials for diverse production needs.
+                      </p>
+                      <div className="flex flex-wrap gap-4">
+                        {machine.applicableMaterials?.map((material, mi) => (
+                          <div
+                            key={material}
+                            className="group flex items-center gap-4 bg-surface px-6 py-4 transition-all duration-200 ease-in-out hover:bg-primary-container hover:text-white rounded-sm border border-[rgba(37,61,78,0.05)]"
+                          >
+                            <span className="font-manrope text-xs font-bold text-primary-container transition-colors group-hover:text-secondary-container">
+                              {String(mi + 1).padStart(2, '0')}
+                            </span>
+                            <span className="font-manrope text-sm font-bold uppercase tracking-wider text-on-background group-hover:text-white">
+                              {material}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
 
-
-
-                  <div className="m-cta-row">
-                    <Link href={`/machines/${machine.slug}`} className="m-detail-btn">
-                      View Full Details
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                      </svg>
-                    </Link>
+                  {/* ── Sales Insights Tab ───────────────────── */}
+                  <div className={`tab-panel ${activeTab === 'insights' ? 'active' : ''}`}>
+                    <div className="max-w-4xl">
+                      <SalesQA items={machine.salesInsights} />
+                    </div>
                   </div>
+
                 </div>
               </div>
             </div>
@@ -318,18 +380,18 @@ export function MachineCatalogueSection({
           <div className="modal-container" onClick={e => e.stopPropagation()}>
             <div className="main-photo-view">
               <Image 
-                src={modalMachine.photos[currentPhotoIndex].url || modalMachine.image || '/placeholder.jpg'} 
-                alt={modalMachine.photos[currentPhotoIndex].label}
+                src={modalMachine.photos?.[currentPhotoIndex]?.url || modalMachine.image || '/placeholder.jpg'} 
+                alt={modalMachine.photos?.[currentPhotoIndex]?.label || 'Machine'}
                 fill
                 className="object-contain"
               />
               <div className="photo-caption">
-                <h3>{modalMachine.photos[currentPhotoIndex].label}</h3>
-                <p>{modalMachine.photos[currentPhotoIndex].caption}</p>
+                <h3>{modalMachine.photos?.[currentPhotoIndex]?.label || modalMachine.fullName}</h3>
+                <p>{modalMachine.photos?.[currentPhotoIndex]?.caption || ''}</p>
               </div>
             </div>
             <div className="modal-thumbs">
-              {modalMachine.photos.map((photo, i) => (
+              {modalMachine.photos?.map((photo, i) => (
                 <div 
                   key={i} 
                   className={`modal-thumb ${currentPhotoIndex === i ? 'active' : ''}`}
