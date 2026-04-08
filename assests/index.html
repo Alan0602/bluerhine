@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Blue Rhine | High-End Industrial Machinery Catalogue</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#1b1c1c",
+                    "on-surface": "#1b1c1c",
+                    "secondary-fixed-dim": "#ffb694",
+                    "primary": "#003569",
+                    "inverse-primary": "#a7c8ff",
+                    "primary-fixed-dim": "#a7c8ff",
+                    "on-error-container": "#93000a",
+                    "error": "#ba1a1a",
+                    "inverse-on-surface": "#f2f0f0",
+                    "tertiary": "#00356a",
+                    "surface-container-low": "#f5f3f3",
+                    "on-secondary-fixed-variant": "#7b2f00",
+                    "background": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "secondary": "#ef7d00",
+                    "outline-variant": "#c2c6d2",
+                    "on-tertiary-fixed": "#001b3c",
+                    "surface": "#ffffff",
+                    "secondary-container": "#ef7d00",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-highest": "#e4e2e2",
+                    "on-primary-fixed-variant": "#044787",
+                    "inverse-surface": "#303031",
+                    "surface-bright": "#ffffff",
+                    "outline": "#737781",
+                    "on-error": "#ffffff",
+                    "secondary-fixed": "#ffdbcc",
+                    "primary-fixed": "#d5e3ff",
+                    "primary-container": "#104c8c",
+                    "surface-dim": "#dbdad9",
+                    "tertiary-container": "#004b93",
+                    "surface-tint": "#2c5fa0",
+                    "on-primary-fixed": "#001c3b",
+                    "on-secondary-container": "#5e2200",
+                    "tertiary-fixed-dim": "#a8c8ff",
+                    "surface-container-high": "#e9e8e7",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#d6e3ff",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed": "#351000",
+                    "on-surface-variant": "#424750",
+                    "surface-variant": "#e4e2e2",
+                    "surface-container": "#efeded",
+                    "on-primary-container": "#95beff",
+                    "on-tertiary-fixed-variant": "#00468a",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-container": "#96bdff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Updated TopNavBar based on IMAGE_27 -->
+<header class="w-full top-0 sticky z-50 bg-primary shadow-lg">
+<nav class="flex justify-between items-center max-w-7xl mx-auto px-6 h-16">
+<div class="flex items-center h-10">
+<img alt="Blue Rhine Logo" class="h-full w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0ujI0rMA-CbyftyO5X9K8YHaVhelVtD3gswoSpM4va0jTwZ6VEFiRhtw4G3XdpLhMXoqN3wZcWL77iHNFUxknOIUNEAOcc7AbjB8f8Cy_Dk731fykxjZCT9Cfpy1-q4v1HFBMKEfmjJliTE0KNpwwFOmP4_45NAZ-g0B9kspkrJ1z-rFYNDCZTydBIXDYnI1q5ZnGbTlZEb5Ti6xocNg_qC-_8lccOniFlDO3ol3or4b2od2OZnjgX6BMLcVEXKuHuJgI2YE7g"/>
+</div>
+<div class="hidden md:flex items-center space-x-8 font-medium text-xs uppercase tracking-wider text-white/90">
+<a class="hover:text-white transition-colors" href="#">Home</a>
+<div class="flex items-center gap-1 group cursor-pointer">
+<a class="hover:text-white transition-colors" href="#">About Us</a>
+<span class="material-symbols-outlined text-sm">keyboard_arrow_down</span>
+</div>
+<div class="flex items-center gap-1 group cursor-pointer">
+<a class="text-white font-bold border-b-2 border-secondary pb-0.5" href="#">Explore</a>
+<span class="material-symbols-outlined text-sm">keyboard_arrow_down</span>
+</div>
+<a class="hover:text-white transition-colors" href="#">Careers</a>
+<a class="hover:text-white transition-colors" href="#">Contact</a>
+</div>
+<div class="flex items-center space-x-3">
+<button class="bg-secondary text-white px-5 py-2 rounded-full font-bold text-[11px] uppercase tracking-wide hover:brightness-110 transition-all">
+                Visit Store
+            </button>
+<button class="bg-white text-primary px-5 py-2 rounded-full font-bold text-[11px] uppercase tracking-wide hover:bg-gray-100 transition-all">
+                Our Products
+            </button>
+<div class="flex items-center space-x-3 ml-2 text-white">
+<span class="material-symbols-outlined text-xl cursor-pointer">search</span>
+<span class="material-symbols-outlined text-xl cursor-pointer">phone_in_talk</span>
+</div>
+</div>
+</nav>
+</header>
+<!-- Updated Hero Section based on IMAGE_27 -->
+<section class="relative bg-white pt-12 pb-24 overflow-hidden">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center relative">
+<!-- Left Content Card -->
+<div class="z-20 w-full md:w-[480px] bg-white p-12 shadow-[0_20px_50px_rgba(0,0,0,0.1)] rounded-lg md:-mr-20 self-start mt-20">
+<span class="text-on-surface-variant text-sm font-medium mb-3 block">Featured Products</span>
+<h1 class="text-4xl font-extrabold text-primary mb-6 leading-tight">
+                Industrial UV Printers
+            </h1>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-8">
+                JHF's UV printers combine cutting-edge printhead technology with continuous roll media handling, delivering vibrant, durable prints for signage, décor, and display applications.
+            </p>
+<button class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<!-- Right Image Container -->
+<div class="relative w-full flex-grow mt-12 md:mt-0">
+<div class="aspect-[16/9] w-full rounded-xl overflow-hidden shadow-2xl relative">
+<img class="w-full h-full object-cover" data-alt="industrial printer in facility" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjt7Evk9WftEFlCenCyEGuYgRuv3sHu6PA5FWwy2g-PGadUSfyG-pZ3IT3BXsq1oYXC2C9V0RW9Hs4hgYVPa4li_87Gif4OtxBOvI4Uf6zDirM-OIXDJDAszxXEf-yE0LK8QqKpF0huvg8Fk8llPTyZeblsWKoHPTT6KcH2zHIRIBoBF5osA478GvPlKqXDzkmF2AIbKDUF2FVnFUQxFcMhZb-TkjNyt9D3b6f2Sp0o2S7OdBddd_YVkT5XKNGvuXsTTgmFmJt"/>
+<!-- Logo Overlay -->
+<div class="absolute top-12 right-12">
+<span class="text-4xl font-black text-primary italic tracking-tighter opacity-80">JHF</span>
+</div>
+</div>
+<!-- Navigation Arrows Overlay -->
+<div class="absolute -left-5 top-1/2 -translate-y-1/2 z-30">
+<button class="w-10 h-10 bg-white shadow-lg rounded-full flex items-center justify-center text-on-surface-variant border border-surface-container hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+</div>
+<div class="absolute -right-5 top-1/2 -translate-y-1/2 z-30">
+<button class="w-10 h-10 bg-white shadow-lg rounded-full flex items-center justify-center text-on-surface-variant border border-surface-container hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Brand Overview -->
+<section class="py-24 bg-surface border-t border-surface-container">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col md:flex-row items-center justify-between gap-16">
+<div class="w-full md:w-1/2">
+<h2 class="text-primary text-4xl font-extrabold tracking-tight mb-6">Elite Partnerships, <br/>Global Standards.</h2>
+<p class="text-on-surface-variant text-lg leading-relaxed">
+                    Blue Rhine stands as the exclusive distributor for industry giants <span class="text-primary font-bold">JHF</span> and <span class="text-primary font-bold">Dlican</span> across the GCC. We bridge the gap between world-class engineering and local production needs, providing unparalleled technical support and supply chain reliability.
+                </p>
+</div>
+<div class="w-full md:w-1/2 grid grid-cols-2 gap-8 items-center justify-items-center opacity-80">
+<div class="h-20 flex items-center justify-center p-4 bg-surface-container rounded-xl w-full">
+<span class="text-2xl font-black text-primary opacity-40">JHF LOGO</span>
+</div>
+<div class="h-20 flex items-center justify-center p-4 bg-surface-container rounded-xl w-full">
+<span class="text-2xl font-black text-primary opacity-40">DLICAN LOGO</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Catalogue Grid -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-8">
+<div class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
+<div>
+<h2 class="text-primary text-4xl font-extrabold tracking-tight mb-4">Precision Portfolio</h2>
+<p class="text-on-surface-variant max-w-xl">Browse our curated selection of high-capacity industrial machines, categorized by technology and output scale.</p>
+</div>
+<div class="flex gap-2">
+<span class="px-6 py-2 bg-primary text-white rounded-full text-xs font-bold uppercase tracking-wider">All Systems</span>
+<span class="px-6 py-2 bg-white text-primary border border-surface-container rounded-full text-xs font-bold uppercase tracking-wider hover:bg-surface-container transition-colors cursor-pointer">UV Hybrid</span>
+<span class="px-6 py-2 bg-white text-primary border border-surface-container rounded-full text-xs font-bold uppercase tracking-wider hover:bg-surface-container transition-colors cursor-pointer">Roll-to-Roll</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Machine Card 1 -->
+<div class="bg-surface-container-lowest overflow-hidden group hover:shadow-2xl transition-all duration-500 rounded-lg flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="high precision industrial uv printer close up" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU-xrE5Cfeh6grJLKR-a0HxW8OOFsF5030ZO5ibL-q35GjfhtYvAofO-tPyu1l35m6EK4hizD7TZJ92q4ttZBtnhh8_3YQEi-RsXSGr_a498zYzuigDZWQubG8yS18WLTGhXB1MLdfQEmznGkZe0QccAbw6mVgVTBUNQMhDzqAoZ5fARAqXsGzFfJzzOBnwn3ZGpFdZWGPd0pUWYYX_bfh9Pf0trswNom9WtRs1vJqVmhsjAvMTvMTmeBb9X62uhHUbW6ooJ_R"/>
+<div class="absolute top-4 left-4">
+<span class="bg-primary/90 backdrop-blur-md text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Hybrid UV</span>
+</div>
+</div>
+<div class="p-8 flex-grow flex flex-col">
+<h3 class="text-primary text-2xl font-bold mb-6">JHF M5300</h3>
+<div class="grid grid-cols-2 gap-y-4 mb-8">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">straighten</span>
+<span class="text-sm font-medium text-on-surface-variant">5m Width</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">speed</span>
+<span class="text-sm font-medium text-on-surface-variant">400 m²/h</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">print</span>
+<span class="text-sm font-medium text-on-surface-variant">KM1024i</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">precision_manufacturing</span>
+<span class="text-sm font-medium text-on-surface-variant">Industrial</span>
+</div>
+</div>
+<button class="mt-auto w-full py-3 border border-outline-variant text-primary font-bold rounded-md hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2">
+                        View Technical Brief
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Machine Card 2 -->
+<div class="bg-surface-container-lowest overflow-hidden group hover:shadow-2xl transition-all duration-500 rounded-lg flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="industrial heavy duty printer printing on fabric" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPDIBnZVhm9n6cdxKgCDdt19NZTtPUDzSFo522G5dAdEN9EB_nxUX7CAqVLe6_SRGcczMvEbqeyVjdJUoJOp8iXNBa_L7g-8vYmCjzrUXHuHNt665yIV-3zD4MuQDnhHLOJA6RY126Q_OAaw6kA-sW56NSVPOT1lcws2O_TLVeL6J3FZMwpufXZiyC89j29TPzCePT0rD7wXm03l4Gc3FeJoJkZbZ9M4WWGlPuN8VT66Khx1QEnjI0JCBjQcV6sJr2M94lKQgm"/>
+<div class="absolute top-4 left-4">
+<span class="bg-primary/90 backdrop-blur-md text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Industrial</span>
+</div>
+</div>
+<div class="p-8 flex-grow flex flex-col">
+<h3 class="text-primary text-2xl font-bold mb-6">JHF R9000Pro</h3>
+<div class="grid grid-cols-2 gap-y-4 mb-8">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">straighten</span>
+<span class="text-sm font-medium text-on-surface-variant">5m Width</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">speed</span>
+<span class="text-sm font-medium text-on-surface-variant">230 m²/h</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">print</span>
+<span class="text-sm font-medium text-on-surface-variant">Kyocera</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">bolt</span>
+<span class="text-sm font-medium text-on-surface-variant">High Speed</span>
+</div>
+</div>
+<button class="mt-auto w-full py-3 border border-outline-variant text-primary font-bold rounded-md hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2">
+                        View Technical Brief
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Machine Card 3 -->
+<div class="bg-surface-container-lowest overflow-hidden group hover:shadow-2xl transition-all duration-500 rounded-lg flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="sleek professional flatbed uv printer head" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjQ-r1uiykQ5TBD6RlxHCYaHTC4dOU9dpGrBdZEQhuPKg9SUw2rvk4DziRM8WCx-0UlKt5FR8Et6OTz4AIXcZg7M_m8n701eo_oGe-dfh7ZLZ0hJAQKiqKl92O7qTqQlvouckl_d16vWxBVhCt8vRVyZiSo41JKG0UJogrdBUA5TNtzrvp7wGOwuHBKTncdZRaxbCuHu2sozFhy3Fm3kSALxstkM5qijotpe6r29oRWnbFjfLjPYVxez2HvITtObAR7v_jN18s"/>
+<div class="absolute top-4 left-4">
+<span class="bg-primary/90 backdrop-blur-md text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Hybrid UV</span>
+</div>
+</div>
+<div class="p-8 flex-grow flex flex-col">
+<h3 class="text-primary text-2xl font-bold mb-6">Dlican DL3200-RP</h3>
+<div class="grid grid-cols-2 gap-y-4 mb-8">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">straighten</span>
+<span class="text-sm font-medium text-on-surface-variant">3.2m Width</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">speed</span>
+<span class="text-sm font-medium text-on-surface-variant">180 m²/h</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">layers</span>
+<span class="text-sm font-medium text-on-surface-variant">Multi-layer</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">verified</span>
+<span class="text-sm font-medium text-on-surface-variant">Precision</span>
+</div>
+</div>
+<button class="mt-auto w-full py-3 border border-outline-variant text-primary font-bold rounded-md hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2">
+                        View Technical Brief
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Machine Card 4 -->
+<div class="bg-surface-container-lowest overflow-hidden group hover:shadow-2xl transition-all duration-500 rounded-lg flex flex-col">
+<div class="p-8 flex-grow flex flex-col">
+<span class="text-[10px] font-bold text-secondary tracking-widest uppercase mb-2">Roll-to-Roll UV</span>
+<h3 class="text-primary text-2xl font-bold mb-6">JHF Vista V698</h3>
+<div class="space-y-4 mb-8">
+<div class="flex items-center gap-4 py-2 border-b border-surface-container">
+<span class="material-symbols-outlined text-secondary">expand</span>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase font-bold text-outline">Max Width</span>
+<span class="text-sm font-bold text-primary">5.0 Meters</span>
+</div>
+</div>
+<div class="flex items-center gap-4 py-2 border-b border-surface-container">
+<span class="material-symbols-outlined text-secondary">update</span>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase font-bold text-outline">Application</span>
+<span class="text-sm font-bold text-primary">Outdoor Signage</span>
+</div>
+</div>
+</div>
+<button class="mt-auto w-full py-3 bg-primary text-white font-bold rounded-md hover:bg-primary-container transition-all">
+                        Request Datasheet
+                    </button>
+</div>
+</div>
+<!-- Machine Card 5 -->
+<div class="bg-surface-container-lowest overflow-hidden group hover:shadow-2xl transition-all duration-500 rounded-lg flex flex-col">
+<div class="p-8 flex-grow flex flex-col">
+<span class="text-[10px] font-bold text-secondary tracking-widest uppercase mb-2">UV Flatbed</span>
+<h3 class="text-primary text-2xl font-bold mb-6">Dlican DLI-2513</h3>
+<div class="space-y-4 mb-8">
+<div class="flex items-center gap-4 py-2 border-b border-surface-container">
+<span class="material-symbols-outlined text-secondary">aspect_ratio</span>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase font-bold text-outline">Bed Size</span>
+<span class="text-sm font-bold text-primary">2.5m x 1.3m</span>
+</div>
+</div>
+<div class="flex items-center gap-4 py-2 border-b border-surface-container">
+<span class="material-symbols-outlined text-secondary">palette</span>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase font-bold text-outline">Ink System</span>
+<span class="text-sm font-bold text-primary">CMYK + W + V</span>
+</div>
+</div>
+</div>
+<button class="mt-auto w-full py-3 bg-primary text-white font-bold rounded-md hover:bg-primary-container transition-all">
+                        Request Datasheet
+                    </button>
+</div>
+</div>
+<!-- Machine Card 6 -->
+<div class="bg-surface-container-lowest overflow-hidden group hover:shadow-2xl transition-all duration-500 rounded-lg flex flex-col">
+<div class="p-8 flex-grow flex flex-col">
+<span class="text-[10px] font-bold text-secondary tracking-widest uppercase mb-2">Laser Cutting</span>
+<h3 class="text-primary text-2xl font-bold mb-6">Accurate E300</h3>
+<div class="space-y-4 mb-8">
+<div class="flex items-center gap-4 py-2 border-b border-surface-container">
+<span class="material-symbols-outlined text-secondary">flare</span>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase font-bold text-outline">Laser Type</span>
+<span class="text-sm font-bold text-primary">CO2 Gas Laser</span>
+</div>
+</div>
+<div class="flex items-center gap-4 py-2 border-b border-surface-container">
+<span class="material-symbols-outlined text-secondary">settings_suggest</span>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase font-bold text-outline">Automation</span>
+<span class="text-sm font-bold text-primary">Full Auto Feed</span>
+</div>
+</div>
+</div>
+<button class="mt-auto w-full py-3 bg-primary text-white font-bold rounded-md hover:bg-primary-container transition-all">
+                        Request Datasheet
+                    </button>
+</div>
+</div>
+</div>
+<!-- CTA Bar -->
+<div class="mt-20 p-12 bg-primary rounded-xl overflow-hidden relative">
+<div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+<div>
+<h4 class="text-white text-3xl font-bold mb-2">Looking for custom specs?</h4>
+<p class="text-white/70">Our engineers can help configure a machine tailored to your exact workflow.</p>
+</div>
+<button class="bg-secondary text-white px-10 py-4 rounded-full font-bold hover:brightness-110 transition-all uppercase text-sm tracking-wide">
+                    Consult an Expert
+                </button>
+</div>
+<!-- Abstract Design Elements -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32"></div>
+<div class="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full -ml-16 -mb-16"></div>
+</div>
+</div>
+</section>
+<!-- Map & Contact Section -->
+<section class="py-24 bg-white relative overflow-hidden">
+<div class="max-w-7xl mx-auto px-8 relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="text-primary text-4xl font-extrabold tracking-tight mb-8">Visit Our Hub</h2>
+<div class="space-y-8">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-primary flex items-center justify-center rounded-lg text-white">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<h5 class="text-primary font-bold text-lg">Headquarters</h5>
+<p class="text-on-surface-variant leading-relaxed">
+                                Blue Rhine DIP-2, Dubai Investment Park,<br/>
+                                Dubai, United Arab Emirates
+                            </p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-primary flex items-center justify-center rounded-lg text-white">
+<span class="material-symbols-outlined">support_agent</span>
+</div>
+<div>
+<h5 class="text-primary font-bold text-lg">GCC Support Line</h5>
+<p class="text-secondary font-black text-2xl tracking-tight">800 74463</p>
+<p class="text-on-surface-variant text-sm mt-1">24/7 Technical Assistance</p>
+</div>
+</div>
+</div>
+<div class="mt-12 flex gap-4">
+<button class="flex items-center gap-2 text-primary font-bold hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">map</span>
+                        View on Google Maps
+                    </button>
+<span class="text-outline">|</span>
+<button class="flex items-center gap-2 text-primary font-bold hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">mail</span>
+                        machinery@bluerhine.com
+                    </button>
+</div>
+</div>
+<div class="rounded-2xl overflow-hidden shadow-2xl h-96 bg-surface-dim">
+<div class="w-full h-full relative">
+<img class="w-full h-full object-cover grayscale opacity-50" data-alt="satellite map view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtR2SvoOx8IzrlupRN03c1zn58I2qJgC_bf9kqsq59zYjxDGKHeUtqWPEVZ-hDf2LpdKyKR3zccQidn23ZdsmIf3oRKHbkoD7Y6iiyc9PqQm16-_ni5kG44NzPYUlZ0lG3zDIoSvgvDBVkmVpTX1EeWf1j4oNvkk0tKyTcly6Ppsmqa4T8MDdua_0uqmHfHr2MRH6JSvj69hQPRKSME31S92fqn1H9JSAq2QFJHRX60o7j1LCPXAVjT1_vMOYO9vTE0R-qACf6"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="p-4 bg-primary text-white rounded-xl shadow-2xl flex items-center gap-3">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="font-bold">Blue Rhine DIP-2</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer from IMAGE_27 style -->
+<footer class="w-full bg-[#003569] text-white pt-20 pb-10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto px-8">
+<div class="col-span-1">
+<div class="text-xl font-black italic uppercase tracking-tighter mb-6">
+                BLUE RHINE
+            </div>
+<p class="text-white/70 text-sm leading-relaxed mb-6">
+                Blue Rhine delivers innovative signage, advertising, and LED solutions across the GCC- empowering industries with high-quality products and tailored B2B services. <a class="text-white font-bold underline" href="#">Read more..</a>
+</p>
+<div class="flex space-x-4">
+<span class="material-symbols-outlined cursor-pointer">public</span>
+<span class="material-symbols-outlined cursor-pointer">groups</span>
+<span class="material-symbols-outlined cursor-pointer">smart_display</span>
+</div>
+</div>
+<div>
+<h5 class="font-bold mb-6 uppercase text-xs tracking-widest">Our menu</h5>
+<ul class="space-y-4 text-sm text-white/70">
+<li><a class="hover:text-secondary transition-all" href="#">Home</a></li>
+<li><a class="hover:text-secondary transition-all" href="#">Facilities</a></li>
+<li><a class="hover:text-secondary transition-all" href="#">Work Highlights</a></li>
+<li><a class="hover:text-secondary transition-all" href="#">Articles</a></li>
+<li><a class="hover:text-secondary transition-all" href="#">Careers</a></li>
+<li><a class="hover:text-secondary transition-all" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-6 uppercase text-xs tracking-widest">Our top products</h5>
+<ul class="space-y-4 text-sm text-white/70">
+<li><a class="hover:text-secondary transition-all" href="#">Acrylic</a></li>
+<li><a class="hover:text-secondary transition-all" href="#">Machinery</a></li>
+<li><a class="hover:text-secondary transition-all" href="#">Digital Signage Software</a></li>
+<li><a class="hover:text-secondary transition-all" href="#">Color Vinyl</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-6 uppercase text-xs tracking-widest">HQ Address</h5>
+<p class="text-sm text-white/70 mb-4">Plot 597-634, Dubai Investments Park-2, Dubai, UAE.</p>
+<div class="pt-4 border-t border-white/20">
+<p class="text-sm text-white/70">Tel: +971-4-8049 888</p>
+<p class="text-sm text-white/70">info@bluerhine.com</p>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/50">
+<p>© 2024 Blue Rhine. Ownership Reserved.</p>
+<div class="flex gap-6">
+<a href="#">Privacy Policy</a>
+<a href="#">Terms &amp; Conditions</a>
+</div>
+</div>
+</footer>
+</body></html>
