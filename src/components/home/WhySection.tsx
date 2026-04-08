@@ -64,7 +64,7 @@ function ParallaxCard({ app, index, hoveredApp, setHoveredApp }: any) {
       transition={{ delay: index * 0.1 }}
     >
       {/* Image container with premium rounding */}
-      <div className="relative w-full h-[280px] sm:h-[350px] md:h-[400px] overflow-hidden rounded-2xl md:rounded-3xl bg-surface-high shadow-lg transition-all duration-700 group-hover:shadow-[0_20px_50px_rgba(239,125,0,0.2)]">
+      <div className="relative w-full h-[400px] overflow-hidden rounded-3xl bg-surface-high shadow-lg transition-all duration-700 group-hover:shadow-[0_20px_50px_rgba(239,125,0,0.2)]">
         <Image
           src={app.image}
           alt={app.label}
