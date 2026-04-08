@@ -23,15 +23,11 @@ const machineImageAliases: Record<string, string[]> = {
   'jhf-m5300':           ['jhf-m5300'],
   'jhf-v398':            ['jhf-vista-v398'],
   'jhf-v698':            ['jhf-vista-v698'],
-  // NOTE: the machines below have no entry in machine-images.json yet.
-  // They fall back cleanly to their headerGradient in the UI.
-  // Once you add image URLs for them in machine-images.json, remove
-  // the comment and add the key mapping here.
-  // 'jhf-r9000pro':     [],
-  // 'jhf-venus-10r':    [],
-  // 'jhf-venus-33x':    [],
-  // 'jhf-venus-33x-s':  [],
-  // 'jhf-t3700':        [],
+  'jhf-r9000pro':     ['jhf-r9000pro'],
+  'jhf-venus-10r':    ['jhf-venus-10r'],
+  'jhf-venus-33x':    ['jhf-venus-33x'],
+  'jhf-venus-33x-s':  ['jhf-venus-33x-s'],
+  'jhf-t3700':        ['jhf-t3700'],
 }
 
 function normalizeImageUrl(url: string): string {

@@ -27,7 +27,7 @@ export function MachineCatalogueSection({
 }: MachineCatalogueSectionProps) {
   const [activeCategory, setActiveCategory] = useState(initialCategory)
   const [activeMachineId, setActiveMachineId] = useState<string | null>(null)
-  const [expandedId, setExpandedId] = useState<string | null>(null)
+  const [collapsedIds, setCollapsedIds] = useState<Set<string>>(new Set())
 
   const [activeTabs, setActiveTabs] = useState<Record<string, string>>({})
 
@@ -60,8 +60,16 @@ export function MachineCatalogueSection({
     return data.machines.filter(m => m.category === activeCategory)
   }, [activeCategory, activeMachineId])
 
-  const toggleExpand = (id: string) => {
-    setExpandedId(expandedId === id ? null : id)
+  const toggleItem = (id: string) => {
+    setCollapsedIds(prev => {
+      const newSet = new Set(prev)
+      if (newSet.has(id)) {
+        newSet.delete(id)
+      } else {
+        newSet.add(id)
+      }
+      return newSet
+    })
   }
 
   const handleDropdownChange = (value: string) => {
@@ -77,7 +85,12 @@ export function MachineCatalogueSection({
       if (machine) {
         setActiveMachineId(machine.id)
         setActiveCategory('all')
-        setExpandedId(machine.id)
+        // Ensure it's expanded when selected from dropdown
+        setCollapsedIds(prev => {
+          const newSet = new Set(prev)
+          newSet.delete(machine.id)
+          return newSet
+        })
       }
     }
   }
@@ -178,9 +191,9 @@ export function MachineCatalogueSection({
         </select>
       </div>
 
-      <div className="m-list" onMouseLeave={() => setExpandedId(null)}>
+      <div className="m-list">
         {filteredMachines.map((machine, index) => {
-          const isExpanded = expandedId === machine.id
+          const isExpanded = !collapsedIds.has(machine.id)
           const activeTab = getActiveTab(machine.id)
           const categoryLabel = data.categories.find(c => c.id === machine.category)?.label || machine.category
           const visibleTabs = tabs.filter((t) => {
@@ -194,9 +207,8 @@ export function MachineCatalogueSection({
             <div
               key={machine.id}
               className={`m-item ${isExpanded ? 'expanded' : ''}`}
-              onMouseEnter={() => setExpandedId(machine.id)}
             >
-              <div className="m-summary" onClick={() => toggleExpand(machine.id)}>
+              <div className="m-summary" onClick={() => toggleItem(machine.id)}>
                 <div className="m-index">{(index + 1).toString().padStart(2, '0')}</div>
                 <div className="m-title-area">
                   <div className="mitem-brand">{machine.brand}</div>
@@ -229,170 +241,170 @@ export function MachineCatalogueSection({
                       </div>
                     ))}
                   </div>
-                  <div className="c-panels-scroll">
+                  <div className="c-panels-scroll" onClick={(e) => e.stopPropagation()}>
                     {/* ── Overview Tab ─────────────────────────── */}
-                  <div className={`tab-panel ${activeTab === 'overview' ? 'active' : ''}`}>
-                    <div className="overview-standalone">
-                      {/* Full-width Diagram Block */}
-                      {machine.image && (
-                        <div className="diagram-block">
-                          <Image
-                            src={machine.image}
-                            alt={machine.fullName}
-                            fill
-                            className="object-contain p-12 mix-blend-darken"
-                            sizes="100vw"
-                          />
-                          {machine.components?.slice(0, 8).filter(c => c.pin).map((comp) => (
-                            <div
-                              key={`${comp.number}-${comp.name}`}
-                              className="group absolute z-10 -translate-x-1/2 -translate-y-1/2"
-                              style={{ left: `${comp.pin?.x}%`, top: `${comp.pin?.y}%` }}
-                            >
-                              <div className="relative">
-                                {/* Pulse Effect */}
-                                <div className="absolute inset-0 rounded-sm bg-secondary/50 animate-ping"></div>
-
-                                <div className="relative flex h-8 w-8 items-center justify-center rounded-sm bg-secondary font-manrope text-xs font-black text-white shadow-[0_0_20px_rgba(250,110,53,0.4)] ring-2 ring-white cursor-pointer hover:scale-110 hover:rotate-3 transition-all duration-300">
-                                  {comp.number}
-                                </div>
-
-                                {/* Label Tooltip */}
-                                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 p-2 bg-primary text-white text-[10px] font-bold uppercase tracking-tighter rounded opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-20 shadow-2xl">
-                                  {comp.name}
-                                </div>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-
-                      {/* Component list directly below diagram */}
-                      {machine.components && machine.components.length > 0 && (
-                        <div className="diagram-components-breakdown mb-12">
-                          <div className="mb-6 font-manrope text-[14px] font-bold uppercase tracking-widest text-primary">
-                            Component Breakdown
-                          </div>
-                          <div className="component-list-compact">
-                            {machine.components.slice(0, 12).map((comp, i) => (
-                              <div key={i} className="ci-compact">
-                                <span className="ci-num-small">{(i + 1).toString().padStart(2, '0')}</span>
-                                {comp.name}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Expanded Edge-to-Edge Content Below */}
-                      <div className="overview-content-edge">
-                        <div className="content-main">
-                          <div className="mb-6 font-manrope text-[14px] font-bold uppercase tracking-widest text-primary">Operational Brief</div>
-                          <div className="m-desc text-xl leading-relaxed font-medium">{machine.overview}</div>
-                          <div className="tag-cloud mt-6">
-                            {machine.tags.map(tag => <span key={tag} className="bg-surface-container-high px-4 py-2 rounded-full text-xs font-bold text-primary tracking-wide">#{tag}</span>)}
-                          </div>
-                        </div>
-
-                        {/* Technical Core Grid */}
-                        <div className="technical-core">
-                          <div className="mb-6 font-manrope text-[14px] font-bold uppercase tracking-widest text-primary">Technical Core</div>
-                          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
-                            {machine.keySpecs.slice(0, 4).map((spec, si) => (
+                    <div className={`tab-panel ${activeTab === 'overview' ? 'active' : ''}`}>
+                      <div className="overview-standalone">
+                        {/* Full-width Diagram Block */}
+                        {machine.image && (
+                          <div className="diagram-block">
+                            <Image
+                              src={machine.image}
+                              alt={machine.fullName}
+                              fill
+                              className="object-contain p-12 mix-blend-darken"
+                              sizes="100vw"
+                            />
+                            {machine.components?.slice(0, 8).filter(c => c.pin).map((comp) => (
                               <div
-                                key={spec.label}
-                                className="p-8 bg-surface-container-low rounded-lg border border-transparent hover:border-secondary/20 transition-colors"
+                                key={`${comp.number}-${comp.name}`}
+                                className="group absolute z-10 -translate-x-1/2 -translate-y-1/2"
+                                style={{ left: `${comp.pin?.x}%`, top: `${comp.pin?.y}%` }}
                               >
-                                <div className="font-manrope text-[10px] font-bold uppercase tracking-widest text-secondary mb-2">
-                                  {spec.label}
-                                </div>
-                                <div className="font-manrope text-2xl font-extrabold tracking-tight text-primary">
-                                  {spec.value}
+                                <div className="relative">
+                                  {/* Pulse Effect */}
+                                  <div className="absolute inset-0 rounded-sm bg-secondary/50 animate-ping"></div>
+
+                                  <div className="relative flex h-8 w-8 items-center justify-center rounded-sm bg-secondary font-manrope text-xs font-black text-white shadow-[0_0_20px_rgba(250,110,53,0.4)] ring-2 ring-white cursor-pointer hover:scale-110 hover:rotate-3 transition-all duration-300">
+                                    {comp.number}
+                                  </div>
+
+                                  {/* Label Tooltip */}
+                                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 p-2 bg-primary text-white text-[10px] font-bold uppercase tracking-tighter rounded opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-20 shadow-2xl">
+                                    {comp.name}
+                                  </div>
                                 </div>
                               </div>
                             ))}
                           </div>
-                        </div>
+                        )}
 
-                        {/* Production Use-Cases */}
-                        {machine.useCases && machine.useCases.length > 0 && (
-                          <div className="use-cases-section mt-12">
-                            <div className="mb-6 font-manrope text-[14px] font-bold uppercase tracking-widest text-primary">Production Use-Cases</div>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
-                              {machine.useCases.map((uc, uci) => (
-                                <div key={uci} className="use-case-card group">
-                                  <span className="uc-emoji">{uc.emoji}</span>
-                                  <span className="uc-label">{uc.label}</span>
+                        {/* Component list directly below diagram */}
+                        {machine.components && machine.components.length > 0 && (
+                          <div className="diagram-components-breakdown mb-12">
+                            <div className="mb-6 font-manrope text-[14px] font-bold uppercase tracking-widest text-primary">
+                              Component Breakdown
+                            </div>
+                            <div className="component-list-compact">
+                              {machine.components.slice(0, 12).map((comp, i) => (
+                                <div key={i} className="ci-compact">
+                                  <span className="ci-num-small">{(i + 1).toString().padStart(2, '0')}</span>
+                                  {comp.name}
                                 </div>
                               ))}
                             </div>
                           </div>
                         )}
-                      </div>
-                    </div>
 
+                        {/* Expanded Edge-to-Edge Content Below */}
+                        <div className="overview-content-edge">
+                          <div className="content-main">
+                            <div className="mb-6 font-manrope text-[14px] font-bold uppercase tracking-widest text-primary">Operational Brief</div>
+                            <div className="m-desc text-xl leading-relaxed font-medium">{machine.overview}</div>
+                            <div className="tag-cloud mt-6">
+                              {machine.tags.map(tag => <span key={tag} className="bg-surface-container-high px-4 py-2 rounded-full text-xs font-bold text-primary tracking-wide">#{tag}</span>)}
+                            </div>
+                          </div>
 
-                  </div>
+                          {/* Technical Core Grid */}
+                          <div className="technical-core">
+                            <div className="mb-6 font-manrope text-[14px] font-bold uppercase tracking-widest text-primary">Technical Core</div>
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+                              {machine.keySpecs.slice(0, 4).map((spec, si) => (
+                                <div
+                                  key={spec.label}
+                                  className="p-8 bg-surface-container-low rounded-lg border border-transparent hover:border-secondary/20 transition-colors"
+                                >
+                                  <div className="font-manrope text-[10px] font-bold uppercase tracking-widest text-secondary mb-2">
+                                    {spec.label}
+                                  </div>
+                                  <div className="font-manrope text-2xl font-extrabold tracking-tight text-primary">
+                                    {spec.value}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
 
-                  {/* ── Features Tab ─────────────────────────── */}
-                  <div className={`tab-panel ${activeTab === 'features' ? 'active' : ''}`}>
-                    <div className="feature-grid">
-                      {machine.keyFeatures?.map((f, i) => (
-                        <div key={i} className="fc">
-                          <h4>{f.title}</h4>
-                          <p>{f.description}</p>
+                          {/* Production Use-Cases */}
+                          {machine.useCases && machine.useCases.length > 0 && (
+                            <div className="use-cases-section mt-12">
+                              <div className="mb-6 font-manrope text-[14px] font-bold uppercase tracking-widest text-primary">Production Use-Cases</div>
+                              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
+                                {machine.useCases.map((uc, uci) => (
+                                  <div key={uci} className="use-case-card group">
+                                    <span className="uc-emoji">{uc.emoji}</span>
+                                    <span className="uc-label">{uc.label}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
                         </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* ── Specs Tab ────────────────────────────── */}
-                  <div className={`tab-panel ${activeTab === 'specs' ? 'active' : ''}`}>
-                    <SpecTable specs={machine.specifications} />
-                    {machine.printingSpeed && (
-                      <div className="mt-8">
-                        <SpeedTable printingSpeed={machine.printingSpeed} />
                       </div>
-                    )}
-                  </div>
 
-                  {/* ── Materials Tab ────────────────────────── */}
-                  <div className={`tab-panel ${activeTab === 'materials' ? 'active' : ''}`}>
-                    <div className="mb-4">
-                      <p className="mb-8 max-w-2xl font-manrope text-base leading-relaxed text-on-surface">
-                        This machine supports a wide range of substrates and materials for diverse production needs.
-                      </p>
-                      <div className="flex flex-wrap gap-4">
-                        {machine.applicableMaterials?.map((material, mi) => (
-                          <div
-                            key={material}
-                            className="material-item group"
-                          >
-                            <span className="mi-num">
-                              {String(mi + 1).padStart(2, '0')}
-                            </span>
-                            <span className="mi-label">
-                              {material}
-                            </span>
+
+                    </div>
+
+                    {/* ── Features Tab ─────────────────────────── */}
+                    <div className={`tab-panel ${activeTab === 'features' ? 'active' : ''}`}>
+                      <div className="feature-grid">
+                        {machine.keyFeatures?.map((f, i) => (
+                          <div key={i} className="fc">
+                            <h4>{f.title}</h4>
+                            <p>{f.description}</p>
                           </div>
                         ))}
                       </div>
                     </div>
-                  </div>
 
-                  {/* ── Sales Insights Tab ───────────────────── */}
-                  <div className={`tab-panel ${activeTab === 'insights' ? 'active' : ''}`}>
-                    <div className="max-w-4xl">
-                      <SalesQA items={machine.salesInsights} />
+                    {/* ── Specs Tab ────────────────────────────── */}
+                    <div className={`tab-panel ${activeTab === 'specs' ? 'active' : ''}`}>
+                      <SpecTable specs={machine.specifications} />
+                      {machine.printingSpeed && (
+                        <div className="mt-8">
+                          <SpeedTable printingSpeed={machine.printingSpeed} />
+                        </div>
+                      )}
+                    </div>
+
+                    {/* ── Materials Tab ────────────────────────── */}
+                    <div className={`tab-panel ${activeTab === 'materials' ? 'active' : ''}`}>
+                      <div className="mb-4">
+                        <p className="mb-8 max-w-2xl font-manrope text-base leading-relaxed text-on-surface">
+                          This machine supports a wide range of substrates and materials for diverse production needs.
+                        </p>
+                        <div className="flex flex-wrap gap-4">
+                          {machine.applicableMaterials?.map((material, mi) => (
+                            <div
+                              key={material}
+                              className="material-item group"
+                            >
+                              <span className="mi-num">
+                                {String(mi + 1).padStart(2, '0')}
+                              </span>
+                              <span className="mi-label">
+                                {material}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* ── Sales Insights Tab ───────────────────── */}
+                    <div className={`tab-panel ${activeTab === 'insights' ? 'active' : ''}`}>
+                      <div className="max-w-4xl">
+                        <SalesQA items={machine.salesInsights} />
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        )
-      })}
-    </div>
+          )
+        })}
+      </div>
 
       {/* Modal */}
       {modalOpen && modalMachine && (

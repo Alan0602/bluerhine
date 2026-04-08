@@ -106,6 +106,10 @@
     border-color: rgba(16, 76, 140, 0.2);
 }
 
+.m-item:not(.expanded) {
+    opacity: 0.9;
+}
+
 .m-summary {
     padding: 28px 32px;
     display: grid;

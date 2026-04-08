@@ -54,5 +54,25 @@
   "rhine-lam-1600se": {
     "name": "Rhine LAM_1600SE Roll to Roll laminator",
     "image": "https://drive.google.com/uc?export=view&id=1WNaV_qex29l18WcUMdy-2WIbU7lRSYTd"
+  },
+  "jhf-r9000pro": {
+    "name": "JHF R9000Pro Industrial Printer",
+    "image": "/JHF R9000Pro Industrial Printer.jpeg"
+  },
+  "jhf-venus-10r": {
+    "name": "JHF Venus 10r Ultra-Wide Printer",
+    "image": "/JHF Venus 10r Ultra-Wide Printer.jpeg"
+  },
+  "jhf-venus-33x": {
+    "name": "JHF Venus 33x UV Printer",
+    "image": "/JHF Venus 33x UV Printer.jpeg"
+  },
+  "jhf-venus-33x-s": {
+    "name": "JHF Venus High-Speed Printer",
+    "image": "/JHF Venus High-Speed Printer.jpeg"
+  },
+  "jhf-t3700": {
+    "name": "JHF T3700 Printer",
+    "image": "/JHF T3700 Printer.jpeg"
   }
 }
