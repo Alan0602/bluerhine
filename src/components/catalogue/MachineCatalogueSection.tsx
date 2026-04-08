@@ -255,7 +255,7 @@ export function MachineCatalogueSection({
                               className="object-contain p-12 mix-blend-darken"
                               sizes="100vw"
                             />
-                            {machine.components?.slice(0, 8).filter(c => c.pin).map((comp) => (
+                            {machine.brand.toLowerCase() !== 'accurate laser' && machine.components?.slice(0, 8).filter(c => c.pin).map((comp) => (
                               <div
                                 key={`${comp.number}-${comp.name}`}
                                 className="group absolute z-10 -translate-x-1/2 -translate-y-1/2"
@@ -279,22 +279,7 @@ export function MachineCatalogueSection({
                           </div>
                         )}
 
-                        {/* Component list directly below diagram */}
-                        {machine.components && machine.components.length > 0 && (
-                          <div className="diagram-components-breakdown mb-12">
-                            <div className="mb-6 font-manrope text-[14px] font-bold uppercase tracking-widest text-primary">
-                              Component Breakdown
-                            </div>
-                            <div className="component-list-compact">
-                              {machine.components.slice(0, 12).map((comp, i) => (
-                                <div key={i} className="ci-compact">
-                                  <span className="ci-num-small">{(i + 1).toString().padStart(2, '0')}</span>
-                                  {comp.name}
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        )}
+
 
                         {/* Expanded Edge-to-Edge Content Below */}
                         <div className="overview-content-edge">
