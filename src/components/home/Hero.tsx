@@ -67,22 +67,22 @@ export function Hero() {
   const slide = heroSlides[activeSlide]
 
   return (
-    <section id="home" className="relative bg-white pt-28 pb-12 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 relative">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-0 min-h-[600px] md:min-h-[720px]">
+    <section id="home" className="relative bg-white pt-24 md:pt-28 pb-8 md:pb-12 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0 min-h-[auto] md:min-h-[720px]">
           {/* Left Content Card — floating editorial style */}
-          <div className="z-20 w-full md:w-[480px] bg-white p-10 md:p-14 shadow-[0_30px_90px_rgba(0,0,0,0.15)] rounded-2xl md:-mr-20 self-center shrink-0 border border-surface-container-low">
-            <span className="text-secondary text-xs font-black uppercase tracking-[0.3em] mb-4 block">
+          <div className="z-20 w-full md:w-[480px] bg-white p-6 sm:p-10 md:p-14 shadow-[0_30px_90px_rgba(0,0,0,0.15)] rounded-2xl md:-mr-20 self-center shrink-0 border border-surface-container-low">
+            <span className="text-secondary text-xs font-black uppercase tracking-[0.3em] mb-3 md:mb-4 block">
               {slide.tag}
             </span>
             <h1
-              className="text-4xl md:text-6xl font-extrabold text-primary mb-8 leading-[1.1] transition-all duration-500 font-barlow-condensed tracking-tighter"
+              className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-primary mb-6 md:mb-8 leading-[1.1] transition-all duration-500 font-barlow-condensed tracking-tighter"
               key={`title-${activeSlide}`}
             >
               {slide.title}
             </h1>
             <p
-              className="text-on-surface-variant text-lg leading-relaxed mb-10 transition-opacity duration-500 opacity-90 font-manrope"
+              className="text-on-surface-variant text-base md:text-lg leading-relaxed mb-8 md:mb-10 transition-opacity duration-500 opacity-90 font-manrope"
               key={`desc-${activeSlide}`}
             >
               {slide.description}
@@ -112,7 +112,7 @@ export function Hero() {
 
           {/* Right Image Container (Enlarged and Balanced) */}
           <div className="relative w-full md:w-[65%] max-w-[860px] flex-grow">
-            <div className="aspect-[4/3] md:aspect-[1.4/1] w-full rounded-[3rem] overflow-hidden shadow-[0_50px_120px_rgba(0,0,0,0.2)] relative group">
+            <div className="aspect-[4/3] md:aspect-[1.4/1] w-full rounded-2xl md:rounded-[3rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.15)] md:shadow-[0_50px_120px_rgba(0,0,0,0.2)] relative group">
               {heroSlides.map((s, i) => (
                 <Image
                   key={i}
@@ -159,9 +159,9 @@ export function Hero() {
       </div>
 
       {/* ── Seamless Image Marquee ──────────────────── */}
-      <div className="mt-20 relative">
-        <div className="mx-auto max-w-7xl px-6 mb-8 flex items-center justify-between">
-          <h3 className="font-barlow-condensed text-xl font-bold uppercase tracking-widest text-primary/40">Products</h3>
+      <div className="mt-12 md:mt-20 relative">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 mb-6 md:mb-8 flex items-center justify-between">
+          <h3 className="font-barlow-condensed text-lg md:text-xl font-bold uppercase tracking-widest text-primary/40">Products</h3>
           <div className="h-px flex-grow mx-8 bg-surface-container-high" />
         </div>
 
@@ -171,7 +171,7 @@ export function Hero() {
             {[...marqueeImages, ...marqueeImages].map((img, i) => (
               <div
                 key={i}
-                className="group relative w-[280px] h-[180px] mx-4 overflow-hidden rounded-2xl shadow-lg transition-all duration-500 hover:-translate-y-3 hover:scale-105 hover:shadow-2xl bg-white"
+                className="group relative w-[200px] h-[130px] sm:w-[280px] sm:h-[180px] mx-3 sm:mx-4 overflow-hidden rounded-xl sm:rounded-2xl shadow-lg transition-all duration-500 hover:-translate-y-3 hover:scale-105 hover:shadow-2xl bg-white"
               >
                 <Image
                   src={img.src}

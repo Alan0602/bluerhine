@@ -2,17 +2,17 @@ import { data } from '@/lib/utils'
 
 export function CTASection() {
   return (
-    <section id="contact" className="bg-surface py-24 border-t border-surface-container">
-      <div className="max-w-7xl mx-auto px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+    <section id="contact" className="bg-surface py-16 sm:py-24 border-t border-surface-container">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           {/* Left: Contact Info & Form */}
           <div className="space-y-12">
             <div>
               <span className="section-label">Contact Us</span>
-              <h2 className="text-primary text-5xl font-extrabold tracking-tighter mb-6">
+              <h2 className="text-primary text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tighter mb-4 sm:mb-6">
                 Ready to scale <br />your production?
               </h2>
-              <p className="text-on-surface-variant text-lg">
+              <p className="text-on-surface-variant text-base sm:text-lg">
                 Join 500+ production houses across the GCC relying on Blue Rhine for engineering excellence.
               </p>
             </div>
@@ -61,7 +61,7 @@ export function CTASection() {
           </div>
 
           {/* Right: Map / Visual */}
-          <div className="relative group">
+          <div className="relative group hidden sm:block">
             <div className="aspect-square bg-surface-container-high rounded-2xl overflow-hidden shadow-2xl relative">
               {/* Map Placeholder with Gradient and Pin */}
               <div className="absolute inset-0 bg-[#E9E8E7] flex items-center justify-center">
