@@ -5,7 +5,15 @@
 .m-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 16px;
+}
+
+@media (min-width: 640px) {
+    .m-container { padding: 0 24px; }
+}
+
+@media (min-width: 768px) {
+    .m-container { padding: 0 32px; }
 }
 
 .m-header {
@@ -77,21 +85,25 @@
 }
 
 .m-item {
-    background: transparent;
-    border-radius: 4px;
-    border: 1px solid transparent;
+    background: #FFFFFF;
+    border-radius: 8px;
+    border: 1px solid rgba(37, 61, 78, 0.05);
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(37, 61, 78, 0.03);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .m-item:hover {
-    background: #FFFFFF;
-    box-shadow: 0 8px 30px rgba(37, 61, 78, 0.04);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(37, 61, 78, 0.06);
+    border-color: rgba(16, 76, 140, 0.1);
 }
 
 .m-item.expanded {
-    background: #FFFFFF;
-    box-shadow: 0 16px 50px rgba(37, 61, 78, 0.08); /* Ambient shadow */
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(37, 61, 78, 0.12);
+    border-color: rgba(16, 76, 140, 0.2);
 }
 
 .m-summary {
@@ -252,6 +264,33 @@
     display: block;
 }
 
+.c-panels-scroll {
+    max-height: 700px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 12px;
+    margin-right: -12px;
+}
+
+/* Premium Scrollbar for Catalogue */
+.c-panels-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.c-panels-scroll::-webkit-scrollbar-track {
+    background: rgba(37, 61, 78, 0.05);
+    border-radius: 10px;
+}
+
+.c-panels-scroll::-webkit-scrollbar-thumb {
+    background: #104C8C;
+    border-radius: 10px;
+}
+
+.c-panels-scroll::-webkit-scrollbar-thumb:hover {
+    background: #003569;
+}
+
 .overview-standalone {
     display: flex;
     flex-direction: column;
@@ -314,34 +353,39 @@
     color: #104C8C;
 }
 
-.component-list {
+.component-list-compact {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
 }
 
-.ci {
+.ci-compact {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 16px;
-    background: #FBF9F8;
-    border-radius: 4px;
+    padding: 12px 16px;
+    background: #FFFFFF;
+    border-radius: 6px;
+    border: 1px solid rgba(27, 28, 28, 0.05);
     font-size: 13px;
-    font-weight: 700;
-    color: #253d4e;
+    font-weight: 600;
+    color: #1B1C1C;
+    transition: all 0.2s ease;
 }
 
-.ci-num {
-    width: 24px;
-    height: 24px;
-    background: #E9E8E7; /* surface-high */
-    color: #1B1C1C;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
+.ci-compact:hover {
+    border-color: #FD762D;
+    background: #FBF9F8;
+    transform: translateX(4px);
+}
+
+.ci-num-small {
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: 800;
+    color: #104C8C;
+    opacity: 0.5;
+    flex-shrink: 0;
 }
 
 .feature-grid {
@@ -586,24 +630,133 @@
     background: rgba(37, 61, 78, 0.1);
 }
 
+/* Production Use-Cases Styles */
+.use-case-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    background: #FBF9F8;
+    border-radius: 8px;
+    border: 1px solid rgba(37, 61, 78, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.use-case-card:hover {
+    background: #FFFFFF;
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px rgba(37, 61, 78, 0.05);
+    border-color: #FD762D;
+}
+
+.uc-emoji {
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.uc-label {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #253D4E;
+}
+
+/* Material Item Refinements */
+.material-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    background: #104C8C; /* Always selected - Corporate Navy */
+    color: #FFFFFF;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: default;
+}
+
+.material-item:hover {
+    transform: scale(1.1) rotate(1deg);
+    background: #003569;
+    box-shadow: 0 12px 30px rgba(16, 76, 140, 0.3);
+    z-index: 10;
+}
+
+.mi-num {
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 800;
+    color: #FD762D; /* Corporate Orange */
+    opacity: 0.8;
+}
+
+.mi-label {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
 @media (max-width: 1024px) {
     .m-summary {
         grid-template-columns: 40px 1.5fr 1fr 40px;
     }
     .m-spec-pills { display: none; }
     .overview-grid { grid-template-columns: 1fr; }
+    .diagram-block { height: 400px; }
 }
 
 @media (max-width: 768px) {
     .fdr-sel {
         max-width: 100%;
     }
+    .m-filters {
+        gap: 8px;
+        margin-bottom: 24px;
+        padding-bottom: 12px;
+    }
+    .m-filters button {
+        padding: 8px 14px;
+        font-size: 12px;
+    }
     .m-summary {
         grid-template-columns: 1fr 40px;
-        padding: 24px;
+        padding: 16px;
+        gap: 12px;
     }
     .m-index, .cat-badge { display: none; }
-    .mitem-name { font-size: 20px; }
-    .c-tabs { gap: 20px; }
-    .c-tab { font-size: 11px; }
+    .mitem-name { font-size: 18px; }
+    .mitem-tagline { font-size: 12px; }
+    .c-inner { padding: 0 16px 24px 16px; }
+    .c-tabs { 
+        gap: 12px; 
+        overflow-x: auto;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+    }
+    .c-tab { 
+        font-size: 10px; 
+        white-space: nowrap;
+        padding: 12px 0;
+    }
+    .diagram-block { height: 250px; }
+    .component-list-compact {
+        grid-template-columns: 1fr;
+    }
+    .overview-content-edge { gap: 32px; }
+    .feature-grid { grid-template-columns: 1fr; }
+    .use-case-card { padding: 14px; }
+    .uc-emoji { font-size: 20px; }
+    .uc-label { font-size: 11px; }
+    .material-item { padding: 14px 16px; }
+    .mi-label { font-size: 12px; }
+}
+
+@media (max-width: 480px) {
+    .m-summary { padding: 14px; }
+    .mitem-name { font-size: 16px; }
+    .mitem-brand { font-size: 10px; }
+    .diagram-block { height: 200px; }
+    .c-inner { padding: 0 12px 20px 12px; }
 }
