@@ -101,6 +101,7 @@ export interface Machine {
   photos: Photo[]
   printingSpeed?: PrintingSpeed
   colorConfigurations?: ColorConfiguration[]
+  pdf?: string
 }
 
 export interface MachineSummary {
@@ -136,6 +137,7 @@ export interface MachineDetail {
   photos: Photo[]
   printingSpeed?: PrintingSpeed
   colorConfigurations?: ColorConfiguration[]
+  pdf?: string
 }
 
 export type MachineDetailMap = Record<string, MachineDetail>
