@@ -1,16 +1,78 @@
 {
   "accurate-laser-e150": {
     "overview": "The Accurate Laser E150 is a high-speed CO2 laser cutting and engraving machine designed for large-format applications. Ideal for signage, decorative panels, acrylic letters, and woodcraft, it delivers consistent, accurate results with efficiency and reliability. Advanced technology ensures stable operation, fast production, and precise contour cutting with CCD camera guidance.",
-    "tags": ["CO2 Laser", "1300×2500mm", "150W", "CCD Camera", "LightBurn"],
+    "tags": [
+      "CO2 Laser",
+      "1300×2500mm",
+      "150W",
+      "CCD Camera",
+      "LightBurn"
+    ],
     "components": [
-      { "number": 1, "name": "Laser Head Point", "pin": { "x": 62, "y": 28 } },
-      { "number": 2, "name": "CCD Camera System", "pin": { "x": 70, "y": 22 } },
-      { "number": 3, "name": "CO2 Laser Tube", "pin": { "x": 78, "y": 18 } },
-      { "number": 4, "name": "Gantry & Carriage", "pin": { "x": 55, "y": 20 } },
-      { "number": 5, "name": "DSP Controller Panel", "pin": { "x": 48, "y": 32 } },
-      { "number": 6, "name": "Linear Rails", "pin": { "x": 50, "y": 42 } },
-      { "number": 7, "name": "Intelligent Cooling System", "pin": { "x": 18, "y": 35 } },
-      { "number": 8, "name": "Aluminum Knife Worktable", "pin": { "x": 30, "y": 55 } }
+      {
+        "number": 1,
+        "name": "Laser Head Point",
+        "pin": {
+          "x": 62,
+          "y": 28
+        }
+      },
+      {
+        "number": 2,
+        "name": "CCD Camera System",
+        "pin": {
+          "x": 70,
+          "y": 22
+        }
+      },
+      {
+        "number": 3,
+        "name": "CO2 Laser Tube",
+        "pin": {
+          "x": 78,
+          "y": 18
+        }
+      },
+      {
+        "number": 4,
+        "name": "Gantry & Carriage",
+        "pin": {
+          "x": 55,
+          "y": 20
+        }
+      },
+      {
+        "number": 5,
+        "name": "DSP Controller Panel",
+        "pin": {
+          "x": 48,
+          "y": 32
+        }
+      },
+      {
+        "number": 6,
+        "name": "Linear Rails",
+        "pin": {
+          "x": 50,
+          "y": 42
+        }
+      },
+      {
+        "number": 7,
+        "name": "Intelligent Cooling System",
+        "pin": {
+          "x": 18,
+          "y": 35
+        }
+      },
+      {
+        "number": 8,
+        "name": "Aluminum Knife Worktable",
+        "pin": {
+          "x": 30,
+          "y": 55
+        }
+      }
     ],
     "keyFeatures": [
       {
@@ -39,32 +101,105 @@
       }
     ],
     "specifications": [
-      { "param": "Model Number", "value": "E150 — CCD Camera Function Included", "highlight": true },
-      { "param": "Laser Type", "value": "CO2 Glass Tube / 300W Dual Tube" },
-      { "param": "Laser Power", "value": "150W" },
-      { "param": "Cooling", "value": "Intelligent Constant Temperature Cooler and Protection System" },
-      { "param": "Control & Drive", "value": "High Speed DSP Control Stepper Motor High Subdivision Drive" },
-      { "param": "Voltage", "value": "AC220V ± 50Hz" },
-      { "param": "Engrave Speed", "value": "0 – 60,000 mm/min" },
-      { "param": "Cut Speed", "value": "0 – 30,000 mm/min (depends on material thickness)" },
-      { "param": "Red Dot", "value": "Included" },
-      { "param": "Transfer Method", "value": "Imported Linear Square Guideway" },
-      { "param": "Working Size", "value": "1300 × 2500 mm" },
-      { "param": "Machine Size", "value": "3450 × 2030 × 1150 mm" },
-      { "param": "Power Supply", "value": "220V 50/60Hz 4KW" },
-      { "param": "Standard", "value": "Blade Table" },
-      { "param": "Air Support System", "value": "150W Top, Left & Right / 300W Top & Bottom" },
-      { "param": "Software", "value": "CorelDraw, CAD, AI Files via RD Works Software" },
-      { "param": "Weight", "value": "1200 kg" },
-      { "param": "Standard Accessories", "value": "Air Pipes, Hose Clamp, Power Cable, Network Cable, Focusing Plates, Key, Dual Air Exhaust Fan, Air Pump (Air compressor not included)" }
+      {
+        "param": "Model Number",
+        "value": "E150 — CCD Camera Function Included",
+        "highlight": true
+      },
+      {
+        "param": "Laser Type",
+        "value": "CO2 Glass Tube / 300W Dual Tube"
+      },
+      {
+        "param": "Laser Power",
+        "value": "150W"
+      },
+      {
+        "param": "Cooling",
+        "value": "Intelligent Constant Temperature Cooler and Protection System"
+      },
+      {
+        "param": "Control & Drive",
+        "value": "High Speed DSP Control Stepper Motor High Subdivision Drive"
+      },
+      {
+        "param": "Voltage",
+        "value": "AC220V ± 50Hz"
+      },
+      {
+        "param": "Engrave Speed",
+        "value": "0 – 60,000 mm/min"
+      },
+      {
+        "param": "Cut Speed",
+        "value": "0 – 30,000 mm/min (depends on material thickness)"
+      },
+      {
+        "param": "Red Dot",
+        "value": "Included"
+      },
+      {
+        "param": "Transfer Method",
+        "value": "Imported Linear Square Guideway"
+      },
+      {
+        "param": "Working Size",
+        "value": "1300 × 2500 mm"
+      },
+      {
+        "param": "Machine Size",
+        "value": "3450 × 2030 × 1150 mm"
+      },
+      {
+        "param": "Power Supply",
+        "value": "220V 50/60Hz 4KW"
+      },
+      {
+        "param": "Standard",
+        "value": "Blade Table"
+      },
+      {
+        "param": "Air Support System",
+        "value": "150W Top, Left & Right / 300W Top & Bottom"
+      },
+      {
+        "param": "Software",
+        "value": "CorelDraw, CAD, AI Files via RD Works Software"
+      },
+      {
+        "param": "Weight",
+        "value": "1200 kg"
+      },
+      {
+        "param": "Standard Accessories",
+        "value": "Air Pipes, Hose Clamp, Power Cable, Network Cable, Focusing Plates, Key, Dual Air Exhaust Fan, Air Pump (Air compressor not included)"
+      }
     ],
     "useCases": [
-      { "emoji": "🪧", "label": "Signage & Displays" },
-      { "emoji": "🏠", "label": "Interior Decoration" },
-      { "emoji": "🔧", "label": "Prototype" },
-      { "emoji": "🏆", "label": "Corporate Gifts & Awards" }
+      {
+        "emoji": "🪧",
+        "label": "Signage & Displays"
+      },
+      {
+        "emoji": "🏠",
+        "label": "Interior Decoration"
+      },
+      {
+        "emoji": "🔧",
+        "label": "Prototype"
+      },
+      {
+        "emoji": "🏆",
+        "label": "Corporate Gifts & Awards"
+      }
     ],
-    "applicableMaterials": ["Acrylic", "Wood", "Leather", "Plastics", "Metal-coated surfaces"],
+    "applicableMaterials": [
+      "Acrylic",
+      "Wood",
+      "Leather",
+      "Plastics",
+      "Metal-coated surfaces"
+    ],
     "salesInsights": [
       {
         "q": "What does this machine do?",
@@ -80,25 +215,99 @@
       }
     ],
     "photos": [
-      { "label": "Front View", "caption": "Full machine view showing 1300×2500mm working bed and steel frame body" },
-      { "label": "Laser Head", "caption": "CO2 laser head with CCD camera system and red dot pointer" },
-      { "label": "Controller Panel", "caption": "DSP controller panel with Wi-Fi and USB connectivity" },
-      { "label": "Worktable", "caption": "Aluminum knife worktable with blade support system" }
+      {
+        "label": "Front View",
+        "caption": "Full machine view showing 1300×2500mm working bed and steel frame body"
+      },
+      {
+        "label": "Laser Head",
+        "caption": "CO2 laser head with CCD camera system and red dot pointer"
+      },
+      {
+        "label": "Controller Panel",
+        "caption": "DSP controller panel with Wi-Fi and USB connectivity"
+      },
+      {
+        "label": "Worktable",
+        "caption": "Aluminum knife worktable with blade support system"
+      }
     ],
     "pdf": "/Accurate Laser/Accurate Laser E150/Accurate Laser E150.pdf"
   },
   "accurate-laser-e300": {
     "overview": "The Accurate Laser E300 is an advanced CO2 laser system designed for industrial-scale engraving and cutting. With higher power output than the E150, it delivers faster production, larger-format capability, and precise performance on a wide range of materials, including acrylic, wood, leather, plastics, and metal-coated surfaces. Its robust frame, precision motion, and automated features make it ideal for high-volume manufacturing, signage, and decorative applications.",
-    "tags": ["CO2 Laser", "300W Class", "CCD Camera", "LightBurn", "Industrial Scale"],
+    "tags": [
+      "CO2 Laser",
+      "300W Class",
+      "CCD Camera",
+      "LightBurn",
+      "Industrial Scale"
+    ],
     "components": [
-      { "number": 1, "name": "Laser Head Point", "pin": { "x": 62, "y": 28 } },
-      { "number": 2, "name": "CCD Camera System", "pin": { "x": 70, "y": 22 } },
-      { "number": 3, "name": "CO2 Laser Tube", "pin": { "x": 78, "y": 18 } },
-      { "number": 4, "name": "Gantry & Carriage", "pin": { "x": 55, "y": 20 } },
-      { "number": 5, "name": "DSP Controller Panel", "pin": { "x": 48, "y": 32 } },
-      { "number": 6, "name": "Linear Rails", "pin": { "x": 50, "y": 42 } },
-      { "number": 7, "name": "Intelligent Cooling System", "pin": { "x": 18, "y": 35 } },
-      { "number": 8, "name": "Aluminum Knife Worktable", "pin": { "x": 30, "y": 55 } }
+      {
+        "number": 1,
+        "name": "Laser Head Point",
+        "pin": {
+          "x": 62,
+          "y": 28
+        }
+      },
+      {
+        "number": 2,
+        "name": "CCD Camera System",
+        "pin": {
+          "x": 70,
+          "y": 22
+        }
+      },
+      {
+        "number": 3,
+        "name": "CO2 Laser Tube",
+        "pin": {
+          "x": 78,
+          "y": 18
+        }
+      },
+      {
+        "number": 4,
+        "name": "Gantry & Carriage",
+        "pin": {
+          "x": 55,
+          "y": 20
+        }
+      },
+      {
+        "number": 5,
+        "name": "DSP Controller Panel",
+        "pin": {
+          "x": 48,
+          "y": 32
+        }
+      },
+      {
+        "number": 6,
+        "name": "Linear Rails",
+        "pin": {
+          "x": 50,
+          "y": 42
+        }
+      },
+      {
+        "number": 7,
+        "name": "Intelligent Cooling System",
+        "pin": {
+          "x": 18,
+          "y": 35
+        }
+      },
+      {
+        "number": 8,
+        "name": "Aluminum Knife Worktable",
+        "pin": {
+          "x": 30,
+          "y": 55
+        }
+      }
     ],
     "keyFeatures": [
       {
@@ -131,32 +340,105 @@
       }
     ],
     "specifications": [
-      { "param": "Model Number", "value": "E300 — CCD Camera Function Included", "highlight": true },
-      { "param": "Laser Type", "value": "CO2 Glass Tube / 300W Dual Tube" },
-      { "param": "Laser Power", "value": "300W" },
-      { "param": "Cooling", "value": "Intelligent Constant Temperature Cooler and Protection System" },
-      { "param": "Control & Drive", "value": "High Speed DSP Control Stepper Motor High Subdivision Drive" },
-      { "param": "Voltage", "value": "AC220V ± 50Hz" },
-      { "param": "Engrave Speed", "value": "0 – 60,000 mm/min" },
-      { "param": "Cut Speed", "value": "0 – 30,000 mm/min (depends on material thickness)" },
-      { "param": "Red Dot", "value": "Included" },
-      { "param": "Transfer Method", "value": "Imported Linear Square Guideway" },
-      { "param": "Working Size", "value": "1300 × 2500 mm" },
-      { "param": "Machine Size", "value": "3450 × 2030 × 1150 mm" },
-      { "param": "Power Supply", "value": "220V 50/60Hz 4KW" },
-      { "param": "Standard", "value": "Blade Table" },
-      { "param": "Air Support System", "value": "150W Top, Left & Right / 300W Top & Bottom" },
-      { "param": "Software", "value": "CorelDraw, CAD, AI Files via RD Works Software" },
-      { "param": "Weight", "value": "1200 kg" },
-      { "param": "Standard Accessories", "value": "Air Pipes, Hose Clamp, Power Cable, Network Cable, Focusing Plates, Key, Dual Air Exhaust Fan, Air Pump (Air compressor not included)" }
+      {
+        "param": "Model Number",
+        "value": "E300 — CCD Camera Function Included",
+        "highlight": true
+      },
+      {
+        "param": "Laser Type",
+        "value": "CO2 Glass Tube / 300W Dual Tube"
+      },
+      {
+        "param": "Laser Power",
+        "value": "300W"
+      },
+      {
+        "param": "Cooling",
+        "value": "Intelligent Constant Temperature Cooler and Protection System"
+      },
+      {
+        "param": "Control & Drive",
+        "value": "High Speed DSP Control Stepper Motor High Subdivision Drive"
+      },
+      {
+        "param": "Voltage",
+        "value": "AC220V ± 50Hz"
+      },
+      {
+        "param": "Engrave Speed",
+        "value": "0 – 60,000 mm/min"
+      },
+      {
+        "param": "Cut Speed",
+        "value": "0 – 30,000 mm/min (depends on material thickness)"
+      },
+      {
+        "param": "Red Dot",
+        "value": "Included"
+      },
+      {
+        "param": "Transfer Method",
+        "value": "Imported Linear Square Guideway"
+      },
+      {
+        "param": "Working Size",
+        "value": "1300 × 2500 mm"
+      },
+      {
+        "param": "Machine Size",
+        "value": "3450 × 2030 × 1150 mm"
+      },
+      {
+        "param": "Power Supply",
+        "value": "220V 50/60Hz 4KW"
+      },
+      {
+        "param": "Standard",
+        "value": "Blade Table"
+      },
+      {
+        "param": "Air Support System",
+        "value": "150W Top, Left & Right / 300W Top & Bottom"
+      },
+      {
+        "param": "Software",
+        "value": "CorelDraw, CAD, AI Files via RD Works Software"
+      },
+      {
+        "param": "Weight",
+        "value": "1200 kg"
+      },
+      {
+        "param": "Standard Accessories",
+        "value": "Air Pipes, Hose Clamp, Power Cable, Network Cable, Focusing Plates, Key, Dual Air Exhaust Fan, Air Pump (Air compressor not included)"
+      }
     ],
     "useCases": [
-      { "emoji": "🪧", "label": "Signage & Displays" },
-      { "emoji": "🏠", "label": "Interior Decoration" },
-      { "emoji": "🔧", "label": "Prototype" },
-      { "emoji": "🏆", "label": "Corporate Gifts & Awards" }
+      {
+        "emoji": "🪧",
+        "label": "Signage & Displays"
+      },
+      {
+        "emoji": "🏠",
+        "label": "Interior Decoration"
+      },
+      {
+        "emoji": "🔧",
+        "label": "Prototype"
+      },
+      {
+        "emoji": "🏆",
+        "label": "Corporate Gifts & Awards"
+      }
     ],
-    "applicableMaterials": ["Acrylic", "Wood", "Leather", "Plastics", "Metal-coated surfaces"],
+    "applicableMaterials": [
+      "Acrylic",
+      "Wood",
+      "Leather",
+      "Plastics",
+      "Metal-coated surfaces"
+    ],
     "salesInsights": [
       {
         "q": "What does this machine do?",
@@ -172,26 +454,71 @@
       }
     ],
     "photos": [
-      { "label": "Front View", "caption": "Full machine view — 300W dual-tube CO2 laser on heavy-duty steel frame" },
-      { "label": "Laser Head & CCD", "caption": "300W laser head with CCD camera contour detection system" },
-      { "label": "Controller Panel", "caption": "Touchscreen DSP controller with Wi-Fi, USB, and Ethernet ports" },
-      { "label": "Worktable Detail", "caption": "Aluminum knife worktable blade support for clean edge cutting" }
+      {
+        "label": "Front View",
+        "caption": "Full machine view — 300W dual-tube CO2 laser on heavy-duty steel frame"
+      },
+      {
+        "label": "Laser Head & CCD",
+        "caption": "300W laser head with CCD camera contour detection system"
+      },
+      {
+        "label": "Controller Panel",
+        "caption": "Touchscreen DSP controller with Wi-Fi, USB, and Ethernet ports"
+      },
+      {
+        "label": "Worktable Detail",
+        "caption": "Aluminum knife worktable blade support for clean edge cutting"
+      }
     ],
     "pdf": "/Accurate Laser/Accurate Laser E300/Accurate Laser E300.pdf"
   },
   "dlican-dl3200-rp": {
-    "overview": "The DL3200-RP is an industrial hybrid UV printer capable of printing on both rigid and flexible materials. It delivers high-quality, durable prints with advanced UV curing technology.",
-    "tags": ["Hybrid Printer", "3200mm", "UV", "Industrial", "Flatbed + Roll"],
+    "overview": "The Dlican DLI-3200 UV Flatbed Printer delivers powerful, precise, and high-quality printing on materials like glass, wood, metal, and plastic. Using advanced UV technology, it produces vibrant, durable prints that cure instantly while reducing waste and emissions. Perfect for signage, décor, and custom products, it combines speed, quality, and sustainability in one smart machine.",
+    "tags": [
+      "Hybrid Printer",
+      "3200mm",
+      "UV",
+      "Industrial",
+      "Flatbed + Roll"
+    ],
     "components": [
-      { "number": 1, "name": "Printing Platform" },
-      { "number": 2, "name": "Automatic Correction System" },
-      { "number": 3, "name": "Rear Feeding System" },
-      { "number": 4, "name": "Magnetic Linear Motor" },
-      { "number": 5, "name": "Profile Locator" },
-      { "number": 6, "name": "Steel Frame" },
-      { "number": 7, "name": "Monitor" },
-      { "number": 8, "name": "Emergency Switch" },
-      { "number": 9, "name": "Print Head" }
+      {
+        "number": 1,
+        "name": "Printing Platform"
+      },
+      {
+        "number": 2,
+        "name": "Automatic Correction System"
+      },
+      {
+        "number": 3,
+        "name": "Rear Feeding System"
+      },
+      {
+        "number": 4,
+        "name": "Magnetic Linear Motor"
+      },
+      {
+        "number": 5,
+        "name": "Profile Locator"
+      },
+      {
+        "number": 6,
+        "name": "Steel Frame"
+      },
+      {
+        "number": 7,
+        "name": "Monitor"
+      },
+      {
+        "number": 8,
+        "name": "Emergency Switch"
+      },
+      {
+        "number": 9,
+        "name": "Print Head"
+      }
     ],
     "keyFeatures": [
       {
@@ -216,40 +543,118 @@
       }
     ],
     "specifications": [
-      { "param": "Model", "value": "DL3200-RP", "highlight": true },
-      { "param": "Printing Width", "value": "3200 mm" },
-      { "param": "Print Size", "value": "3200 × 2500 mm" },
-      { "param": "Printhead", "value": "Konica 1024i" },
-      { "param": "Ink Type", "value": "UV Ink" },
-      { "param": "Printing Height", "value": "0–50 mm" },
-      { "param": "Power", "value": "220V, 8000W" },
-      { "param": "Machine Size", "value": "6000 × 2200 × 1700 mm" },
-      { "param": "Weight", "value": "4000 kg" }
+      {
+        "param": "Model",
+        "value": "DL3200-RP",
+        "highlight": true
+      },
+      {
+        "param": "Printing Width",
+        "value": "3200 mm"
+      },
+      {
+        "param": "Print Size",
+        "value": "3200 × 2500 mm"
+      },
+      {
+        "param": "Printhead",
+        "value": "Konica 1024i"
+      },
+      {
+        "param": "Ink Type",
+        "value": "UV Ink"
+      },
+      {
+        "param": "Printing Height",
+        "value": "0–50 mm"
+      },
+      {
+        "param": "Power",
+        "value": "220V, 8000W"
+      },
+      {
+        "param": "Machine Size",
+        "value": "6000 × 2200 × 1700 mm"
+      },
+      {
+        "param": "Weight",
+        "value": "4000 kg"
+      }
     ],
     "useCases": [
-      { "emoji": "💡", "label": "Lightbox Printing" },
-      { "emoji": "📢", "label": "Advertising Stickers" },
-      { "emoji": "🧱", "label": "Panels & Boards" }
+      {
+        "emoji": "💡",
+        "label": "Lightbox Printing"
+      },
+      {
+        "emoji": "📢",
+        "label": "Advertising Stickers"
+      },
+      {
+        "emoji": "🧱",
+        "label": "Panels & Boards"
+      }
     ],
-    "applicableMaterials": ["Lightbox Cloth", "Vinyl", "Soft Membrane", "Panels"],
+    "applicableMaterials": [
+      "Lightbox Cloth",
+      "Vinyl",
+      "Soft Membrane",
+      "Panels"
+    ],
     "salesInsights": [],
     "photos": [],
     "pdf": "/DLICAN/DL3200-RP Industrial Hybrid Printer/DL3200-RP Industrial Hybrid Printer.pdf"
   },
   "dlican-dli-2513": {
-    "overview": "The Dlican DLI-2513 is a compact UV flatbed printer designed for high-quality printing on rigid materials like glass, wood, acrylic, and metal with eco-friendly UV technology.",
-    "tags": ["UV Flatbed", "2500x1300", "Compact", "Industrial", "Rigid Printing"],
+    "overview": "The Dlican DLI-2513 is a versatile UV flatbed printer that delivers bright, detailed, and durable prints on materials like glass, wood, acrylic, and metal. Designed with eco-friendly UV technology, it reduces energy use and waste while maintaining top-quality results. Compact, efficient, and sustainable, it makes professional printing simple.",
+    "tags": [
+      "UV Flatbed",
+      "2500x1300",
+      "Compact",
+      "Industrial",
+      "Rigid Printing"
+    ],
     "components": [
-      { "number": 1, "name": "Linear Motor" },
-      { "number": 2, "name": "Static Suppression" },
-      { "number": 3, "name": "Auto Height Detection" },
-      { "number": 4, "name": "Emergency Switch" },
-      { "number": 5, "name": "Ink Tank" },
-      { "number": 6, "name": "Vacuum Switches" },
-      { "number": 7, "name": "Ink Level Display" },
-      { "number": 8, "name": "Anti-Collision System" },
-      { "number": 9, "name": "Vacuum Controller" },
-      { "number": 10, "name": "Monitor" }
+      {
+        "number": 1,
+        "name": "Linear Motor"
+      },
+      {
+        "number": 2,
+        "name": "Static Suppression"
+      },
+      {
+        "number": 3,
+        "name": "Auto Height Detection"
+      },
+      {
+        "number": 4,
+        "name": "Emergency Switch"
+      },
+      {
+        "number": 5,
+        "name": "Ink Tank"
+      },
+      {
+        "number": 6,
+        "name": "Vacuum Switches"
+      },
+      {
+        "number": 7,
+        "name": "Ink Level Display"
+      },
+      {
+        "number": 8,
+        "name": "Anti-Collision System"
+      },
+      {
+        "number": 9,
+        "name": "Vacuum Controller"
+      },
+      {
+        "number": 10,
+        "name": "Monitor"
+      }
     ],
     "keyFeatures": [
       {
@@ -274,38 +679,111 @@
       }
     ],
     "specifications": [
-      { "param": "Model", "value": "DLI-2513", "highlight": true },
-      { "param": "Printing Size", "value": "2500 × 1300 mm" },
-      { "param": "Printhead", "value": "Ricoh G5 / G6 / Epson T3200" },
-      { "param": "Ink Type", "value": "UV Ink" },
-      { "param": "Printing Height", "value": "0–100 mm (up to 450 mm optional)" },
-      { "param": "Power", "value": "220V, 8000W" },
-      { "param": "Machine Size", "value": "4590 × 2180 × 1450 mm" },
-      { "param": "Weight", "value": "1380 kg" }
+      {
+        "param": "Model",
+        "value": "DLI-2513",
+        "highlight": true
+      },
+      {
+        "param": "Printing Size",
+        "value": "2500 × 1300 mm"
+      },
+      {
+        "param": "Printhead",
+        "value": "Ricoh G5 / G6 / Epson T3200"
+      },
+      {
+        "param": "Ink Type",
+        "value": "UV Ink"
+      },
+      {
+        "param": "Printing Height",
+        "value": "0–100 mm (up to 450 mm optional)"
+      },
+      {
+        "param": "Power",
+        "value": "220V, 8000W"
+      },
+      {
+        "param": "Machine Size",
+        "value": "4590 × 2180 × 1450 mm"
+      },
+      {
+        "param": "Weight",
+        "value": "1380 kg"
+      }
     ],
     "useCases": [
-      { "emoji": "📱", "label": "Phone Cases" },
-      { "emoji": "💻", "label": "3C Digital" },
-      { "emoji": "🎨", "label": "Arts & Crafts" }
+      {
+        "emoji": "📱",
+        "label": "Phone Cases"
+      },
+      {
+        "emoji": "💻",
+        "label": "3C Digital"
+      },
+      {
+        "emoji": "🎨",
+        "label": "Arts & Crafts"
+      }
     ],
-    "applicableMaterials": ["Glass", "Wood", "Acrylic", "Metal", "Plastic"],
+    "applicableMaterials": [
+      "Glass",
+      "Wood",
+      "Acrylic",
+      "Metal",
+      "Plastic"
+    ],
     "salesInsights": [],
     "photos": [],
     "pdf": "/DLICAN/DLI-2513-UV FLATBED PRINTER/DLI-2513-UV FLATBED PRINTER.pdf"
   },
   "jhf-m5300": {
-    "overview": "The JHF M5300 Hybrid UV Printer combines ultra-wide performance with sustainable innovation. It prints on both rigid and flexible materials up to 5 meters wide, delivering vibrant, high-precision results for signage, decor, and industrial applications with eco-friendly UV LED curing.",
-    "tags": ["Hybrid UV", "5000mm", "KM Printhead", "Industrial", "UV LED"],
+    "overview": "The JHF M5300 Hybrid UV Printer combines ultra-wide performance with sustainable innovation. Capable of printing on both rigid and flexible materials up to 5 meters wide, it delivers vibrant, high-precision results for signage, decor, and industrial applications. With energy-efficient UV LED curing and reduced ink waste, the M5300 ensures powerful productivity while maintaining an eco-friendly footprint, making it perfect for businesses seeking to print smarter and greener.",
+    "tags": [
+      "Hybrid UV",
+      "5000mm",
+      "KM Printhead",
+      "Industrial",
+      "UV LED"
+    ],
     "components": [
-      { "number": 1, "name": "Carriage and Printhead" },
-      { "number": 2, "name": "UV-LED Curing Lamps" },
-      { "number": 3, "name": "Media Drive Rollers" },
-      { "number": 4, "name": "Control Station" },
-      { "number": 5, "name": "Status Light Tower" },
-      { "number": 6, "name": "Material Loading and Take-Up Core Adapter" },
-      { "number": 7, "name": "Multi-Roll Feeding Kit" },
-      { "number": 8, "name": "Vacuum Table" },
-      { "number": 9, "name": "Media Take-Up System" }
+      {
+        "number": 1,
+        "name": "Carriage and Printhead"
+      },
+      {
+        "number": 2,
+        "name": "UV-LED Curing Lamps"
+      },
+      {
+        "number": 3,
+        "name": "Media Drive Rollers"
+      },
+      {
+        "number": 4,
+        "name": "Control Station"
+      },
+      {
+        "number": 5,
+        "name": "Status Light Tower"
+      },
+      {
+        "number": 6,
+        "name": "Material Loading and Take-Up Core Adapter"
+      },
+      {
+        "number": 7,
+        "name": "Multi-Roll Feeding Kit"
+      },
+      {
+        "number": 8,
+        "name": "Vacuum Table"
+      },
+      {
+        "number": 9,
+        "name": "Media Take-Up System"
+      }
     ],
     "keyFeatures": [
       {
@@ -330,43 +808,133 @@
       }
     ],
     "specifications": [
-      { "param": "Model", "value": "M5300", "highlight": true },
-      { "param": "Printing Width", "value": "5000 mm" },
-      { "param": "Printhead", "value": "KM 13pl / KM 6pl" },
-      { "param": "Head Quantity", "value": "6C × 6" },
-      { "param": "Ink Type", "value": "UV Ink" },
-      { "param": "Ink Color", "value": "C, M, Y, K, Lc, Lm, W" },
-      { "param": "Printing Speed (High Speed)", "value": "400 m²/h (326×1080 dpi)" },
-      { "param": "Production Mode", "value": "310 m²/h (726×720 dpi)" },
-      { "param": "Fine Mode", "value": "210 m²/h (726×1080 dpi)" },
-      { "param": "High Quality Mode", "value": "165 m²/h (726×1440 dpi)" },
-      { "param": "Substrates", "value": "Film, fabric, leather, banner, reflective film, canvas" },
-      { "param": "Connectivity", "value": "USB" },
-      { "param": "Power", "value": "12KW / 380V" },
-      { "param": "Machine Size", "value": "8050 × 2170 × 1840 mm" },
-      { "param": "Weight", "value": "5500 kg" }
+      {
+        "param": "Model",
+        "value": "M5300",
+        "highlight": true
+      },
+      {
+        "param": "Printing Width",
+        "value": "5000 mm"
+      },
+      {
+        "param": "Printhead",
+        "value": "KM 13pl / KM 6pl"
+      },
+      {
+        "param": "Head Quantity",
+        "value": "6C × 6"
+      },
+      {
+        "param": "Ink Type",
+        "value": "UV Ink"
+      },
+      {
+        "param": "Ink Color",
+        "value": "C, M, Y, K, Lc, Lm, W"
+      },
+      {
+        "param": "Printing Speed (High Speed)",
+        "value": "400 m²/h (326×1080 dpi)"
+      },
+      {
+        "param": "Production Mode",
+        "value": "310 m²/h (726×720 dpi)"
+      },
+      {
+        "param": "Fine Mode",
+        "value": "210 m²/h (726×1080 dpi)"
+      },
+      {
+        "param": "High Quality Mode",
+        "value": "165 m²/h (726×1440 dpi)"
+      },
+      {
+        "param": "Substrates",
+        "value": "Film, fabric, leather, banner, reflective film, canvas"
+      },
+      {
+        "param": "Connectivity",
+        "value": "USB"
+      },
+      {
+        "param": "Power",
+        "value": "12KW / 380V"
+      },
+      {
+        "param": "Machine Size",
+        "value": "8050 × 2170 × 1840 mm"
+      },
+      {
+        "param": "Weight",
+        "value": "5500 kg"
+      }
     ],
     "useCases": [
-      { "emoji": "🪟", "label": "Glass & Ceramic Printing" },
-      { "emoji": "📢", "label": "Outdoor Billboards" },
-      { "emoji": "👣", "label": "Floor Graphics" },
-      { "emoji": "📦", "label": "Packaging" },
-      { "emoji": "🎨", "label": "Fine Art" }
+      {
+        "emoji": "🪟",
+        "label": "Glass & Ceramic Printing"
+      },
+      {
+        "emoji": "📢",
+        "label": "Outdoor Billboards"
+      },
+      {
+        "emoji": "👣",
+        "label": "Floor Graphics"
+      },
+      {
+        "emoji": "📦",
+        "label": "Packaging"
+      },
+      {
+        "emoji": "🎨",
+        "label": "Fine Art"
+      }
     ],
-    "applicableMaterials": ["Glass", "Ceramic", "Fabric", "Leather", "Canvas", "Banner", "Reflective Film"],
+    "applicableMaterials": [
+      "Glass",
+      "Ceramic",
+      "Fabric",
+      "Leather",
+      "Canvas",
+      "Banner",
+      "Reflective Film"
+    ],
     "salesInsights": [],
     "photos": [],
     "pdf": "/JHF/JHF M5300/JHF M5300 Industrial Hybrid KM Series .pdf"
   },
   "jhf-r9000pro": {
-    "overview": "The JHF R9000Pro is an ultra-wide industrial printer delivering unmatched speed, precision, and automation. It features a dual-row, ten-color system and supports 5-meter multi-roll printing with photo-realistic output and fully automated operation.",
-    "tags": ["Industrial Printer", "5000mm", "Kyocera", "UV LED", "High Speed"],
+    "overview": "The JHF R9000 redefines ultra-wide industrial printing with unmatched speed, precision, and intelligent automation. Its dual-row, ten-color output system and 5 m multi-roll capability deliver photo-realistic results with outstanding efficiency. Featuring energy-saving UV LED curing and fully automated, unmanned operation, the R9000 offers superior performance with a sustainable edge, raising productivity and print quality to new heights.",
+    "tags": [
+      "Industrial Printer",
+      "5000mm",
+      "Kyocera",
+      "UV LED",
+      "High Speed"
+    ],
     "components": [
-      { "number": 1, "name": "Print Head Carriage" },
-      { "number": 2, "name": "Media Feed System" },
-      { "number": 3, "name": "Start/Pause" },
-      { "number": 4, "name": "Ink Supply Cabinet" },
-      { "number": 5, "name": "Media Feed Roller" }
+      {
+        "number": 1,
+        "name": "Print Head Carriage"
+      },
+      {
+        "number": 2,
+        "name": "Media Feed System"
+      },
+      {
+        "number": 3,
+        "name": "Start/Pause"
+      },
+      {
+        "number": 4,
+        "name": "Ink Supply Cabinet"
+      },
+      {
+        "number": 5,
+        "name": "Media Feed Roller"
+      }
     ],
     "keyFeatures": [
       {
@@ -391,45 +959,139 @@
       }
     ],
     "specifications": [
-      { "param": "Model", "value": "R9000Pro", "highlight": true },
-      { "param": "Printing Width", "value": "5000 mm" },
-      { "param": "Printhead", "value": "Kyocera" },
-      { "param": "Head Alignment", "value": "2 rows, 16/12 heads" },
-      { "param": "Ink Type", "value": "UV Ink" },
-      { "param": "Ink Color", "value": "CMYK, LC, LM, LY, LK, W" },
-      { "param": "High Speed Mode", "value": "230 m²/h (300×1800 dpi)" },
-      { "param": "Production Mode", "value": "180 m²/h (600×1200 dpi)" },
-      { "param": "Fine Mode", "value": "120 m²/h (600×1800 dpi)" },
-      { "param": "Ultra Fine Mode", "value": "95 m²/h (1200×1200 dpi)" },
-      { "param": "Media Type", "value": "PVC banner, PET film, fabric, mesh" },
-      { "param": "Control Software", "value": "JHF Printer V5.0" },
-      { "param": "Connection", "value": "PCIE" },
-      { "param": "Power", "value": "3 phase, 380V, 25KW" },
-      { "param": "Machine Size", "value": "8520 × 1900 × 2200 mm" },
-      { "param": "Weight", "value": "8000 kg" }
+      {
+        "param": "Model",
+        "value": "R9000Pro",
+        "highlight": true
+      },
+      {
+        "param": "Printing Width",
+        "value": "5000 mm"
+      },
+      {
+        "param": "Printhead",
+        "value": "Kyocera"
+      },
+      {
+        "param": "Head Alignment",
+        "value": "2 rows, 16/12 heads"
+      },
+      {
+        "param": "Ink Type",
+        "value": "UV Ink"
+      },
+      {
+        "param": "Ink Color",
+        "value": "CMYK, LC, LM, LY, LK, W"
+      },
+      {
+        "param": "High Speed Mode",
+        "value": "230 m²/h (300×1800 dpi)"
+      },
+      {
+        "param": "Production Mode",
+        "value": "180 m²/h (600×1200 dpi)"
+      },
+      {
+        "param": "Fine Mode",
+        "value": "120 m²/h (600×1800 dpi)"
+      },
+      {
+        "param": "Ultra Fine Mode",
+        "value": "95 m²/h (1200×1200 dpi)"
+      },
+      {
+        "param": "Media Type",
+        "value": "PVC banner, PET film, fabric, mesh"
+      },
+      {
+        "param": "Control Software",
+        "value": "JHF Printer V5.0"
+      },
+      {
+        "param": "Connection",
+        "value": "PCIE"
+      },
+      {
+        "param": "Power",
+        "value": "3 phase, 380V, 25KW"
+      },
+      {
+        "param": "Machine Size",
+        "value": "8520 × 1900 × 2200 mm"
+      },
+      {
+        "param": "Weight",
+        "value": "8000 kg"
+      }
     ],
     "useCases": [
-      { "emoji": "🪧", "label": "Poster Billboard" },
-      { "emoji": "🎪", "label": "Exhibition" },
-      { "emoji": "🚗", "label": "Vehicle Wraps" }
+      {
+        "emoji": "🪧",
+        "label": "Poster Billboard"
+      },
+      {
+        "emoji": "🎪",
+        "label": "Exhibition"
+      },
+      {
+        "emoji": "🚗",
+        "label": "Vehicle Wraps"
+      }
     ],
-    "applicableMaterials": ["PVC Banner", "PET Film", "Backlit Fabric", "Frontlit Fabric", "Mesh"],
+    "applicableMaterials": [
+      "PVC Banner",
+      "PET Film",
+      "Backlit Fabric",
+      "Frontlit Fabric",
+      "Mesh"
+    ],
     "salesInsights": [],
     "photos": [],
     "pdf": "/JHF/JHF R9000Pro/JHF R9000Pro Ultra-High Quality Industrial Printer.pdf"
   },
   "jhf-t3700": {
-    "overview": "The JHF T3700 is a grand format digital textile printer designed for high-quality fabric printing. It delivers vibrant, consistent colors with high-speed production, making it ideal for soft signage, apparel, and interior decor applications.",
-    "tags": ["Textile Printer", "3200mm", "Dye Sublimation", "Industrial", "Fabric"],
+    "overview": "The demand for automated, high-quality fabric printing is growing rapidly. Ideal for wide-format applications like soft signage and wall graphics in hotels, museums, offices, and malls, it delivers vibrant, personalized prints with precision and efficiency. Advanced technology ensures consistent color, fast production, and smooth operation, all while supporting eco-friendly, sustainable practices, making it perfect for businesses looking to stay competitive in the evolving signage and interior decoration market.",
+    "tags": [
+      "Textile Printer",
+      "3200mm",
+      "Dye Sublimation",
+      "Industrial",
+      "Fabric"
+    ],
     "components": [
-      { "number": 1, "name": "Printhead Carriage" },
-      { "number": 2, "name": "Linear Rail" },
-      { "number": 3, "name": "Gantry & Carriage" },
-      { "number": 4, "name": "Ink Supply & Vacuum Controls" },
-      { "number": 5, "name": "Operator Control Interface" },
-      { "number": 6, "name": "Output Section" },
-      { "number": 7, "name": "Feed Roller" },
-      { "number": 8, "name": "Media Core Holders" }
+      {
+        "number": 1,
+        "name": "Printhead Carriage"
+      },
+      {
+        "number": 2,
+        "name": "Linear Rail"
+      },
+      {
+        "number": 3,
+        "name": "Gantry & Carriage"
+      },
+      {
+        "number": 4,
+        "name": "Ink Supply & Vacuum Controls"
+      },
+      {
+        "number": 5,
+        "name": "Operator Control Interface"
+      },
+      {
+        "number": 6,
+        "name": "Output Section"
+      },
+      {
+        "number": 7,
+        "name": "Feed Roller"
+      },
+      {
+        "number": 8,
+        "name": "Media Core Holders"
+      }
     ],
     "keyFeatures": [
       {
@@ -454,40 +1116,118 @@
       }
     ],
     "specifications": [
-      { "param": "Model", "value": "T3700", "highlight": true },
-      { "param": "Printing Width", "value": "3200 mm" },
-      { "param": "Print Heads", "value": "4 / 6 / 8 heads" },
-      { "param": "Ink Type", "value": "Dye Sublimation / Direct Disperse" },
-      { "param": "Media Width", "value": "3250 mm" },
-      { "param": "Max Resolution", "value": "1200 dpi" },
-      { "param": "Speed (Standard)", "value": "162 m²/h" },
-      { "param": "Speed (Quality)", "value": "88 m²/h" },
-      { "param": "Speed (Fine)", "value": "55 m²/h" },
-      { "param": "Power", "value": "380V, 12KW + 25KW Dryer" },
-      { "param": "Machine Size", "value": "6200 × 1400 × 1800 mm" },
-      { "param": "Weight", "value": "2500 kg" }
+      {
+        "param": "Model",
+        "value": "T3700",
+        "highlight": true
+      },
+      {
+        "param": "Printing Width",
+        "value": "3200 mm"
+      },
+      {
+        "param": "Print Heads",
+        "value": "4 / 6 / 8 heads"
+      },
+      {
+        "param": "Ink Type",
+        "value": "Dye Sublimation / Direct Disperse"
+      },
+      {
+        "param": "Media Width",
+        "value": "3250 mm"
+      },
+      {
+        "param": "Max Resolution",
+        "value": "1200 dpi"
+      },
+      {
+        "param": "Speed (Standard)",
+        "value": "162 m²/h"
+      },
+      {
+        "param": "Speed (Quality)",
+        "value": "88 m²/h"
+      },
+      {
+        "param": "Speed (Fine)",
+        "value": "55 m²/h"
+      },
+      {
+        "param": "Power",
+        "value": "380V, 12KW + 25KW Dryer"
+      },
+      {
+        "param": "Machine Size",
+        "value": "6200 × 1400 × 1800 mm"
+      },
+      {
+        "param": "Weight",
+        "value": "2500 kg"
+      }
     ],
     "useCases": [
-      { "emoji": "🏳️", "label": "Banners & Flags" },
-      { "emoji": "💡", "label": "Lightboxes" },
-      { "emoji": "🎪", "label": "Trade Shows" }
+      {
+        "emoji": "🏳️",
+        "label": "Banners & Flags"
+      },
+      {
+        "emoji": "💡",
+        "label": "Lightboxes"
+      },
+      {
+        "emoji": "🎪",
+        "label": "Trade Shows"
+      }
     ],
-    "applicableMaterials": ["Polyester Fabric", "Transfer Paper", "Textiles", "Coated Materials"],
+    "applicableMaterials": [
+      "Polyester Fabric",
+      "Transfer Paper",
+      "Textiles",
+      "Coated Materials"
+    ],
     "salesInsights": [],
     "photos": [],
     "pdf": "/JHF/JHF T3700/JHF T3700 Grand Format Digital Textile Printer.pdf"
   },
   "jhf-v698": {
-    "overview": "The JHF V698 is a 5-meter wide-format industrial UV roll-to-roll printer designed for high-quality printing on a wide range of materials. It combines speed, precision, and eco-friendly UV curing technology for signage, decor, and industrial applications.",
-    "tags": ["UV Roll-to-Roll", "5000mm", "Industrial", "High Speed", "LED UV"],
+    "overview": "The JHF Vista V689 (5meter) Printer delivers precise, high-quality printing on a variety of materials, including wood, metal, glass, and plastics. Equipped with advanced technology, it produces vibrant, durable prints while minimizing waste and environmental impact. Ideal for signage, decor, and custom projects, it blends speed, quality, and sustainability in a single smart solution.",
+    "tags": [
+      "UV Roll-to-Roll",
+      "5000mm",
+      "Industrial",
+      "High Speed",
+      "LED UV"
+    ],
     "components": [
-      { "number": 1, "name": "Print Head" },
-      { "number": 2, "name": "Ink Supply Cabinets" },
-      { "number": 3, "name": "Vacuum Suction Bed & Unwind Rollers" },
-      { "number": 4, "name": "Media Feeding & Tension Rollers" },
-      { "number": 5, "name": "Control Display" },
-      { "number": 6, "name": "Emergency Stop Button" },
-      { "number": 7, "name": "Integrated Workstation" }
+      {
+        "number": 1,
+        "name": "Print Head"
+      },
+      {
+        "number": 2,
+        "name": "Ink Supply Cabinets"
+      },
+      {
+        "number": 3,
+        "name": "Vacuum Suction Bed & Unwind Rollers"
+      },
+      {
+        "number": 4,
+        "name": "Media Feeding & Tension Rollers"
+      },
+      {
+        "number": 5,
+        "name": "Control Display"
+      },
+      {
+        "number": 6,
+        "name": "Emergency Stop Button"
+      },
+      {
+        "number": 7,
+        "name": "Integrated Workstation"
+      }
     ],
     "keyFeatures": [
       {
@@ -512,38 +1252,112 @@
       }
     ],
     "specifications": [
-      { "param": "Model", "value": "V698", "highlight": true },
-      { "param": "Printing Width", "value": "5000 mm" },
-      { "param": "Printhead", "value": "Konica Minolta / Kyocera" },
-      { "param": "Ink Type", "value": "UV Ink" },
-      { "param": "Speed (Max)", "value": "230 m²/h" },
-      { "param": "Speed (Production)", "value": "180 m²/h" },
-      { "param": "Speed (Quality)", "value": "95 m²/h" },
-      { "param": "Power", "value": "380V, 12KW" },
-      { "param": "Machine Size", "value": "8760 × 1795 × 1495 mm" },
-      { "param": "Weight", "value": "4300 kg" }
+      {
+        "param": "Model",
+        "value": "V698",
+        "highlight": true
+      },
+      {
+        "param": "Printing Width",
+        "value": "5000 mm"
+      },
+      {
+        "param": "Printhead",
+        "value": "Konica Minolta / Kyocera"
+      },
+      {
+        "param": "Ink Type",
+        "value": "UV Ink"
+      },
+      {
+        "param": "Speed (Max)",
+        "value": "230 m²/h"
+      },
+      {
+        "param": "Speed (Production)",
+        "value": "180 m²/h"
+      },
+      {
+        "param": "Speed (Quality)",
+        "value": "95 m²/h"
+      },
+      {
+        "param": "Power",
+        "value": "380V, 12KW"
+      },
+      {
+        "param": "Machine Size",
+        "value": "8760 × 1795 × 1495 mm"
+      },
+      {
+        "param": "Weight",
+        "value": "4300 kg"
+      }
     ],
     "useCases": [
-      { "emoji": "🏠", "label": "Home Decor" },
-      { "emoji": "📢", "label": "Signage & Display" },
-      { "emoji": "📦", "label": "Packaging" },
-      { "emoji": "🏗️", "label": "Industrial Design" },
-      { "emoji": "🎪", "label": "Exhibition" }
+      {
+        "emoji": "🏠",
+        "label": "Home Decor"
+      },
+      {
+        "emoji": "📢",
+        "label": "Signage & Display"
+      },
+      {
+        "emoji": "📦",
+        "label": "Packaging"
+      },
+      {
+        "emoji": "🏗️",
+        "label": "Industrial Design"
+      },
+      {
+        "emoji": "🎪",
+        "label": "Exhibition"
+      }
     ],
-    "applicableMaterials": ["Wood", "Metal", "Glass", "Plastic", "PVC Banner", "PET Film"],
+    "applicableMaterials": [
+      "Wood",
+      "Metal",
+      "Glass",
+      "Plastic",
+      "PVC Banner",
+      "PET Film"
+    ],
     "salesInsights": [],
     "photos": [],
     "pdf": "/JHF/JHF Vista V698/JHF V698 Wide Format Industrial UV Roll-to-Roll Printer.pdf"
   },
   "jhf-venus-10r": {
-    "overview": "The JHF Venus 10R is an ultra-wide industrial printer with high-speed, precision printing and intelligent automation. It features a 5-meter multi-roll system with UV LED curing for efficient, eco-friendly production.",
-    "tags": ["Industrial Printer", "5000mm", "UV LED", "Kyocera", "High Speed"],
+    "overview": "The JHF Venus 10R sets a new benchmark in ultra-wide industrial printing with intelligent, high-speed, and precision performance. Equipped with a double-row, ten-color output system and a 5 m multi-roll design, it delivers photo-realistic prints with exceptional efficiency. Featuring fully automated, unmanned operation and energy-saving UV LED curing, the Venus 10R combines productivity, innovation, and eco-friendly technology in one powerful solution.",
+    "tags": [
+      "Industrial Printer",
+      "5000mm",
+      "UV LED",
+      "Kyocera",
+      "High Speed"
+    ],
     "components": [
-      { "number": 1, "name": "UV Curing Lamps" },
-      { "number": 2, "name": "Take-up System" },
-      { "number": 3, "name": "Ink Cabinet" },
-      { "number": 4, "name": "Status Light Tower" },
-      { "number": 5, "name": "Print Head Carriage" }
+      {
+        "number": 1,
+        "name": "UV Curing Lamps"
+      },
+      {
+        "number": 2,
+        "name": "Take-up System"
+      },
+      {
+        "number": 3,
+        "name": "Ink Cabinet"
+      },
+      {
+        "number": 4,
+        "name": "Status Light Tower"
+      },
+      {
+        "number": 5,
+        "name": "Print Head Carriage"
+      }
     ],
     "keyFeatures": [
       {
@@ -568,41 +1382,122 @@
       }
     ],
     "specifications": [
-      { "param": "Model", "value": "Venus 10R", "highlight": true },
-      { "param": "Printing Width", "value": "5000 mm" },
-      { "param": "Printhead", "value": "Kyocera" },
-      { "param": "Head Alignment", "value": "2 row, 20 heads" },
-      { "param": "Ink Type", "value": "UV Ink" },
-      { "param": "Speed (High)", "value": "230 m²/h" },
-      { "param": "Speed (Production)", "value": "180 m²/h" },
-      { "param": "Speed (Fine)", "value": "120 m²/h" },
-      { "param": "Speed (Ultra)", "value": "95 m²/h" },
-      { "param": "Power", "value": "380V, 25KW" },
-      { "param": "Machine Size", "value": "8520 × 1900 × 2200 mm" },
-      { "param": "Weight", "value": "8000 kg" }
+      {
+        "param": "Model",
+        "value": "Venus 10R",
+        "highlight": true
+      },
+      {
+        "param": "Printing Width",
+        "value": "5000 mm"
+      },
+      {
+        "param": "Printhead",
+        "value": "Kyocera"
+      },
+      {
+        "param": "Head Alignment",
+        "value": "2 row, 20 heads"
+      },
+      {
+        "param": "Ink Type",
+        "value": "UV Ink"
+      },
+      {
+        "param": "Speed (High)",
+        "value": "230 m²/h"
+      },
+      {
+        "param": "Speed (Production)",
+        "value": "180 m²/h"
+      },
+      {
+        "param": "Speed (Fine)",
+        "value": "120 m²/h"
+      },
+      {
+        "param": "Speed (Ultra)",
+        "value": "95 m²/h"
+      },
+      {
+        "param": "Power",
+        "value": "380V, 25KW"
+      },
+      {
+        "param": "Machine Size",
+        "value": "8520 × 1900 × 2200 mm"
+      },
+      {
+        "param": "Weight",
+        "value": "8000 kg"
+      }
     ],
     "useCases": [
-      { "emoji": "💡", "label": "Lightboxes" },
-      { "emoji": "🪟", "label": "Backlit Displays" },
-      { "emoji": "🚗", "label": "Decals" }
+      {
+        "emoji": "💡",
+        "label": "Lightboxes"
+      },
+      {
+        "emoji": "🪟",
+        "label": "Backlit Displays"
+      },
+      {
+        "emoji": "🚗",
+        "label": "Decals"
+      }
     ],
-    "applicableMaterials": ["PVC Banner", "PET Film", "Fabric", "Mesh"],
+    "applicableMaterials": [
+      "PVC Banner",
+      "PET Film",
+      "Fabric",
+      "Mesh"
+    ],
     "salesInsights": [],
     "photos": [],
     "pdf": "/JHF/JHF Venus 10R/JHF Venus 10r Ultra-Wide Industrial Printer.pdf"
   },
   "jhf-venus-33x": {
-    "overview": "The JHF Venus 33X is a hybrid UV printer designed for both roll and sheet printing. It offers intelligent automation, dual-roll capability, and high productivity with energy-efficient curing technology.",
-    "tags": ["Hybrid UV", "3200mm", "Roll & Flatbed", "Industrial", "High Precision"],
+    "overview": "The JHF Venus 33X is a 3.2 m ultra-high-end hybrid UV printer designed for both roll and sheet printing. With dual-roll and multi-sheet capability, it delivers exceptional productivity and precision. Featuring intelligent edge detection, automatic media handling, and an energy-efficient German Honle curing system, the Venus 33X combines high performance with eco-friendly operation, empowering businesses to achieve greater efficiency and sustainable growth.",
+    "tags": [
+      "Hybrid UV",
+      "3200mm",
+      "Roll & Flatbed",
+      "Industrial",
+      "High Precision"
+    ],
     "components": [
-      { "number": 1, "name": "Control Cabinet" },
-      { "number": 2, "name": "Linear Motor Guide Rail" },
-      { "number": 3, "name": "Carriage Assembly" },
-      { "number": 4, "name": "UV-LED Curing System" },
-      { "number": 5, "name": "Vacuum Bed" },
-      { "number": 6, "name": "Feeding System" },
-      { "number": 7, "name": "Ink System/Bulk Tanks" },
-      { "number": 8, "name": "PLC Control Panel" }
+      {
+        "number": 1,
+        "name": "Control Cabinet"
+      },
+      {
+        "number": 2,
+        "name": "Linear Motor Guide Rail"
+      },
+      {
+        "number": 3,
+        "name": "Carriage Assembly"
+      },
+      {
+        "number": 4,
+        "name": "UV-LED Curing System"
+      },
+      {
+        "number": 5,
+        "name": "Vacuum Bed"
+      },
+      {
+        "number": 6,
+        "name": "Feeding System"
+      },
+      {
+        "number": 7,
+        "name": "Ink System/Bulk Tanks"
+      },
+      {
+        "number": 8,
+        "name": "PLC Control Panel"
+      }
     ],
     "keyFeatures": [
       {
@@ -627,39 +1522,115 @@
       }
     ],
     "specifications": [
-      { "param": "Model", "value": "Venus 33X", "highlight": true },
-      { "param": "Printing Width", "value": "3200 mm" },
-      { "param": "Printhead", "value": "Kyocera" },
-      { "param": "Printing Thickness", "value": "≤ 50 mm" },
-      { "param": "Ink Type", "value": "UV Ink" },
-      { "param": "Speed (High)", "value": "350 m²/h" },
-      { "param": "Speed (Production)", "value": "265 m²/h" },
-      { "param": "Speed (Fine)", "value": "180 m²/h" },
-      { "param": "Speed (Ultra)", "value": "140 m²/h" },
-      { "param": "Power", "value": "380V, 32KW" },
-      { "param": "Machine Size", "value": "8185 × 2610 × 2160 mm" },
-      { "param": "Weight", "value": "9000 kg" }
+      {
+        "param": "Model",
+        "value": "Venus 33X",
+        "highlight": true
+      },
+      {
+        "param": "Printing Width",
+        "value": "3200 mm"
+      },
+      {
+        "param": "Printhead",
+        "value": "Kyocera"
+      },
+      {
+        "param": "Printing Thickness",
+        "value": "≤ 50 mm"
+      },
+      {
+        "param": "Ink Type",
+        "value": "UV Ink"
+      },
+      {
+        "param": "Speed (High)",
+        "value": "350 m²/h"
+      },
+      {
+        "param": "Speed (Production)",
+        "value": "265 m²/h"
+      },
+      {
+        "param": "Speed (Fine)",
+        "value": "180 m²/h"
+      },
+      {
+        "param": "Speed (Ultra)",
+        "value": "140 m²/h"
+      },
+      {
+        "param": "Power",
+        "value": "380V, 32KW"
+      },
+      {
+        "param": "Machine Size",
+        "value": "8185 × 2610 × 2160 mm"
+      },
+      {
+        "param": "Weight",
+        "value": "9000 kg"
+      }
     ],
     "useCases": [
-      { "emoji": "🛍️", "label": "Retail Displays" },
-      { "emoji": "🪟", "label": "Window Graphics" },
-      { "emoji": "👣", "label": "Floor Graphics" }
+      {
+        "emoji": "🛍️",
+        "label": "Retail Displays"
+      },
+      {
+        "emoji": "🪟",
+        "label": "Window Graphics"
+      },
+      {
+        "emoji": "👣",
+        "label": "Floor Graphics"
+      }
     ],
-    "applicableMaterials": ["PVC", "Acrylic", "Glass", "Corrugated Board", "Textiles"],
+    "applicableMaterials": [
+      "PVC",
+      "Acrylic",
+      "Glass",
+      "Corrugated Board",
+      "Textiles"
+    ],
     "salesInsights": [],
     "photos": [],
     "pdf": "/JHF/JHF Venus 33x/JHF Venus 33x Industrial Hybrid UV Printer.pdf"
   },
   "jhf-venus-33x-s": {
-    "overview": "The JHF Venus 33X-S is a high-speed industrial printer with fully automated loading, printing, and unloading. It is designed for rigid materials and high-volume production with intelligent automation and multi-sheet capability.",
-    "tags": ["Hybrid Printer", "Automation", "3200mm", "Industrial", "High Speed"],
+    "overview": "The JHF Venus 33X-S is a high-speed automatic printer with full-process automation loading, printing, and unloading boosting production efficiency. It prints 4 sheets simultaneously, handles rigid substrates like cardboard and PVC, and delivers vibrant colors with industrial-grade print heads and precise ink control. Its intelligent, easy-to-use system makes printing faster, more efficient, and eco-friendly.",
+    "tags": [
+      "Hybrid Printer",
+      "Automation",
+      "3200mm",
+      "Industrial",
+      "High Speed"
+    ],
     "components": [
-      { "number": 1, "name": "Signal Tower" },
-      { "number": 2, "name": "Cooling/Suction Vents" },
-      { "number": 3, "name": "Inkjet System" },
-      { "number": 4, "name": "Central Process Module" },
-      { "number": 5, "name": "Print Module Left" },
-      { "number": 6, "name": "Print Module Right" }
+      {
+        "number": 1,
+        "name": "Signal Tower"
+      },
+      {
+        "number": 2,
+        "name": "Cooling/Suction Vents"
+      },
+      {
+        "number": 3,
+        "name": "Inkjet System"
+      },
+      {
+        "number": 4,
+        "name": "Central Process Module"
+      },
+      {
+        "number": 5,
+        "name": "Print Module Left"
+      },
+      {
+        "number": 6,
+        "name": "Print Module Right"
+      }
     ],
     "keyFeatures": [
       {
@@ -684,38 +1655,111 @@
       }
     ],
     "specifications": [
-      { "param": "Model", "value": "Venus 33X-S", "highlight": true },
-      { "param": "Printing Width", "value": "3200 mm" },
-      { "param": "Printing Thickness", "value": "≤ 50 mm" },
-      { "param": "Ink Type", "value": "UV Ink" },
-      { "param": "Speed (High)", "value": "350 m²/h" },
-      { "param": "Speed (Production)", "value": "265 m²/h" },
-      { "param": "Speed (Fine)", "value": "180 m²/h" },
-      { "param": "Speed (Ultra)", "value": "140 m²/h" },
-      { "param": "Power", "value": "380V, 32KW" }
+      {
+        "param": "Model",
+        "value": "Venus 33X-S",
+        "highlight": true
+      },
+      {
+        "param": "Printing Width",
+        "value": "3200 mm"
+      },
+      {
+        "param": "Printing Thickness",
+        "value": "≤ 50 mm"
+      },
+      {
+        "param": "Ink Type",
+        "value": "UV Ink"
+      },
+      {
+        "param": "Speed (High)",
+        "value": "350 m²/h"
+      },
+      {
+        "param": "Speed (Production)",
+        "value": "265 m²/h"
+      },
+      {
+        "param": "Speed (Fine)",
+        "value": "180 m²/h"
+      },
+      {
+        "param": "Speed (Ultra)",
+        "value": "140 m²/h"
+      },
+      {
+        "param": "Power",
+        "value": "380V, 32KW"
+      }
     ],
     "useCases": [
-      { "emoji": "🖼️", "label": "Indoor Graphics" },
-      { "emoji": "🏢", "label": "Industrial Decoration" },
-      { "emoji": "🚧", "label": "Reflective Films" }
+      {
+        "emoji": "🖼️",
+        "label": "Indoor Graphics"
+      },
+      {
+        "emoji": "🏢",
+        "label": "Industrial Decoration"
+      },
+      {
+        "emoji": "🚧",
+        "label": "Reflective Films"
+      }
     ],
-    "applicableMaterials": ["Cardboard", "PVC", "Wood", "Acrylic", "Metal Sheets"],
+    "applicableMaterials": [
+      "Cardboard",
+      "PVC",
+      "Wood",
+      "Acrylic",
+      "Metal Sheets"
+    ],
     "salesInsights": [],
     "photos": [],
     "pdf": "/JHF/Venus 33x-s/JHF Venus 33x-s Automatic Loading And Unloading High-Speed Printer.pdf"
   },
   "jhf-v398": {
-    "overview": "The JHF V398 is a high-speed roll-to-roll UV printer designed for large-format printing with exceptional quality and efficiency. It supports a wide range of applications including billboards, textiles, and exhibition graphics.",
-    "tags": ["UV Roll-to-Roll", "3200mm", "Industrial", "High Speed", "LED UV"],
+    "overview": "The JHF V398 is a high-speed, 3.2 m wide-format roll-to-roll UV printer that sets a new benchmark for UV inkjet performance. It combines exceptional print quality for POP displays with the speed and reliability needed for large indoor and outdoor billboards. Designed for efficiency and versatility, the V398 supports a wide range of commercial applications from exhibition graphics and digital textiles to billboard signage. With energy-saving UV curing technology and reduced ink waste, it delivers outstanding results while maintaining eco-friendly operation.",
+    "tags": [
+      "UV Roll-to-Roll",
+      "3200mm",
+      "Industrial",
+      "High Speed",
+      "LED UV"
+    ],
     "components": [
-      { "number": 1, "name": "Print Head" },
-      { "number": 2, "name": "UV Curing System" },
-      { "number": 3, "name": "Bulk Ink Supply System" },
-      { "number": 4, "name": "Media Management Sensor" },
-      { "number": 5, "name": "Dual Roll Feed & Take-up" },
-      { "number": 6, "name": "Main Electrical Panel" },
-      { "number": 7, "name": "Linear Guide System" },
-      { "number": 8, "name": "Monitor" }
+      {
+        "number": 1,
+        "name": "Print Head"
+      },
+      {
+        "number": 2,
+        "name": "UV Curing System"
+      },
+      {
+        "number": 3,
+        "name": "Bulk Ink Supply System"
+      },
+      {
+        "number": 4,
+        "name": "Media Management Sensor"
+      },
+      {
+        "number": 5,
+        "name": "Dual Roll Feed & Take-up"
+      },
+      {
+        "number": 6,
+        "name": "Main Electrical Panel"
+      },
+      {
+        "number": 7,
+        "name": "Linear Guide System"
+      },
+      {
+        "number": 8,
+        "name": "Monitor"
+      }
     ],
     "keyFeatures": [
       {
@@ -740,23 +1784,68 @@
       }
     ],
     "specifications": [
-      { "param": "Model", "value": "V398", "highlight": true },
-      { "param": "Printing Width", "value": "3200 mm" },
-      { "param": "Printhead", "value": "KJ4A-RH (optional)" },
-      { "param": "Ink Type", "value": "UV Ink" },
-      { "param": "Speed (Max)", "value": "230 m²/h" },
-      { "param": "Speed (Production)", "value": "180 m²/h" },
-      { "param": "Speed (Quality)", "value": "95 m²/h" },
-      { "param": "Power", "value": "380V, 8KW" },
-      { "param": "Machine Size", "value": "6500 × 1570 × 1960 mm" },
-      { "param": "Weight", "value": "2450 kg" }
+      {
+        "param": "Model",
+        "value": "V398",
+        "highlight": true
+      },
+      {
+        "param": "Printing Width",
+        "value": "3200 mm"
+      },
+      {
+        "param": "Printhead",
+        "value": "KJ4A-RH (optional)"
+      },
+      {
+        "param": "Ink Type",
+        "value": "UV Ink"
+      },
+      {
+        "param": "Speed (Max)",
+        "value": "230 m²/h"
+      },
+      {
+        "param": "Speed (Production)",
+        "value": "180 m²/h"
+      },
+      {
+        "param": "Speed (Quality)",
+        "value": "95 m²/h"
+      },
+      {
+        "param": "Power",
+        "value": "380V, 8KW"
+      },
+      {
+        "param": "Machine Size",
+        "value": "6500 × 1570 × 1960 mm"
+      },
+      {
+        "param": "Weight",
+        "value": "2450 kg"
+      }
     ],
     "useCases": [
-      { "emoji": "🎪", "label": "Exhibition Graphics" },
-      { "emoji": "💡", "label": "Backlit Displays" },
-      { "emoji": "🚗", "label": "Car Decals" }
+      {
+        "emoji": "🎪",
+        "label": "Exhibition Graphics"
+      },
+      {
+        "emoji": "💡",
+        "label": "Backlit Displays"
+      },
+      {
+        "emoji": "🚗",
+        "label": "Car Decals"
+      }
     ],
-    "applicableMaterials": ["PVC Banner", "PET Film", "Canvas", "Vinyl"],
+    "applicableMaterials": [
+      "PVC Banner",
+      "PET Film",
+      "Canvas",
+      "Vinyl"
+    ],
     "salesInsights": [],
     "photos": [],
     "pdf": "/JHF/JHF Vista V398/JHF V398 Wide Format Industrial UV Roll-to-Roll Printer.pdf"
