@@ -601,7 +601,20 @@
       "Soft Membrane",
       "Panels"
     ],
-    "salesInsights": [],
+    "salesInsights": [
+      {
+        "q": "What does this machine do?",
+        "a": "The Dlican DL3200-RP is a hybrid UV flatbed and roll-to-roll printer designed for large-format industrial printing up to 3200 mm width. It prints directly onto rigid and flexible materials such as glass, panels, vinyl, and lightbox fabric using UV-curable inks that dry instantly under UV light."
+      },
+      {
+        "q": "How does it benefit the customer?",
+        "a": "Its hybrid capability eliminates the need for separate machines for rigid and roll media, reducing capital investment and floor space. Instant UV curing allows faster turnaround times, while the magnetic linear motor ensures consistent precision, making it suitable for high-volume production environments."
+      },
+      {
+        "q": "What are its unique qualities?",
+        "a": "The combination of flatbed and roll printing in a single system, along with high-speed UV curing and precision linear motor control, makes it highly versatile. It supports a wide material range while maintaining print consistency, positioning it as a flexible solution for diverse commercial printing needs."
+      }
+    ],
     "photos": [],
     "pdf": "/DLICAN/DL3200-RP Industrial Hybrid Printer/DL3200-RP Industrial Hybrid Printer.pdf"
   },
@@ -734,7 +747,20 @@
       "Metal",
       "Plastic"
     ],
-    "salesInsights": [],
+    "salesInsights": [
+      {
+        "q": "What does this machine do?",
+        "a": "The Dlican DLI-2513 is a compact UV flatbed printer designed for high-quality printing on rigid materials such as glass, wood, acrylic, metal, and plastic, with a working size of 2500 × 1300 mm."
+      },
+      {
+        "q": "How does it benefit the customer?",
+        "a": "Its compact footprint allows installation in smaller production spaces while still delivering industrial-grade output. The auto height detection and multi-printhead compatibility enable flexibility across various product types, reducing setup time and increasing operational efficiency."
+      },
+      {
+        "q": "What are its unique qualities?",
+        "a": "The ability to support multiple printhead configurations (Ricoh, Epson) combined with extended height printing options (up to 450 mm optional) makes it adaptable for both standard and specialty applications like thick materials and customized products."
+      }
+    ],
     "photos": [],
     "pdf": "/DLICAN/DLI-2513-UV FLATBED PRINTER/DLI-2513-UV FLATBED PRINTER.pdf"
   },
@@ -901,7 +927,20 @@
       "Banner",
       "Reflective Film"
     ],
-    "salesInsights": [],
+    "salesInsights": [
+      {
+        "q": "What does this machine do?",
+        "a": "The JHF M5300 is an ultra-wide hybrid UV printer capable of printing on both rigid and flexible materials up to 5 meters wide, delivering high-speed and high-precision output for industrial-scale applications."
+      },
+      {
+        "q": "How does it benefit the customer?",
+        "a": "With speeds up to 400 m²/h and multi-roll capability, it significantly increases production throughput for large-format jobs such as billboards and signage. UV LED curing reduces energy consumption and operational costs while maintaining durability and quality."
+      },
+      {
+        "q": "What are its unique qualities?",
+        "a": "Its maglev-driven linear motor system ensures vibration-free precision at high speeds, while the ultra-wide 5-meter capacity enables production of oversized graphics in a single pass, reducing seams and improving output quality."
+      }
+    ],
     "photos": [],
     "pdf": "/JHF/JHF M5300/JHF M5300 Industrial Hybrid KM Series .pdf"
   },
@@ -1046,7 +1085,20 @@
       "Frontlit Fabric",
       "Mesh"
     ],
-    "salesInsights": [],
+    "salesInsights": [
+      {
+        "q": "What does this machine do?",
+        "a": "The JHF R9000Pro is a high-speed industrial UV roll-to-roll printer with a 5-meter width and multi-roll capability, designed for producing large-format graphics such as banners, vehicle wraps, and exhibition displays."
+      },
+      {
+        "q": "How does it benefit the customer?",
+        "a": "Its dual-row printhead configuration and automation features allow continuous, high-volume production with minimal operator intervention. Multi-roll printing enables simultaneous output, significantly increasing productivity."
+      },
+      {
+        "q": "What are its unique qualities?",
+        "a": "The intelligent automation system supports near-unmanned operation, while the 10-color output system enhances color accuracy and print quality, making it suitable for premium, photo-realistic applications."
+      }
+    ],
     "photos": [],
     "pdf": "/JHF/JHF R9000Pro/JHF R9000Pro Ultra-High Quality Industrial Printer.pdf"
   },
@@ -1186,7 +1238,20 @@
       "Textiles",
       "Coated Materials"
     ],
-    "salesInsights": [],
+    "salesInsights": [
+      {
+        "q": "What does this machine do?",
+        "a": "The JHF T3700 is a wide-format textile printer designed for high-speed dye sublimation and direct disperse printing on fabrics, supporting applications like banners, flags, and soft signage."
+      },
+      {
+        "q": "How does it benefit the customer?",
+        "a": "It enables businesses to enter or scale textile printing with high efficiency, offering speeds up to 162 m²/h and integrated drying systems that streamline production workflows."
+      },
+      {
+        "q": "What are its unique qualities?",
+        "a": "Its dual ink compatibility (dye sublimation and disperse) combined with integrated air and IR drying systems allows flexible production setups and consistent color output across various textile applications."
+      }
+    ],
     "photos": [],
     "pdf": "/JHF/JHF T3700/JHF T3700 Grand Format Digital Textile Printer.pdf"
   },
@@ -1324,7 +1389,20 @@
       "PVC Banner",
       "PET Film"
     ],
-    "salesInsights": [],
+    "salesInsights": [
+      {
+        "q": "What does this machine do?",
+        "a": "The JHF V698 is a 5-meter UV roll-to-roll printer designed for high-quality printing on flexible materials such as PVC banners, PET films, and vinyl."
+      },
+      {
+        "q": "How does it benefit the customer?",
+        "a": "It offers a balance between speed and quality, enabling businesses to handle both indoor and outdoor applications efficiently. LED UV curing reduces heat impact, allowing printing on sensitive materials."
+      },
+      {
+        "q": "What are its unique qualities?",
+        "a": "Its support for white ink and multi-layer printing, combined with stable material handling systems, enables high-end applications like backlit displays and premium signage."
+      }
+    ],
     "photos": [],
     "pdf": "/JHF/JHF Vista V698/JHF V698 Wide Format Industrial UV Roll-to-Roll Printer.pdf"
   },
@@ -1452,7 +1530,20 @@
       "Fabric",
       "Mesh"
     ],
-    "salesInsights": [],
+    "salesInsights": [
+      {
+        "q": "What does this machine do?",
+        "a": "The JHF Venus 10R is a 5-meter ultra-wide UV printer designed for high-speed, high-precision printing on flexible media with multi-roll capability."
+      },
+      {
+        "q": "How does it benefit the customer?",
+        "a": "It maximizes productivity through simultaneous multi-roll printing and automated workflows, reducing labor costs and increasing output efficiency in large-scale production environments."
+      },
+      {
+        "q": "What are its unique qualities?",
+        "a": "Its double-row, 20-head configuration and intelligent automation system allow continuous, high-quality production with minimal supervision, making it ideal for industrial-scale operations."
+      }
+    ],
     "photos": [],
     "pdf": "/JHF/JHF Venus 10R/JHF Venus 10r Ultra-Wide Industrial Printer.pdf"
   },
@@ -1593,7 +1684,20 @@
       "Corrugated Board",
       "Textiles"
     ],
-    "salesInsights": [],
+    "salesInsights": [
+      {
+        "q": "What does this machine do?",
+        "a": "The JHF Venus 33X is a hybrid UV printer capable of printing on both rigid sheets and roll media with a 3.2-meter width."
+      },
+      {
+        "q": "How does it benefit the customer?",
+        "a": "Its dual-roll and multi-sheet capabilities increase production flexibility and efficiency, allowing businesses to handle diverse job types without switching machines."
+      },
+      {
+        "q": "What are its unique qualities?",
+        "a": "The automatic edge detection and intelligent media handling system optimize layout and reduce material waste, while multi-layer printing supports advanced applications like textured and white ink designs."
+      }
+    ],
     "photos": [],
     "pdf": "/JHF/JHF Venus 33x/JHF Venus 33x Industrial Hybrid UV Printer.pdf"
   },
@@ -1714,7 +1818,20 @@
       "Acrylic",
       "Metal Sheets"
     ],
-    "salesInsights": [],
+    "salesInsights": [
+      {
+        "q": "What does this machine do?",
+        "a": "The JHF Venus 33X-S is a fully automated hybrid UV printer designed for high-speed printing on rigid materials with automated loading, printing, and unloading processes."
+      },
+      {
+        "q": "How does it benefit the customer?",
+        "a": "Its full-process automation reduces manual labor and increases production efficiency, allowing continuous operation with minimal operator intervention."
+      },
+      {
+        "q": "What are its unique qualities?",
+        "a": "The ability to print up to four sheets simultaneously, combined with automated alignment and safety systems, makes it highly efficient for mass production environments."
+      }
+    ],
     "photos": [],
     "pdf": "/JHF/Venus 33x-s/JHF Venus 33x-s Automatic Loading And Unloading High-Speed Printer.pdf"
   },
@@ -1846,7 +1963,20 @@
       "Canvas",
       "Vinyl"
     ],
-    "salesInsights": [],
+    "salesInsights": [
+      {
+        "q": "What does this machine do?",
+        "a": "The JHF V398 is a 3.2-meter UV roll-to-roll printer designed for high-speed printing on flexible media such as banners, vinyl, and canvas."
+      },
+      {
+        "q": "How does it benefit the customer?",
+        "a": "It provides a strong balance of speed, quality, and cost-efficiency, making it suitable for both indoor and outdoor advertising applications."
+      },
+      {
+        "q": "What are its unique qualities?",
+        "a": "Its LED UV curing system enables printing on heat-sensitive materials while reducing energy consumption, and its white ink capability allows for premium multi-layer printing applications."
+      }
+    ],
     "photos": [],
     "pdf": "/JHF/JHF Vista V398/JHF V398 Wide Format Industrial UV Roll-to-Roll Printer.pdf"
   }
