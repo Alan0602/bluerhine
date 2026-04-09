@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { useEffect, useMemo, useState } from 'react'
 
 import { SpecTable } from '@/components/catalogue/SpecTable'
@@ -284,23 +285,25 @@ export function MachineCatalogueSection({
                         {/* Expanded Edge-to-Edge Content Below */}
                         <div className="overview-content-edge">
                           <div className="content-main">
-                            <div className="mb-6 font-manrope text-[14px] font-bold uppercase tracking-widest text-primary">Operational Brief</div>
+                            <div className="mb-3 font-manrope text-[14px] font-bold uppercase tracking-widest text-primary">Operational Brief</div>
                             <div className="m-desc text-xl leading-relaxed font-medium">{machine.overview}</div>
-                            <div className="tag-cloud mt-6">
+                            <div className="tag-cloud mt-4">
                               {machine.tags.map(tag => <span key={tag} className="bg-surface-container-high px-4 py-2 rounded-full text-xs font-bold text-primary tracking-wide">#{tag}</span>)}
                             </div>
+
+
                           </div>
 
                           {/* Technical Core Grid */}
                           <div className="technical-core">
-                            <div className="mb-6 font-manrope text-[14px] font-bold uppercase tracking-widest text-primary">Technical Core</div>
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+                            <div className="mb-3 font-manrope text-[14px] font-bold uppercase tracking-widest text-primary">Technical Core</div>
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-2">
                               {machine.keySpecs.slice(0, 4).map((spec, si) => (
                                 <div
                                   key={spec.label}
                                   className="p-8 bg-surface-container-low rounded-lg border border-transparent hover:border-secondary/20 transition-colors"
                                 >
-                                  <div className="font-manrope text-[10px] font-bold uppercase tracking-widest text-secondary mb-2">
+                                  <div className="font-manrope text-[10px] font-bold uppercase tracking-widest text-secondary mb-1">
                                     {spec.label}
                                   </div>
                                   <div className="font-manrope text-2xl font-extrabold tracking-tight text-primary">
@@ -313,7 +316,7 @@ export function MachineCatalogueSection({
 
                           {/* Production Use-Cases */}
                           {machine.useCases && machine.useCases.length > 0 && (
-                            <div className="use-cases-section mt-12">
+                            <div className="use-cases-section mt-6">
                               <div className="mb-6 font-manrope text-[14px] font-bold uppercase tracking-widest text-primary">Production Use-Cases</div>
                               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
                                 {machine.useCases.map((uc, uci) => (
@@ -323,6 +326,18 @@ export function MachineCatalogueSection({
                                   </div>
                                 ))}
                               </div>
+                              {machine.pdf && (
+                                <Link
+                                  href={`/machines/${machine.id}/pdf`}
+                                  className="bg-primary text-white px-8 py-3 rounded-full font-bold uppercase text-[10px] tracking-widest hover:bg-primary-container transition-all shadow-lg inline-flex items-center gap-2 mt-8 group/btn"
+                                >
+                                  <span>View More</span>
+                                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover/btn:translate-x-1 transition-transform">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                  </svg>
+                                </Link>
+                              )}
                             </div>
                           )}
                         </div>
