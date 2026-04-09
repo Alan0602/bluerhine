@@ -203,15 +203,15 @@
     "salesInsights": [
       {
         "q": "What does this machine do?",
-        "a": "The Accurate Laser E150 is a large-format CO2 laser cutting and engraving machine with a 1300×2500mm working bed. It uses a 150W CO2 glass tube laser to cut and engrave acrylic, wood, leather, plastics, and similar substrates. The built-in CCD camera system enables contour detection and precise placement correction, making it suitable for both straight-cut sheet work and complex shaped cutouts on pre-printed or irregular materials."
+        "a": "The Accurate Laser E150 is a 150W CO2 laser cutting and engraving machine with a 1300×2500mm working area and an integrated CCD camera system. It cuts and engraves acrylic, wood, leather, plastics, and non-metallic materials with high precision. The CCD camera reads printed contours and registration marks automatically, enabling print-and-cut workflows that are especially valuable for shaped signage panels, decorative acrylic lettering, and custom woodcraft. Operating at up to 60,000mm/min engraving speed with High-Speed DSP control, it is built for commercial businesses seeking reliable, fast, and precise laser processing at production volume."
       },
       {
         "q": "How does it benefit the customer?",
-        "a": "For signage and display businesses, the E150's large bed size means fewer material repositions and faster throughput on medium-to-large panels. The CCD camera alignment eliminates manual measuring for complex contour cuts, reducing operator time and error. LightBurn and RDWorks compatibility means most operators are immediately familiar with the workflow, minimising training time."
+        "a": "The E150 reduces production time significantly through its CCD camera alignment, which eliminates manual marking and re-positioning between printing and cutting. Signage and fabrication businesses benefit from faster job turnaround and the ability to accept complex contour-cut orders that standard CO2 lasers without camera guidance cannot process accurately. The High-Speed DSP control with stepper motor subdivision drive maintains engraving detail at full speed. Compatibility with CorelDraw, AutoCAD, AI files, and RD Works means zero additional software investment — the machine integrates directly into existing design and pre-production workflows from day one."
       },
       {
         "q": "What are its unique qualities?",
-        "a": "The CCD camera alignment system is the standout differentiator — it allows the machine to automatically detect printed outlines and cut precisely around them, which is critical for shaped acrylic letters, branded decorative panels, and custom gift items. Combined with the 150W power output and heavy-duty steel frame, it offers a reliable high-production platform well suited to commercial signage and fabrication workshops."
+        "a": "The first unique quality is the CCD camera contour-cutting integration at the 150W class. Most CO2 lasers at this power level lack camera guidance, requiring manual coordinate-based cutting that is slow and error-prone on irregular shapes. The E150 brings automated contour detection to a mid-power platform, enabling shaped acrylic displays, contour-cut panel letters, and layered engraving with consistent accuracy. The second unique quality is the dual-tube CO2 glass tube architecture — engineered to support a dual-tube optical path, giving operators the flexibility to run single-tube precision engraving or switch to dual-tube maximum cutting power for thick materials, extending the machine's application range without requiring a second machine."
       }
     ],
     "photos": [
@@ -442,15 +442,15 @@
     "salesInsights": [
       {
         "q": "What does this machine do?",
-        "a": "The Accurate Laser E300 is the high-power evolution of the E150, using a 300W CO2 dual tube laser to cut and engrave at industrial speed. It operates on the same 1300×2500mm bed with the same CCD camera contour system but is capable of cutting significantly thicker materials in fewer passes, and at higher throughput speeds. Its layer-based job scheduling and multi-step workflow support make it suited for complex production environments."
+        "a": "The Accurate Laser E300 is an advanced 300W CO2 laser cutting and engraving machine designed for industrial-scale production. With twice the laser power of the E150, it cuts and engraves acrylic, wood, leather, metal-coated surfaces, and engineered plastics faster and through greater thicknesses. The 1300×2500mm working area and CCD camera guidance system make it suitable for high-volume operations in signage manufacturing, industrial part cutting, and decorative fabrication where both speed and material versatility are critical. Wi-Fi, USB, and Ethernet connectivity with LightBurn and RDWorks compatibility ensures smooth integration into existing commercial workflows."
       },
       {
         "q": "How does it benefit the customer?",
-        "a": "Customers who have outgrown the E150's throughput find the E300 doubles effective cutting speed on thick acrylic and dense wood without compromising edge quality. Ethernet connectivity and multi-software compatibility (LightBurn, RDWorks) integrate easily into existing production setups. The modular design means maintenance can be performed without extended downtime, which is critical in high-volume environments."
+        "a": "The E300's 300W output directly translates to higher production throughput — thick acrylic and wood panels cut in a single pass rather than multiple slower passes, reducing per-job time and energy consumption. For customers handling large orders of shaped signage, display components, or industrial parts, the E300 makes it economically viable to take on thick-material jobs that lower-power machines cannot complete competitively. The multi-step workflow programming feature allows engraving, scoring, and cutting to run as sequential automated operations within a single job, eliminating manual re-positioning and reducing labour time on complex, multi-layer panel designs significantly."
       },
       {
         "q": "What are its unique qualities?",
-        "a": "The 300W dual-tube configuration is the primary differentiator — it enables cutting of metal-coated surfaces and very dense substrates that a standard 150W machine cannot handle cleanly. The advanced job scheduling with variable laser power per layer allows a single complex file to execute multiple material treatments (engrave + cut + score) in a fully automated sequence, reducing operator involvement and enabling repeatable batch production."
+        "a": "The first unique quality is the combination of 300W cutting power with CCD camera contour guidance at an accessible machine footprint. Most CCD-guided laser systems at 300W are large-format industrial platforms priced significantly higher. The E300 delivers commercial-grade cutting power with camera-guided precision in a standard large-format form factor, making high-power, high-accuracy laser cutting accessible to mid-volume operations. The second unique quality is its programmable multi-step workflow capability — the machine supports sequential job programming where engraving at variable depths, score cutting, and full cutting can be automated in a single operation cycle, eliminating manual intervention between steps and enabling complex layered panel production at production-line efficiency."
       }
     ],
     "photos": [
@@ -604,15 +604,15 @@
     "salesInsights": [
       {
         "q": "What does this machine do?",
-        "a": "The Dlican DL3200-RP is a hybrid UV flatbed and roll-to-roll printer designed for large-format industrial printing up to 3200 mm width. It prints directly onto rigid and flexible materials such as glass, panels, vinyl, and lightbox fabric using UV-curable inks that dry instantly under UV light."
+        "a": "The Dlican DL3200-RP is a hybrid UV printer designed to handle both flatbed rigid printing and roll-to-roll flexible media printing on a single industrial platform. With a print width of 3200mm, it is intended for customers producing signage, lightbox graphics, advertising stickers, soft membrane applications, and panel-based visual displays. It uses Konica Minolta 1024i industrial printheads together with UV-curable inks, allowing direct printing onto a wide range of substrates while curing the ink instantly during the print process. This gives the DL3200-RP the versatility to serve customers who need both rigid and roll media capability without operating two separate machines."
       },
       {
         "q": "How does it benefit the customer?",
-        "a": "Its hybrid capability eliminates the need for separate machines for rigid and roll media, reducing capital investment and floor space. Instant UV curing allows faster turnaround times, while the magnetic linear motor ensures consistent precision, making it suitable for high-volume production environments."
+        "a": "The machine's biggest benefit is operational flexibility. A single DL3200-RP can handle lightbox cloth, vinyl, soft membrane, and rigid panels on the same platform, reducing equipment investment and freeing floor space. The 3200mm width covers the majority of mainstream signage and advertising formats, while the Magnetic Linear Motor drive system allows stable, high-speed carriage movement with industrial-grade positional precision. Instant UV cure ensures production-ready results at high speeds, with the anti-static and automatic correction systems maintaining consistent output quality across long runs."
       },
       {
         "q": "What are its unique qualities?",
-        "a": "The combination of flatbed and roll printing in a single system, along with high-speed UV curing and precision linear motor control, makes it highly versatile. It supports a wide material range while maintaining print consistency, positioning it as a flexible solution for diverse commercial printing needs."
+        "a": "The first unique quality is the Magnetic Linear Motor drive system, which replaces conventional belt-driven or rack-and-pinion mechanisms with magnetic levitation technology. This eliminates physical friction from carriage movement entirely, resulting in near-silent operation, higher movement speeds, and industrial-grade positional precision — meaning no mechanical wear on drive components over time and sharper, more consistent print output even at high production speeds. The second unique quality is the scalable Konica Minolta 1024i printhead architecture: the ability to configure between 4 and 18 heads on the same machine chassis gives customers an entry-level capability that can be expanded as production requirements grow, without purchasing a new machine."
       }
     ],
     "photos": [],
@@ -750,15 +750,15 @@
     "salesInsights": [
       {
         "q": "What does this machine do?",
-        "a": "The Dlican DLI-2513 is a compact UV flatbed printer designed for high-quality printing on rigid materials such as glass, wood, acrylic, metal, and plastic, with a working size of 2500 × 1300 mm."
+        "a": "The Dlican DLI-2513 is a UV flatbed printer with a working area of 2500×1300mm, powered by Ricoh Gen6 industrial printheads. It uses UV-curable inks that dry instantly under LED-UV lamps, printing vibrant, high-definition graphics directly onto almost any flat, rigid material without any pre-treatment or transfer process. Compatible substrates include acrylic, glass, wood, ceramic tiles, metal sheets, PVC, MDF, and leather, making it suitable for virtually any industry that works with rigid surfaces — including advertising, signage, digital printing, packaging, and point-of-purchase display manufacturing."
       },
       {
         "q": "How does it benefit the customer?",
-        "a": "Its compact footprint allows installation in smaller production spaces while still delivering industrial-grade output. The auto height detection and multi-printhead compatibility enable flexibility across various product types, reducing setup time and increasing operational efficiency."
+        "a": "The most immediate benefit is massive material compatibility. Customers can expand their business offerings well beyond paper and vinyl to serve entirely new markets, printing directly onto architectural glass, customised furniture, ceramic tiles, and branded metal surfaces. Because UV ink cures the moment it leaves the printhead under the LED lamps, every print comes off the bed ready for immediate shipping or further fabrication, with zero drying time — dramatically speeding up job turnaround. The machine also supports white ink and varnish, which enables customers to produce high-value premium outputs: 3D embossed textures, spot-gloss finishes, and vivid prints on dark or transparent materials, all in a single print pass with no secondary process."
       },
       {
         "q": "What are its unique qualities?",
-        "a": "The ability to support multiple printhead configurations (Ricoh, Epson) combined with extended height printing options (up to 450 mm optional) makes it adaptable for both standard and specialty applications like thick materials and customized products."
+        "a": "The first standout quality is the Magnetic Levitation drive system. Unlike conventional flatbed printers that use belt-driven or rack-and-pinion mechanisms, the DLI-2513 replaces mechanical drive components with magnetic levitation technology, eliminating physical friction entirely from the carriage movement. The result is near-silent operation, higher movement speeds, and industrial-grade positional precision with no mechanical wear on drive components over time. The second unique quality is the integrated high-precision automatic height sensor combined with an anti-collision system. The sensor detects the exact surface level of any substrate and adjusts printhead clearance accordingly — eliminating manual height setting and removing the risk of printhead crashes when switching between substrates of different thicknesses."
       }
     ],
     "photos": [],
@@ -930,15 +930,15 @@
     "salesInsights": [
       {
         "q": "What does this machine do?",
-        "a": "The JHF M5300 is an ultra-wide hybrid UV printer capable of printing on both rigid and flexible materials up to 5 meters wide, delivering high-speed and high-precision output for industrial-scale applications."
+        "a": "The JHF M5300 is an ultra-wide industrial hybrid UV printer designed for high-capacity production, capable of printing at widths up to 5000 mm. It uses industrial-grade Konica Minolta or Kyocera printheads to produce high-resolution graphics on an exceptionally broad range of flexible materials, including flexible films, 3P cloth, fabric, wallpaper, leather, banners, and canvas. What makes the M5300 distinctive is its hybrid capability: it functions as both a roll-to-roll printer for flexible media and a flatbed printer for rigid substrates, combining two machine types into a single industrial platform. It is designed specifically for businesses that need to run large-scale continuous production across diverse material types without the operational complexity of managing two separate machines."
       },
       {
         "q": "How does it benefit the customer?",
-        "a": "With speeds up to 400 m²/h and multi-roll capability, it significantly increases production throughput for large-format jobs such as billboards and signage. UV LED curing reduces energy consumption and operational costs while maintaining durability and quality."
+        "a": "The most commercially significant benefit of the M5300 is its ability to print three separate 1.5-metre-wide rolls simultaneously. This means customers can run multiple different jobs at the same time — for example, three different client orders on three different media types — without any machine changeover between them. The reduction in production time is substantial, and for businesses fulfilling large-scale orders, this multi-roll capability alone can transform throughput economics. The production speed of the M5300 is considerably faster than standard wide-format printers, and the combination of the Magnetic Levitation linear motor and the electronic negative pressure ink system ensures that this speed does not come at the cost of print quality or machine stability."
       },
       {
         "q": "What are its unique qualities?",
-        "a": "Its maglev-driven linear motor system ensures vibration-free precision at high speeds, while the ultra-wide 5-meter capacity enables production of oversized graphics in a single pass, reducing seams and improving output quality."
+        "a": "The first unique quality is the Super Roll-to-Roll function — the ability to simultaneously print three independent rolls of 1.5-metre-wide materials in a single operation. This is not simply a wide machine that happens to fit three rolls side by side; it is a purpose-designed production system where each roll can carry a different media type and a different job, giving customers simultaneous multi-job production capability that is simply not available on standard wide-format printers. The second unique quality is the Linear Motor Maglev system for X-direction carriage driving, using magnetic levitation technology to eliminate friction and mechanical wear entirely. The result is high-speed carriage movement that maintains precision over a much longer operational lifespan than conventional drive systems, with lower mechanical maintenance requirements."
       }
     ],
     "photos": [],
@@ -1088,15 +1088,15 @@
     "salesInsights": [
       {
         "q": "What does this machine do?",
-        "a": "The JHF R9000Pro is a high-speed industrial UV roll-to-roll printer with a 5-meter width and multi-roll capability, designed for producing large-format graphics such as banners, vehicle wraps, and exhibition displays."
+        "a": "The JHF R9000Pro is an ultra-wide industrial UV roll printer built for high-volume billboard and outdoor advertising production. Operating at 5000mm print width, it uses a dual-row Kyocera printhead array in a 16-head configuration to deliver photo-realistic output at up to 230m²/h. The machine is engineered specifically for unmanned, fully automated production — able to run multi-roll print jobs across its 5-metre bed without dedicated operator oversight throughout the entire print run."
       },
       {
         "q": "How does it benefit the customer?",
-        "a": "Its dual-row printhead configuration and automation features allow continuous, high-volume production with minimal operator intervention. Multi-roll printing enables simultaneous output, significantly increasing productivity."
+        "a": "For customers working at billboard scale, the R9000Pro's 5-metre width is a decisive advantage, enabling seamless single-pass prints on giant outdoor graphics without joins or tiling. The fully automated, unattended operation capability significantly reduces labour costs for businesses running extended or overnight production shifts. The UV LED curing system produces output that is instantly weatherproof, sunproof, and scratch-resistant, ready for immediate installation with no post-processing delay. Multi-roll capability allows simultaneous production across the full 5-metre span, maximising throughput per hour."
       },
       {
         "q": "What are its unique qualities?",
-        "a": "The intelligent automation system supports near-unmanned operation, while the 10-color output system enhances color accuracy and print quality, making it suitable for premium, photo-realistic applications."
+        "a": "The first unique quality is the 0.5-micron high-precision metal encoder strip combined with a Magnetic Levitation system, ensuring ultra-high printing accuracy at full production speed. The encoder measures carriage position to 0.5 microns — far finer than standard encoders — while the Maglev system eliminates mechanical vibration and friction, resulting in photo-realistic output at industrial output rates. The second unique quality is the multi-roll automatic boundary detection function, which allows the machine to detect the edges of each roll automatically, enabling intelligent layout and rapid calibration across multiple simultaneous rolls without operator intervention. Combined with LED instant curing, prints exit fully weather-resistant and ready for immediate installation."
       }
     ],
     "photos": [],
@@ -1392,15 +1392,15 @@
     "salesInsights": [
       {
         "q": "What does this machine do?",
-        "a": "The JHF V698 is a 5-meter UV roll-to-roll printer designed for high-quality printing on flexible materials such as PVC banners, PET films, and vinyl."
+        "a": "The JHF V698 is a 5-metre industrial UV roll-to-roll printer designed for high-speed, large-format production on flexible media. It prints on materials such as PVC banner, PET film, vinyl, canvas, and similar substrates used in outdoor advertising, exhibition graphics, home decor, and large-scale display work. Using Konica Minolta or Kyocera printhead configurations together with UV-curable inks, the machine produces durable, vibrant prints that are instantly cured and ready for finishing or installation. Its 5-metre width allows it to handle billboard-scale applications in a single pass."
       },
       {
         "q": "How does it benefit the customer?",
-        "a": "It offers a balance between speed and quality, enabling businesses to handle both indoor and outdoor applications efficiently. LED UV curing reduces heat impact, allowing printing on sensitive materials."
+        "a": "The V698 gives customers the ability to produce extra-wide outdoor and indoor graphics without tiling or panel joining, which improves visual quality and reduces finishing time. With production speeds up to 230m²/h, it supports high-throughput commercial operations while maintaining industrial print quality. The LED UV curing system allows immediate handling of the print, cuts drying delays entirely, and supports output that is waterproof, scratch-resistant, and suitable for demanding display environments. For print businesses working on banners, wall graphics, backlit displays, or premium exhibition output, the V698 increases both capacity and product range."
       },
       {
         "q": "What are its unique qualities?",
-        "a": "Its support for white ink and multi-layer printing, combined with stable material handling systems, enables high-end applications like backlit displays and premium signage."
+        "a": "The first unique quality is its combination of 5-metre width with white ink and multilayer printing capability. This allows customers to move beyond standard billboard production into premium applications such as backlit displays, layered window graphics, and high-impact decorative surfaces. The second unique quality is the machine's LED curing and heat-sensitive substrate compatibility, which allows stable printing on materials that would be difficult to process on conventional UV systems. Combined with automatic height adjustment and anti-collision protection, the V698 is engineered for wide-format production with both scale and material versatility."
       }
     ],
     "photos": [],
@@ -1533,15 +1533,15 @@
     "salesInsights": [
       {
         "q": "What does this machine do?",
-        "a": "The JHF Venus 10R is a 5-meter ultra-wide UV printer designed for high-speed, high-precision printing on flexible media with multi-roll capability."
+        "a": "The JHF Venus 10R is an ultra-wide industrial UV roll printer capable of simultaneous printing on multiple rolls — up to three 1.6-metre rolls at the same time — making it one of the highest-throughput wide-format printers available. It uses 20 Kyocera industrial printheads arranged in a double-row configuration to support a ten-colour ink system including CMYK, LC, LM, LY, LK, OB, WG, and PR. Prints are instantly cured using an efficient Honle LED system, making the output waterproof, sunproof, and scratch-resistant for long-term outdoor use."
       },
       {
         "q": "How does it benefit the customer?",
-        "a": "It maximizes productivity through simultaneous multi-roll printing and automated workflows, reducing labor costs and increasing output efficiency in large-scale production environments."
+        "a": "The instantaneous curing capacity of the LED system allows for high-speed printing without any waiting time between printing and handling, significantly increasing overall production workflow throughput. Features such as the intelligent module, automatic boundary detection, and multi-roll material typesetting allow jobs to run as unmanned intelligent printing — the machine can operate without a dedicated operator throughout the entire print run, reducing labour costs for businesses running extended or overnight shifts. The 10-colour and 8-colour printing options give customers significant flexibility, and the extended colours — including orange-blue, white-grey, and photo red channels — allow customers to offer higher-end output that standard 4-colour CMYK printers simply cannot achieve, opening premium market segments in photography printing, fine art reproduction, and high-specification signage."
       },
       {
         "q": "What are its unique qualities?",
-        "a": "Its double-row, 20-head configuration and intelligent automation system allow continuous, high-quality production with minimal supervision, making it ideal for industrial-scale operations."
+        "a": "The first unique quality is the 0.5-micron high-precision metal encoder strip combined with a Magnetic Levitation system, ensuring ultra-high printing accuracy at high speeds. The encoder measures carriage position to 0.5 microns while the Maglev system eliminates mechanical vibration and friction — the core reason the Venus 10R achieves photo-realistic print quality at industrial output rates. The second unique quality is the multi-roll automatic boundary detection function, which detects the edges of each individual roll automatically, enabling intelligent layout and rapid calibration across multiple simultaneous rolls without operator intervention. This, combined with the Honle LED instant curing system, means prints exit the machine fully cured, weather-resistant, and ready for immediate installation."
       }
     ],
     "photos": [],
@@ -1687,15 +1687,15 @@
     "salesInsights": [
       {
         "q": "What does this machine do?",
-        "a": "The JHF Venus 33X is a hybrid UV printer capable of printing on both rigid sheets and roll media with a 3.2-meter width."
+        "a": "The JHF Venus 33X is a hybrid UV printer capable of printing on both rigid sheets and flexible rolls from a single machine. It features a 3.2-metre printing width and can simultaneously handle two 1.6-metre rolls, giving it significant multi-job production capability. The machine uses high-efficiency UV ink solidification powered by a German-imported Honle UV mercury lamp system, which cures ink instantly on contact with the substrate. It is designed for customers who need the versatility of both roll and flatbed output without investing in two separate machines."
       },
       {
         "q": "How does it benefit the customer?",
-        "a": "Its dual-roll and multi-sheet capabilities increase production flexibility and efficiency, allowing businesses to handle diverse job types without switching machines."
+        "a": "The primary benefit of the Venus 33X is production flexibility. A customer can print rigid boards for signage, display panels, or packaging prototypes, then switch to flexible roll media such as vinyl or film without changing machine platforms. The ability to print two rolls simultaneously reduces idle time and increases throughput on standard signage jobs. Because the UV ink cures immediately, jobs move straight into finishing or installation, cutting turnaround times. The hybrid format also makes the machine especially valuable for print businesses that serve mixed markets and cannot justify dedicating one machine purely to rigid work and another purely to roll production."
       },
       {
         "q": "What are its unique qualities?",
-        "a": "The automatic edge detection and intelligent media handling system optimize layout and reduce material waste, while multi-layer printing supports advanced applications like textured and white ink designs."
+        "a": "The first unique quality is its true hybrid architecture with simultaneous dual-roll capability. Many hybrid printers can switch between rigid and roll media, but few are configured to manage two 1.6-metre rolls simultaneously while still maintaining rigid board capability on the same chassis. The second unique quality is the German Honle curing system combined with automated positioning and edge detection, which gives the machine very stable curing performance and highly efficient media handling. This combination allows industrial-grade output consistency across both rigid and flexible applications, which is essential for production environments handling mixed material jobs daily."
       }
     ],
     "photos": [],
@@ -1821,15 +1821,15 @@
     "salesInsights": [
       {
         "q": "What does this machine do?",
-        "a": "The JHF Venus 33X-S is a fully automated hybrid UV printer designed for high-speed printing on rigid materials with automated loading, printing, and unloading processes."
+        "a": "The JHF Venus 33X-S is a high-speed industrial printer designed for fully automated loading, printing, and unloading of rigid sheets. It is engineered for mass-production environments where large quantities of flat materials such as cardboard, PVC, acrylic, wood, and metal sheets need to be printed continuously with minimal human intervention. The machine supports simultaneous multi-sheet production — printing up to four sheets at once — and uses industrial print technology to deliver fast, high-colour, large-format output suitable for signage, indoor graphics, industrial decoration, and reflective film applications."
       },
       {
         "q": "How does it benefit the customer?",
-        "a": "Its full-process automation reduces manual labor and increases production efficiency, allowing continuous operation with minimal operator intervention."
+        "a": "Its greatest commercial benefit is labour reduction through full-process automation. Traditional flatbed production often requires manual loading and unloading, which slows down throughput and introduces alignment inconsistency. The Venus 33X-S automates the entire cycle, which dramatically increases productivity and allows customers to scale output without scaling manpower proportionally. Printing four sheets simultaneously also shortens production time per batch, making it especially valuable for customers producing large numbers of standardised display boards, signage panels, or industrial printed sheets. The consistent automated positioning also improves repeatability and reduces operator error."
       },
       {
         "q": "What are its unique qualities?",
-        "a": "The ability to print up to four sheets simultaneously, combined with automated alignment and safety systems, makes it highly efficient for mass production environments."
+        "a": "The first unique quality is the fully integrated automatic loading, printing, and unloading workflow. This is not simply a printer with feeder assistance; it is a complete automated production system designed to reduce manual handling almost entirely. The second unique quality is its simultaneous four-sheet printing capability, which makes it fundamentally different from conventional flatbed systems that process one board at a time. This multi-sheet architecture transforms the machine from a print device into a production-line platform, especially for repeatable rigid-panel applications where speed, consistency, and reduced labour dependency are the primary buying drivers."
       }
     ],
     "photos": [],
@@ -1966,15 +1966,15 @@
     "salesInsights": [
       {
         "q": "What does this machine do?",
-        "a": "The JHF V398 is a 3.2-meter UV roll-to-roll printer designed for high-speed printing on flexible media such as banners, vinyl, and canvas."
+        "a": "The JHF V398 is a 3.2-metre-wide industrial UV roll-to-roll printer designed for high-speed commercial print production on flexible media. It is built primarily for applications such as PVC banners, PET film, canvas, vinyl, exhibition graphics, backlit displays, and car decals. The machine uses LED UV curing technology, which enables instant ink curing during printing, allowing finished output to emerge dry, durable, and ready for immediate use. With speeds up to 230m²/h, it is positioned as a production machine for businesses handling continuous large-format output rather than short-run specialty printing."
       },
       {
         "q": "How does it benefit the customer?",
-        "a": "It provides a strong balance of speed, quality, and cost-efficiency, making it suitable for both indoor and outdoor advertising applications."
+        "a": "The V398 benefits customers by combining speed, output durability, and media flexibility in a compact wide-format platform. The LED curing system means the machine can print on heat-sensitive media that would distort or damage under conventional high-temperature curing, expanding the range of materials customers can profitably offer. Output is immediately dry, waterproof, scratch-resistant, and suitable for both indoor and outdoor installation, which shortens turnaround time and removes the need for drying racks or delayed finishing. For businesses focused on exhibitions, outdoor advertising, or high-volume signage, the V398 provides industrial throughput without requiring the floor space or power load of a 5-metre machine."
       },
       {
         "q": "What are its unique qualities?",
-        "a": "Its LED UV curing system enables printing on heat-sensitive materials while reducing energy consumption, and its white ink capability allows for premium multi-layer printing applications."
+        "a": "The first unique quality is the LED-UV curing architecture combined with optional industrial-grade KJ4A-RH printheads, which gives the machine a rare balance between high-speed production and material sensitivity. The second unique quality is its support for white ink and multilayer output on a roll-to-roll platform. This enables premium applications such as backlit displays, blockout graphics, and layered prints on transparent or coloured films — capabilities usually associated with more expensive speciality printers. Combined with automatic height adjustment and anti-collision protection, the V398 delivers high-end functionality in a more accessible production format."
       }
     ],
     "photos": [],
