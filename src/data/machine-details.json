@@ -84,7 +84,8 @@
       { "label": "Laser Head", "caption": "CO2 laser head with CCD camera system and red dot pointer" },
       { "label": "Controller Panel", "caption": "DSP controller panel with Wi-Fi and USB connectivity" },
       { "label": "Worktable", "caption": "Aluminum knife worktable with blade support system" }
-    ]
+    ],
+    "pdf": "/Accurate Laser/Accurate Laser E150/Accurate Laser E150.pdf"
   },
   "accurate-laser-e300": {
     "overview": "The Accurate Laser E300 is an advanced CO2 laser system designed for industrial-scale engraving and cutting. With higher power output than the E150, it delivers faster production, larger-format capability, and precise performance on a wide range of materials, including acrylic, wood, leather, plastics, and metal-coated surfaces. Its robust frame, precision motion, and automated features make it ideal for high-volume manufacturing, signage, and decorative applications.",
@@ -175,7 +176,8 @@
       { "label": "Laser Head & CCD", "caption": "300W laser head with CCD camera contour detection system" },
       { "label": "Controller Panel", "caption": "Touchscreen DSP controller with Wi-Fi, USB, and Ethernet ports" },
       { "label": "Worktable Detail", "caption": "Aluminum knife worktable blade support for clean edge cutting" }
-    ]
+    ],
+    "pdf": "/Accurate Laser/Accurate Laser E300/Accurate Laser E300.pdf"
   },
   "dlican-dl3200-rp": {
     "overview": "The DL3200-RP is an industrial hybrid UV printer capable of printing on both rigid and flexible materials. It delivers high-quality, durable prints with advanced UV curing technology.",
@@ -231,7 +233,8 @@
     ],
     "applicableMaterials": ["Lightbox Cloth", "Vinyl", "Soft Membrane", "Panels"],
     "salesInsights": [],
-    "photos": []
+    "photos": [],
+    "pdf": "/DLICAN/DL3200-RP Industrial Hybrid Printer/DL3200-RP Industrial Hybrid Printer.pdf"
   },
   "dlican-dli-2513": {
     "overview": "The Dlican DLI-2513 is a compact UV flatbed printer designed for high-quality printing on rigid materials like glass, wood, acrylic, and metal with eco-friendly UV technology.",
@@ -287,7 +290,8 @@
     ],
     "applicableMaterials": ["Glass", "Wood", "Acrylic", "Metal", "Plastic"],
     "salesInsights": [],
-    "photos": []
+    "photos": [],
+    "pdf": "/DLICAN/DLI-2513-UV FLATBED PRINTER/DLI-2513-UV FLATBED PRINTER.pdf"
   },
   "jhf-m5300": {
     "overview": "The JHF M5300 Hybrid UV Printer combines ultra-wide performance with sustainable innovation. It prints on both rigid and flexible materials up to 5 meters wide, delivering vibrant, high-precision results for signage, decor, and industrial applications with eco-friendly UV LED curing.",
@@ -351,7 +355,8 @@
     ],
     "applicableMaterials": ["Glass", "Ceramic", "Fabric", "Leather", "Canvas", "Banner", "Reflective Film"],
     "salesInsights": [],
-    "photos": []
+    "photos": [],
+    "pdf": "/JHF/JHF M5300/JHF M5300 Industrial Hybrid KM Series .pdf"
   },
   "jhf-r9000pro": {
     "overview": "The JHF R9000Pro is an ultra-wide industrial printer delivering unmatched speed, precision, and automation. It features a dual-row, ten-color system and supports 5-meter multi-roll printing with photo-realistic output and fully automated operation.",
@@ -410,7 +415,8 @@
     ],
     "applicableMaterials": ["PVC Banner", "PET Film", "Backlit Fabric", "Frontlit Fabric", "Mesh"],
     "salesInsights": [],
-    "photos": []
+    "photos": [],
+    "pdf": "/JHF/JHF R9000Pro/JHF R9000Pro Ultra-High Quality Industrial Printer.pdf"
   },
   "jhf-t3700": {
     "overview": "The JHF T3700 is a grand format digital textile printer designed for high-quality fabric printing. It delivers vibrant, consistent colors with high-speed production, making it ideal for soft signage, apparel, and interior decor applications.",
@@ -468,7 +474,8 @@
     ],
     "applicableMaterials": ["Polyester Fabric", "Transfer Paper", "Textiles", "Coated Materials"],
     "salesInsights": [],
-    "photos": []
+    "photos": [],
+    "pdf": "/JHF/JHF T3700/JHF T3700 Grand Format Digital Textile Printer.pdf"
   },
   "jhf-v698": {
     "overview": "The JHF V698 is a 5-meter wide-format industrial UV roll-to-roll printer designed for high-quality printing on a wide range of materials. It combines speed, precision, and eco-friendly UV curing technology for signage, decor, and industrial applications.",
@@ -525,7 +532,8 @@
     ],
     "applicableMaterials": ["Wood", "Metal", "Glass", "Plastic", "PVC Banner", "PET Film"],
     "salesInsights": [],
-    "photos": []
+    "photos": [],
+    "pdf": "/JHF/JHF Vista V698/JHF V698 Wide Format Industrial UV Roll-to-Roll Printer.pdf"
   },
   "jhf-venus-10r": {
     "overview": "The JHF Venus 10R is an ultra-wide industrial printer with high-speed, precision printing and intelligent automation. It features a 5-meter multi-roll system with UV LED curing for efficient, eco-friendly production.",
@@ -580,7 +588,8 @@
     ],
     "applicableMaterials": ["PVC Banner", "PET Film", "Fabric", "Mesh"],
     "salesInsights": [],
-    "photos": []
+    "photos": [],
+    "pdf": "/JHF/JHF Venus 10R/JHF Venus 10r Ultra-Wide Industrial Printer.pdf"
   },
   "jhf-venus-33x": {
     "overview": "The JHF Venus 33X is a hybrid UV printer designed for both roll and sheet printing. It offers intelligent automation, dual-roll capability, and high productivity with energy-efficient curing technology.",
@@ -638,7 +647,8 @@
     ],
     "applicableMaterials": ["PVC", "Acrylic", "Glass", "Corrugated Board", "Textiles"],
     "salesInsights": [],
-    "photos": []
+    "photos": [],
+    "pdf": "/JHF/JHF Venus 33x/JHF Venus 33x Industrial Hybrid UV Printer.pdf"
   },
   "jhf-venus-33x-s": {
     "overview": "The JHF Venus 33X-S is a high-speed industrial printer with fully automated loading, printing, and unloading. It is designed for rigid materials and high-volume production with intelligent automation and multi-sheet capability.",
@@ -691,7 +701,8 @@
     ],
     "applicableMaterials": ["Cardboard", "PVC", "Wood", "Acrylic", "Metal Sheets"],
     "salesInsights": [],
-    "photos": []
+    "photos": [],
+    "pdf": "/JHF/Venus 33x-s/JHF Venus 33x-s Automatic Loading And Unloading High-Speed Printer.pdf"
   },
   "jhf-v398": {
     "overview": "The JHF V398 is a high-speed roll-to-roll UV printer designed for large-format printing with exceptional quality and efficiency. It supports a wide range of applications including billboards, textiles, and exhibition graphics.",
@@ -747,6 +758,7 @@
     ],
     "applicableMaterials": ["PVC Banner", "PET Film", "Canvas", "Vinyl"],
     "salesInsights": [],
-    "photos": []
+    "photos": [],
+    "pdf": "/JHF/JHF Vista V398/JHF V398 Wide Format Industrial UV Roll-to-Roll Printer.pdf"
   }
 }
